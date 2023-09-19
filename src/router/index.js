@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue"; // 引入 Home页面组件
+import Login from "../views/Login.vue"; // 引入 Home页面组件
 
 // 注册路由插件
 Vue.use(VueRouter);
@@ -9,13 +9,13 @@ Vue.use(VueRouter);
 const routes = [
 	{
 		path: "/",
-		name: "Home",
-		component: Home,
+		name: "Login",
+		component: Login,
 	},
 	{
-		path: "/about",
+		path: "/yncjcxxjb",
 		name: "About",
-		component: () => import("../views/About.vue"),
+		component: () => import("../views/Yncjcxxjb.vue"),
 	},
 ];
 

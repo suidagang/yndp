@@ -1,10 +1,9 @@
 import { createVuePlugin } from "vite-plugin-vue2";
-import stylelitPlugin from "vite-plugin-stylelint";
 // 配置@别名
 import { resolve } from "path";
 
 export default {
-	plugins: [createVuePlugin(), stylelitPlugin()],
+	plugins: [createVuePlugin()],
 	// ↓解析配置
 	resolve: {
 		// ↓import引入忽略文件的后缀名

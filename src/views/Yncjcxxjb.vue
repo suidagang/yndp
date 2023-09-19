@@ -1,10 +1,16 @@
 <template>
-	<div id="container">About</div>
+	<div id="container">
+		<comHeader />
+	</div>
 </template>
 
 <script>
+import comHeader from '../components/comHeader/index.vue'
 export default {
-	name: "G6Demo",
+	name: "Yncjcxxjb",
+	components:{
+		comHeader
+	},
 	mounted() {},
 	methods: {},
 };
