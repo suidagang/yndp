@@ -9,6 +9,7 @@
       <div>自营牛场管理</div>
       <div>合作农户管理</div>
     </div>
+    <button @click="goout">退出</button>
     <div class="bottom-line"></div>
   </div>
 </template>
@@ -22,6 +23,11 @@ export default {
   },
   components: {
 
+  },
+  methods:{
+    goout(){
+      this.$router.push("/")
+    }
   }
 }
 </script>
@@ -77,7 +83,7 @@ export default {
           color: #FFFFFF;
           text-shadow: 0px 7px 3px #02274C;
           background: linear-gradient(0deg, rgba(0,169,255,0.83) 0%, rgba(232,254,255,0.83) 100%);
-          -webkit-background-clip: text;
+          background-clip: text;
           -webkit-text-fill-color: transparent;
         }
       }
@@ -87,5 +93,10 @@ export default {
         background: url("../../assets/img/tab_active.png") center no-repeat;
       }
     } 
+  }
+  button{
+    position: absolute;
+    right: 0;
+    top: 10px;
   }
 </style>

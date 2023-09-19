@@ -101,45 +101,6 @@ input::placeholder {
 	font-weight: 400;
 	color: #A2D1FF;
 	vertical-align: top;
-	input[type="checkbox"]{
-		width:15px;
-		height:15px;
-		display: inline-block;
-		text-align: center;
-		vertical-align:baseline; 
-		line-height: 15px;
-		position: relative;
-		outline: none;
-		border: 1px solid #A2D1FF;
-		color: #ff0;
-		background: rgba(0, 0, 0, 0);
-	}
-	// input[type="checkbox"]::before{
-	// 	content: "";
-	// 	position: absolute;
-	// 	top: 0;
-	// 	left: 0;
-	// 	background: rgba(0, 0, 0, 0);
-	// 	width: 100%;
-	// 	height: 100%;
-	// 	border: 1px solid #A2D1FF;
-	// 	color: #fff;
-	// }
-	input[type="checkbox"]:checked::before{
-		content: "\2713";
-		background-color: #657AFE;
-		border: 1px solid #657AFE;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width:100%;
-		color:#fff;
-		font-size: 0.52rem;
-	}
-	input[type="checkbox"]:disabled::before{
-			background: #eee;
-			cursor: default;
-	}
 	&>span{
 		margin-left: 8px;
 		vertical-align: middle;
