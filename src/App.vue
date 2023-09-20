@@ -8,6 +8,14 @@
 	font-family: 'YouSheBiaoTiHei';  //指定你的字体
 	src: url('./assets/fonts/YouSheBiaoTiHei-2.ttf')  format("truetype");
 }
+@font-face {
+	font-family: 'PangMenZhengDao';  //指定你的字体
+	src: url('./assets/fonts/庞门正道标题体.ttf')  format("truetype");
+}
+@font-face {
+	font-family: 'Source Han Sans SC';  //指定你的字体
+	src: url('./assets/fonts/SourceHanSans-Regular.ttc')  format("truetype");
+}
 html,
 body {
 	width: 100%;

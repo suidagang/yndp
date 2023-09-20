@@ -7,6 +7,7 @@
 		<rightOne class="right-one" />
 		<rightTwo class="right-two" />
 		<rightThree class="right-three" />
+		<center class="center" />
 	</div>
 </template>
 
@@ -18,6 +19,7 @@ import leftThree from './components/leftThree.vue'
 import rightOne from './components/rightOne.vue'
 import rightTwo from './components/rightTwo.vue'
 import rightThree from './components/rightThree.vue'
+import center from './components/center.vue'
 export default {
 	name: "Yncjcxxjb",
 	components:{
@@ -27,7 +29,8 @@ export default {
 		leftThree,
 		rightOne,
 		rightTwo,
-		rightThree
+		rightThree,
+		center
 	},
 	data(){
 		return{
@@ -74,5 +77,12 @@ export default {
 	position: absolute;
 	right: 40px;
 	top:773px;
+}
+.center{
+	position: absolute;
+	width: 860px;
+	height: 100%;
+	left: 515px;
+	top: 57px;
 }
 </style>
