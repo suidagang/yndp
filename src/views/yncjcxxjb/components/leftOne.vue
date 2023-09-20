@@ -94,12 +94,8 @@ export default {
     font-size: 26px;
     font-family: PangMenZhengDao;
     font-weight: 400;
-    color: #FFFFFF;
-    line-height: 28px;
-    text-shadow: 0px 3px 24px rgba(0,30,45,0.53);
-    -webkit-text-stroke: 1px #FFFFFF;
-
-    background: linear-gradient(0deg, rgba(62,242,255,0.36) 0%, rgba(222,222,222,0.36) 100%);
+    color: #00FFE4;
+    background: linear-gradient(0deg, #45CDFF 0%, #E5F9FF 100%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
