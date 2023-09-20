@@ -2,7 +2,7 @@
   <div class="container">
     <comTitle  tabTitle="环境检查" @changeTab = "changeTab" />
     <div class="content">
-      <div class="content-list">
+      <div class="content-list" :class="{warn:eyhtWarn}">
         <div class="top-text">二氧化碳/ppm</div>
         <div  class="bottom-text">1000</div>
       </div>
@@ -31,7 +31,7 @@ import comTitle from '@/components/comBoxHead/index.vue'
 export default {
   data() {
     return {
-    
+      eyhtWarn:true
     }
   },
   components: {
@@ -69,6 +69,15 @@ export default {
       color: #A2D1FF;
       text-align: center;
       padding-top: 9px;
+      &.warn{
+        background: url("../../../assets/img/hjjc_active.png") center no-repeat;
+        color: #FFC7A2;
+        .bottom-text{
+          background: linear-gradient(0deg, #FF9445 0%, #FFF1E5 100%);
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
       .top-text{
         margin-bottom: 12px;
       }
@@ -77,7 +86,6 @@ export default {
         font-family: PangMenZhengDao;
         font-weight: 400;
         color: #00FFE4;
-
         background: linear-gradient(0deg, #45CDFF 0%, #E5F9FF 100%);
         background-clip: text;
         -webkit-text-fill-color: transparent;
