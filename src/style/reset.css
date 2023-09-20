@@ -90,6 +90,6 @@ video {
 
 /* 隐藏鼠标点击这些元素时出现的光标 */
 div, span, p {
-	caret-color: transparent;
+	/* caret-color: transparent; */
 	user-select:none; /* CSS3属性 */
 }
