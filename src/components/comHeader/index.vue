@@ -2,15 +2,15 @@
   <div class="comheader">
     <div class="comheader-title">智慧养牛数字供应链平台</div>
     <div class="comheader-tab">
-      <div class="comheader-tab-one" :class="{'tab-active':chioceTab===1}" @click="chioceTab = 1">
+      <div class="comheader-tab-one" :class="{'tab-active':chioceTab===1}" @click="changeTab(1)">
         <div class="text">养牛场基础信息简报</div>
         <div class="active"></div>
       </div>
-      <div class="comheader-tab-two" :class="{'tab-active':chioceTab===2}" @click="chioceTab = 2">
+      <div class="comheader-tab-two" :class="{'tab-active':chioceTab===2}" @click="changeTab(2)">
         <div class="text">自营牛场管理</div>
         <div class="active"></div>
       </div>
-      <div class="comheader-tab-three" :class="{'tab-active':chioceTab===3}" @click="chioceTab = 3">
+      <div class="comheader-tab-three" :class="{'tab-active':chioceTab===3}" @click="changeTab(3)">
         <div class="text">合作农户管理</div>
         <div class="active"></div>
       </div>
@@ -49,6 +49,18 @@ export default {
   methods:{
     goout(){
       this.$router.push("/")
+    },
+    changeTab(num){
+      this.chioceTab = num;
+      let url = '';
+      if(num === 1){
+        url="/yncjcxxjb"
+      }else if(num === 2){
+        url="/zyncgl"
+      }else{
+        url="/zyncgl"
+      }
+      this.$router.push(url)
     }
   }
 }

@@ -17,6 +17,11 @@ const routes = [
 		name: "About",
 		component: () => import("../views/yncjcxxjb/Yncjcxxjb.vue"),
 	},
+	{
+		path: "/zyncgl",
+		name: "Zyncgl",
+		component: () => import("../views/Zyncgl.vue"),
+	},
 ];
 
 const router = new VueRouter({
