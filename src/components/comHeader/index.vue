@@ -58,7 +58,6 @@ export default {
   .comheader{
     position: relative;
     height: 80px;
-    border-bottom: 1px solid red;
     height:100%;
     overflow: hidden;
     background: url("../../assets/img/com_bg.png") center no-repeat;

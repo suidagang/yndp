@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <comTitle  tabTitle="财务汇总简报" @changeTab = "changeTab" />
+    <comTitle  tabTitle="今日行情" @changeTab = "changeTab" />
   </div>
 </template>
 

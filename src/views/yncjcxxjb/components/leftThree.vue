@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <comTitle  tabTitle="财务汇总简报" @changeTab = "changeTab" />
+    <comTitle  :tabList='tabList' tabTitle="合作养殖汇总简报" :tabspacing="26" @changeTab = "changeTab" />
   </div>
 </template>
 
@@ -9,7 +9,10 @@ import comTitle from '@/components/comBoxHead/index.vue'
 export default {
   data() {
     return {
-    
+      tabList: [
+        { name: "A合作社", active: true },
+        { name: "B合作社", active: false }
+      ],
     }
   },
   components: {
