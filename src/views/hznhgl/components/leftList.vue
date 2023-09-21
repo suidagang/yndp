@@ -10,6 +10,7 @@
       <input type="text" placeholder="输入农户信息">
       <div class="search-btn">搜索</div>
     </div>
+    <div class="left-list-box" v-for="(item,index) in nhList" :key="index">{{item}}</div>
   </div>
 </template>
 
@@ -17,7 +18,7 @@
 export default {
   data() {
     return {
-
+      nhList:["张三","李四","王五"]
     }
   },
   components: {
@@ -34,6 +35,9 @@ export default {
     overflow-y: auto;
     padding: 17px 0 0 17px;
     box-sizing: border-box;
+    background: #0A1A37;
+    border: 1px solid #003665;
+    opacity: 0.7;
     &-title{
       display: flex;
       align-items: center;
@@ -102,6 +106,21 @@ export default {
         text-align: center;
         cursor: pointer;
       }
+    }
+    &-box{
+      width: 189px;
+      height: 40px;
+      background: #021130;
+      border: 1px solid #003665;
+      margin-top: 15px;
+      overflow: hidden;
+      line-height: 40px;
+      box-sizing: border-box;
+      padding-left:19px;
+      font-size: 14px;
+      font-family: Source Han Sans SC;
+      font-weight: 400;
+      color: #FFFFFF;
     }
   }
 </style>
