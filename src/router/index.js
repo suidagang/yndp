@@ -43,13 +43,13 @@ const routes = [
         children: [
           {
             path: "nsgl",
-            name: "nsgl",
+            name: "牛舍管理",
             fullPath: "/layout/zyncgl/nsgl",
             component: () => import("../views/nsgl/nsgl.vue"),
           },
           {
             path: "ncgl",
-            name: "ncgl",
+            name: "牛场管理",
             fullPath: "/layout/zyncgl/ncgl",
             component: () => import("../views/ncgl/ncgl.vue"),
           },
@@ -59,9 +59,33 @@ const routes = [
             fullPath: "/layout/zyncgl/sygl",
             component: () => import("../views/sygl/sygl.vue"),
           },
+          {
+            path: "pzgl",
+            name: "配种管理",
+            fullPath: "/layout/zyncgl/pzgl",
+            component: () => import("../views/pzgl/index.vue"),
+          },
+          {
+            path: "cwgl",
+            name: "财务管理",
+            fullPath: "/layout/zyncgl/cwgl",
+            component: () => import("../views/cwgl/index.vue"),
+          },
+          {
+            path: "fygl",
+            name: "防疫管理",
+            fullPath: "/layout/zyncgl/fygl",
+            component: () => import("../views/fygl/index.vue"),
+          },
+          {
+            path: "ncjk",
+            name: "牛场监控",
+            fullPath: "/layout/zyncgl/ncjk",
+            component: () => import("../views/ncjk/index.vue"),
+          },
         ],
       },
-    ],
+    ]
   },
   {
     path: "/zyncgl",

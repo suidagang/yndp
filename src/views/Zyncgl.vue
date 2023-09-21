@@ -21,22 +21,22 @@ export default {
 				path:'/layout/zyncgl/nsgl'
 			},{
 				name:'防疫管理',
-				active:false
+				path:'/layout/zyncgl/fygl'
 			},{
 				name:'牛场监控',
-				path:'/layout/zyncgl/ncgl'
+				path:'/layout/zyncgl/ncjk'
 			},{
 				name:'饲养管理',
 				path:'/layout/zyncgl/sygl'
 			},{
 				name:'配种管理',
-				active:false
+				path:'/layout/zyncgl/pzgl'
 			},{
 				name:'粪污管理',
 				active:false
 			},{
-				name:'人员管理',
-				active:false
+				name:'财务管理',
+				path:'/layout/zyncgl/cwgl'
 			},{
 				name:"其他管理",
 				active:false
