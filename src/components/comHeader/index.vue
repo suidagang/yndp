@@ -76,7 +76,7 @@ export default {
       }else if(num === 2){
         url="/layout/zyncgl"
       }else{
-        url="/layout/zyncgl"
+        url="/layout/hznhgl"
       }
       this.$router.push(url)
     }
