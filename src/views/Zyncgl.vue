@@ -32,14 +32,14 @@ export default {
 				name:'配种管理',
 				path:'/layout/zyncgl/pzgl'
 			},{
-				name:'粪污管理',
-				active:false
+				name:'牛场管理',
+				path:'/layout/zyncgl/ncgl'
 			},{
 				name:'财务管理',
 				path:'/layout/zyncgl/cwgl'
 			},{
 				name:"其他管理",
-				active:false
+				path:'/layout/zyncgl/qtgl'
 			}]
 		}
 	},

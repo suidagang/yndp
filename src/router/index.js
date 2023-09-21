@@ -83,6 +83,12 @@ const routes = [
             fullPath: "/layout/zyncgl/ncjk",
             component: () => import("../views/ncjk/index.vue"),
           },
+          {
+            path: "qtgl",
+            name: "其他管理",
+            fullPath: "/layout/zyncgl/qtgl",
+            component: () => import("../views/qtgl/index.vue"),
+          },
         ],
       },
     ]
