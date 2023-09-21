@@ -54,11 +54,11 @@ export default {
       this.chioceTab = num;
       let url = '';
       if(num === 1){
-        url="/yncjcxxjb"
+        url="/layout/yncjcxxjb"
       }else if(num === 2){
-        url="/zyncgl"
+        url="/layout/zyncgl"
       }else{
-        url="/zyncgl"
+        url="/layout/zyncgl"
       }
       this.$router.push(url)
     }
@@ -70,9 +70,7 @@ export default {
   .comheader{
     position: relative;
     height: 80px;
-    height:100%;
     overflow: hidden;
-    background: url("../../assets/img/com_bg.png") center no-repeat;
     .bottom-line{
       position: absolute;
       height: 9px;

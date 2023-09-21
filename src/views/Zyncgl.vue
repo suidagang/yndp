@@ -1,31 +1,30 @@
 <template>
 	<div id="container">
-		<comHeader />
 		<div class="left-change-box">
 			<div class="left-change-box-list" v-for="(item,index) in listData" :class="`num${index}`" :key="index" @click="changeItem(item,index)">{{item.name}}</div>
 		</div>
-    <router-view />
+		<div class="zyncgl-content">
+			<router-view />
+		</div>
 	</div>
 </template>
 
 <script>
-import comHeader from '@/components/comHeader/index.vue';
 export default {
 	name: "zyncgl",
 	components:{
-		comHeader,
 	},
 	data(){
 		return{
 			listData:[{
 				name:'牛舍管理',
-				active:false
+				path:'/layout/zyncgl/nsgl'
 			},{
 				name:'防疫管理',
 				active:false
 			},{
 				name:'牛场监控',
-				active:false
+				path:'/layout/zyncgl/ncgl'
 			},{
 				name:'饲养管理',
 				active:false
@@ -38,6 +37,9 @@ export default {
 			},{
 				name:'人员管理',
 				active:false
+			},{
+				name:"其他管理",
+				active:false
 			}]
 		}
 	},
@@ -46,6 +48,7 @@ export default {
 		changeItem(item,index){
 			this.listData.splice(index,1);
 			this.listData.splice(3, 0, item);
+			this.$router.push(item.path);
 		}
 	},
 };
@@ -120,6 +123,15 @@ export default {
 		&.num6{
 			width: 166px;
 		}
+		&.num7{
+			width: 166px;
+		}
 	}
+}
+.zyncgl-content{
+	width: 100%;
+	height: 100%;
+	margin-left: 350px;
+	overflow: hidden;
 }
 </style>

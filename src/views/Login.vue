@@ -73,7 +73,7 @@ export default {
 			// 	this.agreeError = true;
 			// 	return;
 			// }
-			this.$router.push("/yncjcxxjb")
+			this.$router.push("/layout/yncjcxxjb")
 		}
 	}
 };

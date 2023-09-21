@@ -1,6 +1,10 @@
 <template>
   <div class="com-box-head">
-    <div class="title-text">{{tabTitle}}</div>
+    <div class="title-text">
+      <slot name="titleIcon"></slot>
+      
+      <span>{{tabTitle}}</span>
+    </div>
     <div class="tab">
       <div v-for="(item, index) in tabList" :style="{'margin-right':`${tabspacing}px`}" :class="{active:item.active}" :key="index" @click="changeTab(item,index)">
         {{ item.name }}
@@ -53,6 +57,7 @@ export default {
   overflow: hidden;
   background: url("../../assets/img/com_title.png") center no-repeat;
   .title-text {
+    vertical-align: middle;
     float: left;
     font-size: 22px;
     font-family: YouSheBiaoTiHei;
@@ -64,6 +69,9 @@ export default {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-left: 49px;
+    >span{
+      vertical-align: top;
+    }
   }
   > .tab {
     float: right;
@@ -81,4 +89,5 @@ export default {
     }
   }
 }
+
 </style>
