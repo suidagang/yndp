@@ -5,6 +5,15 @@ import { createPinia, PiniaVuePlugin } from "pinia";
 import "@/style/reset.css";
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+/**
+ * 引入echarts
+ * */
+ import * as echarts from "echarts"; //引入echarts
+ /**
+	* 阻止vue启动生产消息
+	* */
+ Vue.config.productionTip = false;
+ Vue.prototype.$echarts = echarts; //引入组件
 
 Vue.use(ElementUI);
 Vue.use(PiniaVuePlugin);

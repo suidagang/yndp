@@ -28,7 +28,7 @@ const routes = [
 			component: () => import("../views/yncjcxxjb/Yncjcxxjb.vue"),
 		},{
 			path: "zyncgl",
-			name: "Zyncgl",
+			name: "zyncgl",
 			fullPath: '/layout/zyncgl',
 			redirect: '/layout/zyncgl/nsgl',
 			component: () => import("../views/Zyncgl.vue"),
@@ -45,14 +45,15 @@ const routes = [
 					fullPath: '/layout/zyncgl/ncgl',
 					component: () => import("../views/ncgl/ncgl.vue"),
 				},
+				{
+					path: "sygl",
+					name: "饲养管理",
+					fullPath: '/layout/zyncgl/sygl',
+					component: () => import("../views/sygl/sygl.vue"),
+				},
 			]
 		},]
 	},
-	// {
-	// 	path: "/yncjcxxjb",
-	// 	name: "About",
-	// 	component: () => import("../views/yncjcxxjb/Yncjcxxjb.vue"),
-	// },
 	{
 		path: "/zyncgl",
 		name: "Zyncgl",

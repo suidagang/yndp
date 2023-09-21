@@ -27,7 +27,7 @@ export default {
 				path:'/layout/zyncgl/ncgl'
 			},{
 				name:'饲养管理',
-				active:false
+				path:'/layout/zyncgl/sygl'
 			},{
 				name:'配种管理',
 				active:false

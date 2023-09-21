@@ -22,7 +22,7 @@
         <div>2020.10.24</div>
       </div>
       <div class="line"></div>
-      <div class="date">14:34</div>
+      <div class="date">{{date}}</div>
     </div>
     <div class="sys-setting">
       <div class="icon"></div>
@@ -40,13 +40,31 @@
 export default {
   data() {
     return {
-      chioceTab:1
+      chioceTab:1,
+      date:""
     }
   },
-  components: {
-
+  created(){
+    this.showTime();
   },
   methods:{
+    showTime() {
+      const format = (num) => (num < 10 ? "0" + num : num);
+      const getTime = () => {
+        const timeStamp = new Date();
+        const year = timeStamp.getFullYear();
+        const month = format(timeStamp.getMonth() + 1);
+        const day = format(timeStamp.getDate());
+        const hour = format(timeStamp.getHours());
+        const minute = format(timeStamp.getMinutes());
+        const second = format(timeStamp.getSeconds());
+        this.date = `${hour}:${minute}`;
+      };
+      const timer = setInterval(getTime, 1000);
+      this.$once("hook:beforeDestroy", () => {
+        clearTimeout(timer);
+      });
+    },
     goout(){
       this.$router.push("/")
     },

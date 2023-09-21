@@ -45,12 +45,22 @@
       </div>
       <div class="com-list-content-bottom">
         <div class="com-list-content-bottom-title">
-          <div class="left">上海市</div>
-          <div>分看电视剧弗兰克</div>
+          <div class="left">牛舍管理人</div>
+          <div>张三</div>
         </div>
         <div class="com-list-content-bottom-content">
-          <div  class="left">上海市</div>
-          <div>分看电视剧弗兰克</div>
+          <div  class="left">
+            <div>现有牛数量</div>
+            <div>总容量</div>
+            <div>总面积</div>
+            <div>位置</div>
+          </div>
+          <div>
+            <div>500头</div>
+            <div>500头</div>
+            <div>500平方米</div>
+            <div>四川省成都市金牛区</div>
+          </div>
         </div>
       </div>
     </div>
@@ -109,14 +119,31 @@ export default {
         height: 191px;
         margin-top: 30px;
         overflow: hidden;
+        padding-left: 40px;
+        box-sizing: border-box;
         background: linear-gradient(90deg, rgba(2,54,111,0.1) 1%, rgba(0,114,255,0.2) 54%, rgba(2,54,111,0.1) 99%);
         &-title{
           width: 597px;
           height: 40px;
           background: linear-gradient(90deg, rgba(2,54,111,0.1) 1%, rgba(0,114,255,0.2) 54%, rgba(2,54,111,0.1) 99%);
           display: flex;
+          align-items: center;
+          font-size: 14px;
+          font-weight: bold;
+          color: #B7C9E5;
           .left{
-            width: 300px;
+            width: 350px;
+          }
+        }
+        &-content{
+           display: flex;
+           font-size: 14px;
+           font-weight: 400;
+           color: #86B2D7;
+           line-height: 30px;
+           margin-top: 16px;
+           .left{
+            width: 350px;
           }
         }
       }
