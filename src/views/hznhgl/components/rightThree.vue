@@ -5,29 +5,15 @@
       <div class="content-list">
         <div class="img"></div>
         <div class="right-text">
-          <div>收入统计</div>
-          <div class="number-text">9600<span class="unit-text">元</span></div>
+          <div>待售牛数量/头</div>
+          <div class="number-text">60</div>
         </div>
       </div>
       <div class="content-list">
         <div class="img zc-img"></div>
         <div class="right-text">
-          <div>支出统计</div>
-          <div  class="number-text">9600<span class="unit-text">元</span></div>
-        </div>
-      </div>
-      <div class="content-list">
-        <div class="img cl-img"></div>
-        <div class="right-text">
-          <div>存栏统计</div>
-          <div class="number-text">9600<span class="unit-text">个</span></div>
-        </div>
-      </div>
-      <div class="content-list">
-        <div class="img sl-img"></div>
-        <div class="right-text">
-          <div>饲料库存统计</div>
-          <div class="number-text">9600<span class="unit-text">吨</span></div>
+          <div>保险标记统计/头</div>
+          <div  class="number-text">60</div>
         </div>
       </div>
     </div>
@@ -55,13 +41,13 @@ export default {
 
 <style scoped lang="less">
   .container-box{
-    width: 500px;
+    width: 600px;
     overflow: hidden;
   }
   .content{
     width: 100%;
     padding-left: 39px;
-    padding-top: 43px;
+    padding-top: 8px;
     box-sizing: border-box;
     overflow: hidden;
     &-list{
@@ -69,21 +55,14 @@ export default {
       display: flex;
       align-items: center;
       margin-bottom: 40px;
-      width: 37%;
+      width: 50%;
       >.img{
-        width: 58px;
-        height: 60px;
-        background: url("../../../assets/img/srtj.png") center no-repeat;
-        margin-right: 19px;
+        width: 115px;
+        height: 115px;
+        background: url("../../../assets/img/hznhgl/sm.png") center no-repeat;
       }
       >.zc-img{
-        background: url("../../../assets/img/zclx.png") center no-repeat;
-      }
-      >.zc-img{
-        background: url("../../../assets/img/zclx.png") center no-repeat;
-      }
-      >.sl-img{
-        background: url("../../../assets/img/slcl.png") center no-repeat;
+        background: url("../../../assets/img/hznhgl/bxxs.png") center no-repeat;
       }
       >.right-text{
         font-size: 14px;
@@ -102,8 +81,5 @@ export default {
     background: linear-gradient(0deg, #45CDFF 0%, #E5F9FF 100%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
-  .unit-text{
-    font-size: 14px;
   }
 </style>
