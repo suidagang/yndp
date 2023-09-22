@@ -14,7 +14,7 @@
 
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
-import comTable from "../../../components/comTable/index.vue";
+import comTable from "@/components/comTable/index.vue";
 export default {
   data() {
     return {
