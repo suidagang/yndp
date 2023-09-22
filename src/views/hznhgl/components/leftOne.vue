@@ -1,33 +1,30 @@
 <template>
   <div class="container-box">
     <comTitle  tabTitle="肉牛统计" />
-    <div class="content">
-      <div class="content-list">
+    <div class="container-box-content">
+      <div class="hint-box">
         <div class="img"></div>
-        <div class="right-text">
-          <div>肉牛统计</div>
-          <div class="number-text">9600<span class="unit-text">元</span></div>
-        </div>
+        <div>距离上次称重已有80天，请按时称重..</div>
       </div>
-      <div class="content-list">
-        <div class="img zc-img"></div>
-        <div class="right-text">
-          <div>支出统计</div>
-          <div  class="number-text">9600<span class="unit-text">元</span></div>
-        </div>
-      </div>
-      <div class="content-list">
-        <div class="img cl-img"></div>
-        <div class="right-text">
-          <div>存栏统计</div>
-          <div class="number-text">9600<span class="unit-text">个</span></div>
-        </div>
-      </div>
-      <div class="content-list">
-        <div class="img sl-img"></div>
-        <div class="right-text">
-          <div>饲料库存统计</div>
-          <div class="number-text">9600<span class="unit-text">吨</span></div>
+      <div class="rect-box">
+        <div class="rect-img"></div>
+        <div class="rect-right">
+          <div class="rect-right-list">
+            <div class="name">总数量/头</div>
+            <div class="num">20</div>
+          </div>
+          <div class="rect-right-list">
+            <div class="name">自养/合作代养</div>
+            <div class="num">5/15</div>
+          </div>
+          <div class="rect-right-list">
+            <div class="name">种类/种</div>
+            <div class="num">20</div>
+          </div>
+          <div class="rect-right-list">
+            <div class="name">总重量/吨</div>
+            <div class="num">50</div>
+          </div>
         </div>
       </div>
     </div>
@@ -55,53 +52,73 @@ export default {
   .container-box{
     width: 500px;
     overflow: hidden;
-  }
-  .content{
-    width: 100%;
-    padding-left: 39px;
-    padding-top: 43px;
-    box-sizing: border-box;
-    overflow: hidden;
-    &-list{
-      float: left;
-      display: flex;
-      align-items: center;
-      margin-bottom: 40px;
-      width: 37%;
-      >.img{
-        width: 58px;
-        height: 60px;
-        background: url("../../../assets/img/srtj.png") center no-repeat;
-        margin-right: 19px;
-      }
-      >.zc-img{
-        background: url("../../../assets/img/zclx.png") center no-repeat;
-      }
-      >.zc-img{
-        background: url("../../../assets/img/zclx.png") center no-repeat;
-      }
-      >.sl-img{
-        background: url("../../../assets/img/slcl.png") center no-repeat;
-      }
-      >.right-text{
+    &-content{
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+      padding-left: 30px;
+      padding-top: 8px;
+      .hint-box{
+        width: 100%;
         font-size: 14px;
         font-family: Source Han Sans SC;
         font-weight: 400;
-        color: #A2D1FF;
+        color: #FF7200;
+        display: flex;
+        align-items: center;
+        >.img{
+          height: 31px;
+          width: 31px;
+          margin-right: 7px;
+          background: url("../../../assets/img/hznhgl/tx.png") center no-repeat;
+        }
+      }
+      .rect-box{
+        width: 464px;
+        height: 200px;
+        border: 2px solid;
+        border-image: linear-gradient(0deg, #134397, #000000) 10 10;
+        background: linear-gradient(0deg, #0B3070 0%, rgba(18,43,87,0) 100%);
+        display: flex;
+        align-items: center;
+        .rect-img{
+          width: 160px;
+          height: 137px;
+          background: url("../../../assets/img/hznhgl/niu.png") center no-repeat;
+          margin-left: 23px;
+        }
+        .rect-right{
+          width: 226px;
+          margin-left: 29px;
+          &-list:last-of-type{
+            border: 0;
+          }
+          &-list{
+            border-bottom: 1px dashed #A2D1FF;
+            font-size: 16px;
+            font-family: Source Han Sans SC;
+            font-weight: 400;
+            color: #A2D1FF;
+            display: flex;
+            align-items: center;
+            height: 45px;
+            line-height: 45px;
+            .name{
+              width: 162px;
+            }
+            .num{
+              font-size: 24px;
+              font-family: PangMenZhengDao;
+              font-weight: 400;
+              color: #00FFE4;
+              background: linear-gradient(0deg, #45CDFF 0%, #E5F9FF 100%);
+              background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+          }
+        }
       }
     }
   }
-  .number-text{
-    margin-top: 14px;
-    font-size: 26px;
-    font-family: PangMenZhengDao;
-    font-weight: 400;
-    color: #00FFE4;
-    background: linear-gradient(0deg, #45CDFF 0%, #E5F9FF 100%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .unit-text{
-    font-size: 14px;
-  }
+  
 </style>
