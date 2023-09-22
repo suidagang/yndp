@@ -2,63 +2,40 @@
   <div class="container-box">
     <comTitle tabTitle="牛场基础信息" />
     <div class="content">
-      <comTable :tableData="tableData">
-        <el-table-column prop="date" label="编号"> </el-table-column>
-        <el-table-column prop="name" label="名称"> </el-table-column>
-        <el-table-column prop="address" label="负责人"> </el-table-column>
-        <el-table-column prop="d" label="联系电话"> </el-table-column>
-        <el-table-column prop="b" label="地址"> </el-table-column>
-        <el-table-column prop="c" label="是否启用"> </el-table-column>
-      </comTable>
+      <div class="content-list">
+        <div class="img"></div>
+        <div class="right-text">
+          <div>存栏数量</div>
+          <div class="number-text">60<span class="unit-text">个</span></div>
+        </div>
+      </div>
+      <div class="content-list">
+        <div class="img img-sl"></div>
+        <div class="right-text">
+          <div>饲料拌料机</div>
+          <div class="number-text">60<span class="unit-text">个</span></div>
+        </div>
+      </div>
+      <div class="content-list">
+        <div class="img img-xd"></div>
+        <div class="right-text">
+          <div>消毒设施</div>
+          <div class="number-text">60<span class="unit-text">个</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
-import comTable from "@/components/comTable/index.vue";
 export default {
   data() {
     return {
-      tableData: [
-        {
-          date: "1",
-          name: "王小虎",
-          address: "上海市普陀",
-          b:"xxxx",
-          c:"是",
-          d:'18754254789'
-        },
-        {
-          date: "2",
-          name: "王小虎",
-          address: "沙江路 1517 弄",
-          b:"xxxx",
-          c:"是",
-          d:'18754254789'
-        },
-        {
-          date: "3",
-          name: "王小虎",
-          address: "市普陀区",
-          b:"xxxx",
-          c:"是",
-          d:'18754254789'
-        },
-        {
-          date: "4",
-          name: "王小虎",
-          address: "上海市普陀区",
-          b:"xxxx",
-          c:"是",
-          d:'18754254789'
-        },
-      ],
     };
   },
   components: {
     comTitle,
-    comTable
   },
   methods: {},
 };
@@ -66,16 +43,52 @@ export default {
 
 <style scoped lang="less">
 .container-box {
-  width: 873px;
+  width: 100%;
   overflow: hidden;
 }
 .content {
-  width: 873px;
+  width: 100%;
   padding-left: 49px;
   padding-top: 33px;
   box-sizing: border-box;
   overflow: hidden;
-  // width: 823px;
-    height: 514px;
+  &-list {
+    float: left;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    > .img {
+      width: 124px;
+      height: 124px;
+      background: url("../../../assets/img/qtgl/cl.png") center no-repeat;
+      margin-right: 19px;
+    }
+    > .img-sl {
+      background: url("../../../assets/img/qtgl/jb.png") center no-repeat;
+    }
+    > .img-xd {
+      background: url("../../../assets/img/qtgl/xd.png") center no-repeat;
+    }
+    > .right-text {
+      font-size: 14px;
+      font-family: Source Han Sans SC;
+      font-weight: 400;
+      color: #a2d1ff;
+      margin-left: -40px;
+    }
+    .number-text {
+      margin-top: 14px;
+      font-size: 26px;
+      font-family: PangMenZhengDao;
+      font-weight: 400;
+      color: #00ffe4;
+      background: linear-gradient(0deg, #45cdff 0%, #e5f9ff 100%);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .unit-text {
+      font-size: 14px;
+    }
+  }
 }
 </style>
