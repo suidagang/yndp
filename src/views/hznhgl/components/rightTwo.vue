@@ -3,9 +3,10 @@
     <comTitle tabTitle="防疫管理" />
     <div class="content">
       <comTable :tableData="tableData">
-        <el-table-column prop="date" label="日期"> </el-table-column>
-        <el-table-column prop="name" label="姓名"> </el-table-column>
-        <el-table-column prop="address" label="地址"> </el-table-column>
+        <el-table-column prop="date" label="牛编号"> </el-table-column>
+        <el-table-column prop="name" label="防疫时间"> </el-table-column>
+        <el-table-column prop="address" label="是否已用药"> </el-table-column>
+        <el-table-column prop="b" label="药品类型"> </el-table-column>
       </comTable>
     </div>
   </div>
@@ -22,61 +23,27 @@ export default {
           date: "2016-05-02",
           name: "王小虎",
           address: "上海市普陀",
+          b:"xxxx"
         },
         {
           date: "2016-05-04",
           name: "王小虎",
           address: "沙江路 1517 弄",
+          b:"xxxx"
         },
         {
           date: "2016-05-01",
           name: "王小虎",
           address: "市普陀区",
+          b:"xxxx"
         },
         {
           date: "2016-05-03",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1516 弄",
+          b:"xxxx"
         },
-      ],
-      listData: [
-        {
-          id: "1",
-          wysj: "2023.07.18 14:26",
-          wysl: "5kg",
-          fkwt: "xxxxxxxxxxxx",
-        },
-        {
-          id: "2",
-          wysj: "2023.07.18 14:26",
-          wysl: "5kg",
-          fkwt: "xxxxxxxxxxxx",
-        },
-        {
-          id: "3",
-          wysj: "2023.07.18 14:26",
-          wysl: "5kg",
-          fkwt: "xxxxxxxxxxxx",
-        },
-        {
-          id: "4",
-          wysj: "2023.07.18 14:26",
-          wysl: "5kg",
-          fkwt: "xxxxxxxxxxxx",
-        },
-        {
-          id: "5",
-          wysj: "2023.07.18 14:26",
-          wysl: "5kg",
-          fkwt: "xxxxxxxxxxxx",
-        },
-        {
-          id: "6",
-          wysj: "2023.07.18 14:26",
-          wysl: "5kg",
-          fkwt: "xxxxxxxxxxxx",
-        },
-      ],
+      ]
     };
   },
   components: {
@@ -96,11 +63,7 @@ export default {
   height: 264px;
   box-sizing: border-box;
   overflow: hidden;
-  background: linear-gradient(
-    90deg,
-    rgba(2, 54, 111, 0.1) 1%,
-    rgba(0, 114, 255, 0.2) 54%,
-    rgba(2, 54, 111, 0.1) 99%
-  );
+  padding-left: 49px;
+  padding-top: 39px;
 }
 </style>
