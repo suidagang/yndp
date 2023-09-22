@@ -1,14 +1,13 @@
 <template>
   <div class="container-box">
-    <comTitle tabTitle="牛场基础信息" />
+    <comTitle tabTitle="防疫管理" />
     <div class="content">
       <div class="table-box">
         <div class="table-box-title">
-          <div class="one">编号</div>
-          <div class="two">名称</div>
-          <div class="three">负责人</div>
-          <div class="five">地址</div>
-          <div class="six">是否启用</div>
+          <div class="one">牛编号</div>
+          <div class="two">防疫时间</div>
+          <div class="three">是否已用药</div>
+          <div class="four">药品类型</div>
         </div>
         <div class="table-box-body">
           <div v-for="(item, index) in listData" :key="index">
@@ -77,7 +76,7 @@ export default {
 
 <style scoped lang="less">
 .container-box {
-  width: 500px;
+  width: 1027px;
   overflow: hidden;
 }
 .content {
@@ -87,8 +86,8 @@ export default {
   box-sizing: border-box;
   overflow: hidden;
   .table-box {
-    width: 823px;
-    height: 514px;
+    width: 540px;
+    height: 264px;
     box-sizing: border-box;
     overflow: hidden;
     background: linear-gradient(
@@ -123,22 +122,13 @@ export default {
       .three {
         width: 100px;
       }
-      .four {
-        width: 100px;
-      }
-      .five {
-        flex: 1;
-      }
-      .six {
-        width: 100px;
-      }
     }
     &-body {
       overflow: hidden;
       padding-left: 28px;
       box-sizing: border-box;
       padding-top: 8px;
-      > div {
+      >div {
         height: 34px;
         line-height: 34px;
         width: 977px;
@@ -147,23 +137,14 @@ export default {
         font-size: 14px;
         font-family: Source Han Sans SC;
         font-weight: 400;
-        color: #86b2d7;
+        color: #86B2D7;
         .one {
-          width: 60px;
+          width: 110px;
         }
         .two {
           width: 165px;
         }
         .three {
-          width: 100px;
-        }
-        .four {
-          width: 100px;
-        }
-        .five {
-          flex:1
-        }
-        .six {
           width: 100px;
         }
       }

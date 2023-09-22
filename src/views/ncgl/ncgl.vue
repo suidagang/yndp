@@ -43,7 +43,7 @@ export default {
     .bottom-one{
       position: absolute;
       left: 70px;
-      top: 551px;
+      top: 683px;
     }
   }
 </style>

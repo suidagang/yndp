@@ -94,10 +94,10 @@ const routes = [
     ]
   },
   {
-    path: "/zyncgl",
-    name: "Zyncgl",
-    component: () => import("../views/Zyncgl.vue"),
-  },
+    path: "/test",
+    name: "测试页面",
+    component: () => import("../views/Test.vue"),
+  }
 ];
 
 const router = new VueRouter({

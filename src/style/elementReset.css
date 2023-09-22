@@ -1,0 +1,21 @@
+/*最外层透明*/
+.el-table, .el-table__expanded-cell{
+  background-color: transparent!important;
+}
+/* 表格内背景颜色 */
+.el-table th,
+.el-table tr,
+.el-table td {
+  background-color: transparent;
+}
+/* 去除边框 */
+.el-table__row>td{ border: none; }
+.el-table::before { height: 0px; }
+.el-table td, .el-table th.is-leaf{
+border-bottom:none ;
+}
+
+/* 修改hover样式 */
+.el-table__body tr:hover > td {
+   background-color: inherit !important;;
+} 
