@@ -20,7 +20,7 @@ export default {
         fontWeight: 400,
         color: "#86B2D7",
         textAlign: "left",
-        paddingLeft: "28px",
+        paddingLeft: "18px",
       },
       headerStyle: {
         fontSize: "14px",
@@ -28,7 +28,7 @@ export default {
         fontWeight: "bold",
         color: "#B7C9E5",
         height: "40px",
-        paddingLeft: "28px",
+        paddingLeft: "18px",
       },
     };
   },
