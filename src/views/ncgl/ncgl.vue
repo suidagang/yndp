@@ -32,17 +32,17 @@ export default {
     overflow: hidden;
     .top-one{
       position: absolute;
-      left: 70px;
+      left:0px;
       top: 58px;
     }
     .top-two{
       position: absolute;
-      left: 987px;
+      left: 897px;
       top: 58px;
     }
     .bottom-one{
       position: absolute;
-      left: 70px;
+      left: 0px;
       top: 683px;
     }
   }

@@ -2,74 +2,63 @@
   <div class="container-box">
     <comTitle tabTitle="牛场基础信息" />
     <div class="content">
-      <div class="table-box">
-        <div class="table-box-title">
-          <div class="one">编号</div>
-          <div class="two">名称</div>
-          <div class="three">负责人</div>
-          <div class="five">地址</div>
-          <div class="six">是否启用</div>
-        </div>
-        <div class="table-box-body">
-          <div v-for="(item, index) in listData" :key="index">
-            <div class="one">{{ item.id }}</div>
-            <div class="two">{{ item.wysj }}</div>
-            <div class="three">{{ item.wysl }}</div>
-            <div class="four">{{ item.fkwt }}</div>
-          </div>
-        </div>
-      </div>
+      <comTable :tableData="tableData">
+        <el-table-column prop="date" label="编号"> </el-table-column>
+        <el-table-column prop="name" label="名称"> </el-table-column>
+        <el-table-column prop="address" label="负责人"> </el-table-column>
+        <el-table-column prop="d" label="联系电话"> </el-table-column>
+        <el-table-column prop="b" label="地址"> </el-table-column>
+        <el-table-column prop="c" label="是否启用"> </el-table-column>
+      </comTable>
     </div>
   </div>
 </template>
 
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
+import comTable from "@/components/comTable/index.vue";
 export default {
   data() {
     return {
-      listData: [
+      tableData: [
         {
-          id: "1",
-          wysj: "2023.07.18 14:26",
-          wysl: "5kg",
-          fkwt: "xxxxxxxxxxxx",
+          date: "1",
+          name: "王小虎",
+          address: "上海市普陀",
+          b:"xxxx",
+          c:"是",
+          d:'18754254789'
         },
         {
-          id: "2",
-          wysj: "2023.07.18 14:26",
-          wysl: "5kg",
-          fkwt: "xxxxxxxxxxxx",
+          date: "2",
+          name: "王小虎",
+          address: "沙江路 1517 弄",
+          b:"xxxx",
+          c:"是",
+          d:'18754254789'
         },
         {
-          id: "3",
-          wysj: "2023.07.18 14:26",
-          wysl: "5kg",
-          fkwt: "xxxxxxxxxxxx",
+          date: "3",
+          name: "王小虎",
+          address: "市普陀区",
+          b:"xxxx",
+          c:"是",
+          d:'18754254789'
         },
         {
-          id: "4",
-          wysj: "2023.07.18 14:26",
-          wysl: "5kg",
-          fkwt: "xxxxxxxxxxxx",
-        },
-        {
-          id: "5",
-          wysj: "2023.07.18 14:26",
-          wysl: "5kg",
-          fkwt: "xxxxxxxxxxxx",
-        },
-        {
-          id: "6",
-          wysj: "2023.07.18 14:26",
-          wysl: "5kg",
-          fkwt: "xxxxxxxxxxxx",
+          date: "4",
+          name: "王小虎",
+          address: "上海市普陀区",
+          b:"xxxx",
+          c:"是",
+          d:'18754254789'
         },
       ],
     };
   },
   components: {
     comTitle,
+    comTable
   },
   methods: {},
 };
@@ -77,97 +66,16 @@ export default {
 
 <style scoped lang="less">
 .container-box {
-  width: 500px;
+  width: 873px;
   overflow: hidden;
 }
 .content {
-  width: 100%;
+  width: 873px;
   padding-left: 49px;
-  padding-top: 39px;
+  padding-top: 33px;
   box-sizing: border-box;
   overflow: hidden;
-  .table-box {
-    width: 823px;
+  // width: 823px;
     height: 514px;
-    box-sizing: border-box;
-    overflow: hidden;
-    background: linear-gradient(
-      90deg,
-      rgba(2, 54, 111, 0.1) 1%,
-      rgba(0, 114, 255, 0.2) 54%,
-      rgba(2, 54, 111, 0.1) 99%
-    );
-    &-title {
-      padding-left: 28px;
-      box-sizing: border-box;
-      width: 540px;
-      height: 40px;
-      background: linear-gradient(
-        90deg,
-        rgba(2, 54, 111, 0.1) 1%,
-        rgba(0, 114, 255, 0.2) 54%,
-        rgba(2, 54, 111, 0.1) 99%
-      );
-      display: flex;
-      align-items: center;
-      font-size: 14px;
-      font-family: Source Han Sans SC;
-      font-weight: bold;
-      color: #b7c9e5;
-      .one {
-        width: 110px;
-      }
-      .two {
-        width: 165px;
-      }
-      .three {
-        width: 100px;
-      }
-      .four {
-        width: 100px;
-      }
-      .five {
-        flex: 1;
-      }
-      .six {
-        width: 100px;
-      }
-    }
-    &-body {
-      overflow: hidden;
-      padding-left: 28px;
-      box-sizing: border-box;
-      padding-top: 8px;
-      > div {
-        height: 34px;
-        line-height: 34px;
-        width: 977px;
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-        font-family: Source Han Sans SC;
-        font-weight: 400;
-        color: #86b2d7;
-        .one {
-          width: 60px;
-        }
-        .two {
-          width: 165px;
-        }
-        .three {
-          width: 100px;
-        }
-        .four {
-          width: 100px;
-        }
-        .five {
-          flex:1
-        }
-        .six {
-          width: 100px;
-        }
-      }
-    }
-  }
 }
 </style>
