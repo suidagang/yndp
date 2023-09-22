@@ -27,13 +27,13 @@ const routes = [
         path: "yncjcxxjb",
         fullPath: "/layout/yncjcxxjb",
         component: () => import("../views/yncjcxxjb/Yncjcxxjb.vue"),
-			},
-			{
-				path: "hznhgl",
-				name: "合作农户管理",
-				fullPath: "/layout/hznhgl",
+      },
+      {
+        path: "hznhgl",
+        name: "合作农户管理",
+        fullPath: "/layout/hznhgl",
         component: () => import("../views/hznhgl/index.vue"),
-			},
+      },
       {
         path: "zyncgl",
         name: "自营牛场管理",
@@ -91,13 +91,13 @@ const routes = [
           },
         ],
       },
-    ]
+    ],
   },
   {
     path: "/test",
     name: "测试页面",
     component: () => import("../views/Test.vue"),
-  }
+  },
 ];
 
 const router = new VueRouter({
