@@ -43,6 +43,12 @@ export default {
 };
 </script>
 <style>
+.el-table .cell, .el-table th div, .el-table--border td:first-child .cell, .el-table--border th:first-child .cell{
+  padding-left: 0;
+}
+.el-table .cell, .el-table th div{
+  padding-right: 0;
+}
 .el-table {
   background: linear-gradient(
     90deg,
