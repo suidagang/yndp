@@ -80,16 +80,18 @@ time,
 mark,
 audio,
 video {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	font-family: "Source Han Sans SC", "Helvetica Neue", "Source Sans Pro", Helvetica, Arial,
-		sans-serif;
-	border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Source Han Sans SC", "Helvetica Neue", "Source Sans Pro",
+    Helvetica, Arial, sans-serif;
+  border: 0;
 }
 
 /* 隐藏鼠标点击这些元素时出现的光标 */
-div, span, p {
-	/* caret-color: transparent; */
-	user-select:none; /* CSS3属性 */
+div,
+span,
+p {
+  /* caret-color: transparent; */
+  user-select: none; /* CSS3属性 */
 }

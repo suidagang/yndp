@@ -3,24 +3,24 @@
 </template>
 
 <script>
-import _ from 'lodash';
+import _ from "lodash";
 export default {
-  name: 'com-echarts',
+  name: "com-echarts",
   data() {
     return {
-      myChart: null
+      myChart: null,
     };
   },
   props: {
     options: {
       type: Object,
-      require: true
+      require: true,
     },
   },
   mounted() {
-    addEventListener('resize', this.throttle);
-    this.$once('hook:beforeDestroy', function () {
-      removeEventListener('resize', this.throttle);
+    addEventListener("resize", this.throttle);
+    this.$once("hook:beforeDestroy", function () {
+      removeEventListener("resize", this.throttle);
     });
   },
   methods: {
@@ -31,7 +31,7 @@ export default {
       this.$nextTick(() => {
         if (
           this.myChart != null &&
-          this.myChart != '' &&
+          this.myChart != "" &&
           this.myChart != undefined
         ) {
           this.myChart.dispose(); //销毁
@@ -40,7 +40,7 @@ export default {
         this.myChart = this.$echarts.init(myChartDom);
         this.myChart.setOption(this.options);
       });
-    }
+    },
   },
   watch: {
     options: {
@@ -48,9 +48,9 @@ export default {
         this.initEcharts();
       },
       deep: true,
-      immediate: true
-    }
-  }
+      immediate: true,
+    },
+  },
 };
 </script>
 

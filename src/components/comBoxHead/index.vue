@@ -2,11 +2,17 @@
   <div class="com-box-head">
     <div class="title-text">
       <slot name="titleIcon"></slot>
-      
-      <span>{{tabTitle}}</span>
+
+      <span>{{ tabTitle }}</span>
     </div>
     <div class="tab">
-      <div v-for="(item, index) in tabList" :style="{'margin-right':`${tabspacing}px`}" :class="{active:item.active}" :key="index" @click="changeTab(item,index)">
+      <div
+        v-for="(item, index) in tabList"
+        :style="{ 'margin-right': `${tabspacing}px` }"
+        :class="{ active: item.active }"
+        :key="index"
+        @click="changeTab(item, index)"
+      >
         {{ item.name }}
       </div>
     </div>
@@ -16,37 +22,34 @@
 <script>
 export default {
   data() {
-    return {
-      
-    };
+    return {};
   },
-  props:{
-    tabList:{
-      type:Array,
-      default(){
-        return []
-      }
+  props: {
+    tabList: {
+      type: Array,
+      default() {
+        return [];
+      },
     },
-    tabspacing:{
-      type:[Number,String],
-      default:0
+    tabspacing: {
+      type: [Number, String],
+      default: 0,
     },
-    tabTitle:{
-      type:String,
-      require:true
-    }
+    tabTitle: {
+      type: String,
+      require: true,
+    },
   },
-  mounted(){
-  },
-  methods:{
-    changeTab(item,index){
-      this.tabList.map((ele)=>{
+  mounted() {},
+  methods: {
+    changeTab(item, index) {
+      this.tabList.map((ele) => {
         ele.active = false;
       });
       item.active = true;
-      this.$emit("changeTab",index)
-    }
-  }
+      this.$emit("changeTab", index);
+    },
+  },
 };
 </script>
 
@@ -69,7 +72,7 @@ export default {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-left: 49px;
-    >span{
+    > span {
       vertical-align: top;
     }
   }
@@ -84,10 +87,9 @@ export default {
     > div {
       cursor: pointer;
     }
-    >div.active{
-      color: #367CCC;
+    > div.active {
+      color: #367ccc;
     }
   }
 }
-
 </style>
