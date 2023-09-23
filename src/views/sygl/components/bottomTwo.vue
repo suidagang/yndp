@@ -256,13 +256,11 @@ export default {
 
 <style scoped lang="less">
 .content {
-  width: 700px;
+  width: 750px;
   height: 380px;
   overflow: hidden;
-  padding-left: 10px;
-  box-sizing: border-box;
   .echarts {
-    width: 630px;
+    width: 750px;
     height: 380px;
   }
 }
