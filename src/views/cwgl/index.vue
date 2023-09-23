@@ -32,12 +32,12 @@ export default {
     overflow: hidden;
     .top-one{
       position: absolute;
-      left: 150px;
+      left: 110px;
       top: 26px;
     }
     .bottom-one{
       position: absolute;
-      left: 150px;
+      left: 110px;
       top: 778px;
     }
     .bottom-two{
