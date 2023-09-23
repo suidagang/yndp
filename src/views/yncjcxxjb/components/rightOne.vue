@@ -3,24 +3,19 @@
     <comTitle  tabTitle="今日行情" @changeTab = "changeTab" />
     <div class="content">
       <div class="content-list">
-        <div class="top-text">二氧化碳/ppm</div>
-        <div  class="bottom-text">1000</div>
+        <div class="content-list-img"></div>
+        <div class="content-list-name">成牛</div>
+        <div  class="content-list-text">100/kg</div>
       </div>
       <div class="content-list">
-        <div class="top-text">二氧化碳/ppm</div>
-        <div  class="bottom-text">1000</div>
+        <div class="content-list-img"></div>
+        <div class="content-list-name">牛犊</div>
+        <div  class="content-list-text">100/kg</div>
       </div>
       <div class="content-list">
-        <div class="top-text">二氧化碳/ppm</div>
-        <div  class="bottom-text">1000</div>
-      </div>
-      <div class="content-list">
-        <div class="top-text">二氧化碳/ppm</div>
-        <div  class="bottom-text">1000</div>
-      </div>
-      <div class="content-list">
-        <div class="top-text">二氧化碳/ppm</div>
-        <div  class="bottom-text">1000</div>
+        <div class="content-list-img"></div>
+        <div class="content-list-name">成牛</div>
+        <div  class="content-list-text">100/kg</div>
       </div>
     </div>
   </div>
@@ -56,11 +51,46 @@ export default {
     padding-left: 30px;
     padding-top: 34px;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
     &-list{
-      float: left;
-      height: 72px;
-      width: 158px;
-      background: url("../../../assets/img/hjjc.png") center no-repeat;
+      width: 110px;
+      height: 128px;
+      background: rgba(18,87,201,0);
+      border: 1px solid blue;
+      // box-shadow: 10px 10px 10px 10px red;
+      border-radius: 10px;
+      position: relative;
+      margin-right: 6px;
+      &-img{
+        width: 102px;
+        height: 102px;
+        background: url("../../../assets/img/yncjcxxjb/jrhq_n.png") center no-repeat;
+        overflow: hidden;
+        margin-left: 12px;
+      }
+      &-name{
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        bottom: 40px;
+        font-size: 14px;
+        font-family: Source Han Sans SC;
+        font-weight: 400;
+        color: #A2D1FF;
+      }
+      &-text{
+        font-size: 18px;
+        font-family: PangMenZhengDao;
+        font-weight: 400;
+        color: #00FFE4;
+
+        background: linear-gradient(0deg, #45CDFF 0%, #E5F9FF 100%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        margin-top: -15px;
+      }
     }
   }
 </style>
