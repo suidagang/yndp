@@ -107,7 +107,7 @@ export default {
   }
   &-body{
     width: 464px;
-    height: 279px;
+    height: 299px;
     margin-left: 5px;
     box-sizing: border-box;
     overflow: hidden;
