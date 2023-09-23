@@ -1,107 +1,89 @@
 <template>
   <div class="container-box">
-    <comTitle  tabTitle="检疫记录" />
+    <comTitle tabTitle="检疫记录" />
     <div class="content">
-      <div class="content-list">
-        <div class="img"></div>
-        <div class="right-text">
-          <div>肉牛统计</div>
-          <div class="number-text">9600<span class="unit-text">元</span></div>
-        </div>
+      <div class="table-one">
+        <comTable :tableData="tableData">
+          <el-table-column prop="date" label="事件"> </el-table-column>
+          <el-table-column prop="name" label="健康状态"> </el-table-column>
+          <el-table-column prop="address" label="已打疫苗"> </el-table-column>
+          <el-table-column prop="b" label="报告"> </el-table-column>
+        </comTable>
       </div>
-      <div class="content-list">
-        <div class="img zc-img"></div>
-        <div class="right-text">
-          <div>支出统计</div>
-          <div  class="number-text">9600<span class="unit-text">元</span></div>
-        </div>
-      </div>
-      <div class="content-list">
-        <div class="img cl-img"></div>
-        <div class="right-text">
-          <div>存栏统计</div>
-          <div class="number-text">9600<span class="unit-text">个</span></div>
-        </div>
-      </div>
-      <div class="content-list">
-        <div class="img sl-img"></div>
-        <div class="right-text">
-          <div>饲料库存统计</div>
-          <div class="number-text">9600<span class="unit-text">吨</span></div>
-        </div>
+      <div class="table-two">
+        <comTable :tableData="tableData">
+          <el-table-column prop="date" label="受检对象"> </el-table-column>
+          <el-table-column prop="name" label="检疫部门"> </el-table-column>
+          <el-table-column prop="address" label="检疫时间"> </el-table-column>
+          <el-table-column prop="b" label="检疫人员"> </el-table-column>
+          <el-table-column prop="b" label="病毒类型"> </el-table-column>
+        </comTable>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import comTitle from '@/components/comBoxHead/index.vue'
+import comTitle from "@/components/comBoxHead/index.vue";
+import comTable from "@/components/comTable/index.vue";
 export default {
   data() {
     return {
-    
-    }
+      tableData: [
+        {
+          date: "2016",
+          name: "王小虎",
+          address: "普陀",
+          b: "xxxx",
+        },
+        {
+          date: "205",
+          name: "王小虎",
+          address: "沙江路",
+          b: "xxxx",
+        },
+        {
+          date: "01",
+          name: "王小虎",
+          address: "市普陀区",
+          b: "xxxx",
+        },
+        {
+          date: "201",
+          name: "王小虎",
+          address: "市区金",
+          b: "xxxx",
+        },
+      ],
+    };
   },
   components: {
-    comTitle
+    comTitle,
+    comTable,
   },
-  methods:{
-
-  }
-}
+  methods: {},
+};
 </script>
 
 <style scoped lang="less">
-  .container-box{
+.container-box {
+  width: 980px;
+  overflow: hidden;
+}
+.content {
+  width: 100%;
+  padding-top: 43px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  > .table-one {
+    width: 413px;
+    height: 319px;
+    margin-right: 20px;
+  }
+  > .table-two {
     width: 500px;
-    overflow: hidden;
+    height: 319px;
   }
-  .content{
-    width: 100%;
-    padding-left: 39px;
-    padding-top: 43px;
-    box-sizing: border-box;
-    overflow: hidden;
-    &-list{
-      float: left;
-      display: flex;
-      align-items: center;
-      margin-bottom: 40px;
-      width: 37%;
-      >.img{
-        width: 58px;
-        height: 60px;
-        background: url("../../../assets/img/srtj.png") center no-repeat;
-        margin-right: 19px;
-      }
-      >.zc-img{
-        background: url("../../../assets/img/zclx.png") center no-repeat;
-      }
-      >.zc-img{
-        background: url("../../../assets/img/zclx.png") center no-repeat;
-      }
-      >.sl-img{
-        background: url("../../../assets/img/slcl.png") center no-repeat;
-      }
-      >.right-text{
-        font-size: 14px;
-        font-family: Source Han Sans SC;
-        font-weight: 400;
-        color: #A2D1FF;
-      }
-    }
-  }
-  .number-text{
-    margin-top: 14px;
-    font-size: 26px;
-    font-family: PangMenZhengDao;
-    font-weight: 400;
-    color: #00FFE4;
-    background: linear-gradient(0deg, #45CDFF 0%, #E5F9FF 100%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .unit-text{
-    font-size: 14px;
-  }
+}
 </style>

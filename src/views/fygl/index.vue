@@ -35,22 +35,22 @@ export default {
     overflow: hidden;
     .top-one{
       position: absolute;
-      left: 105px;
+      left:65px;
       top: 58px;
     }
     .top-two{
       position: absolute;
-      left: 1000px;
+      left: 606px;
       top: 58px;
     }
     .bottom-one{
       position: absolute;
-      left: 105px;
+      left:65px;
       top: 551px;
     }
     .bottom-two{
       position: absolute;
-      left: 1000px;
+      left: 606px;
       top: 551px;
     }
   }
