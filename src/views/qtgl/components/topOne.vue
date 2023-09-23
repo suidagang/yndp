@@ -74,7 +74,7 @@ export default {
   width: 100%;
   height: 307px;
   padding-left: 49px;
-  padding-top: 33px;
+  margin-top: 33px;
   box-sizing: border-box;
   overflow: hidden;
 }

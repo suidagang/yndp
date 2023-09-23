@@ -2,7 +2,7 @@
   <div class="container-box">
     <comTitle tabTitle="牛基础信息列表" />
     <div class="content">
-      <comTable :tableData="tableData">
+      <comTable :tableData="tableData" @clickRow = "clickRow">
         <el-table-column prop="date" label="编号"> </el-table-column>
         <el-table-column prop="name" label="编码"> </el-table-column>
         <el-table-column prop="address" label="种类"> </el-table-column>
@@ -60,7 +60,11 @@ export default {
     comTitle,
     comTable
   },
-  methods: {},
+  methods: {
+    clickRow(row){
+      this.$emit("goDetail",row)
+    }
+  },
 };
 </script>
 

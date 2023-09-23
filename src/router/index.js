@@ -51,7 +51,7 @@ const routes = [
             path: "ncgl",
             name: "牛场管理",
             fullPath: "/layout/zyncgl/ncgl",
-            component: () => import("../views/ncgl/ncgl.vue"),
+            component: () => import("../views/ncgl/index.vue"),
           },
           {
             path: "sygl",

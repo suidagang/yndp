@@ -70,7 +70,7 @@ export default {
 .content {
   width: 100%;
   padding-left: 12px;
-  padding-top: 33px;
+  margin-top: 33px;
   box-sizing: border-box;
   overflow: hidden;
   height: 307px;

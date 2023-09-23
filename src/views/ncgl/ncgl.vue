@@ -1,7 +1,7 @@
 <template>
   <div class="container-box">
     <topOne class="top-one" />
-    <topTwo class="top-two" />
+    <topTwo class="top-two" @goDetail="goDetail" />
     <bottomOne class="bottom-one" />
   </div>
 </template>
@@ -20,6 +20,11 @@ export default {
     topOne,
     topTwo,
     bottomOne
+  },
+  methods:{
+    goDetail(row){
+      this.$emit("goncglDeatil",row)
+    }
   }
 }
 </script>

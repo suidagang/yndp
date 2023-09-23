@@ -4,6 +4,7 @@
     :header-cell-style="headerStyle"
     :cell-style="cellStyle"
     :row-style="{ height: '34px' }"
+    @row-click ="clickRow"
     style="width: 100%; height: 100%"
   >
     <slot></slot>
@@ -40,6 +41,11 @@ export default {
       },
     },
   },
+  methods:{
+    clickRow(row, column, event){
+      this.$emit("clickRow",row,column,event)
+    }
+  }
 };
 </script>
 <style>
