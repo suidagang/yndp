@@ -1,35 +1,7 @@
 <template>
   <div class="container-box">
-    <comTitle  tabTitle="肉牛统计" />
+    <comTitle  tabTitle="收入统计" />
     <div class="content">
-      <div class="content-list">
-        <div class="img"></div>
-        <div class="right-text">
-          <div>肉牛统计</div>
-          <div class="number-text">9600<span class="unit-text">元</span></div>
-        </div>
-      </div>
-      <div class="content-list">
-        <div class="img zc-img"></div>
-        <div class="right-text">
-          <div>支出统计</div>
-          <div  class="number-text">9600<span class="unit-text">元</span></div>
-        </div>
-      </div>
-      <div class="content-list">
-        <div class="img cl-img"></div>
-        <div class="right-text">
-          <div>存栏统计</div>
-          <div class="number-text">9600<span class="unit-text">个</span></div>
-        </div>
-      </div>
-      <div class="content-list">
-        <div class="img sl-img"></div>
-        <div class="right-text">
-          <div>饲料库存统计</div>
-          <div class="number-text">9600<span class="unit-text">吨</span></div>
-        </div>
-      </div>
     </div>
   </div>
 </template>

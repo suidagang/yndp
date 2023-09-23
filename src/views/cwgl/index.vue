@@ -2,7 +2,7 @@
   <div class="container-box">
     <topOne class="top-one" />
     <bottomOne class="bottom-one" />
-    <bottomTwo class="bottom-one" />
+    <bottomTwo class="bottom-two" />
   </div>
 </template>
 
@@ -42,7 +42,7 @@ export default {
     }
     .bottom-two{
       position: absolute;
-      left: 1000px;
+      left: 920px;
       top: 778px;
     }
   }
