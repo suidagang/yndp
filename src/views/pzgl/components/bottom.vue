@@ -38,23 +38,102 @@
           </div>
         </div>
       </div>
+      <div class="content-bottom">
+        <template v-for="(item, index) in listData">
+          <el-popover
+            placement="right"
+            width="574"
+            trigger="manual"
+            v-model="item.active"
+            :key="index"
+          >
+            <comTable :tableData="tableData" style="height:97px;">
+              <el-table-column prop="a" label="能繁母牛"> </el-table-column>
+              <el-table-column prop="b" label="已授精"> </el-table-column>
+              <el-table-column prop="c" label="已受孕"> </el-table-column>=
+            </comTable>
+            <div
+              slot="reference"
+              class="content-bottom-list"
+              :class="{ active: item.active }"
+              @click="choiceTab(item)"
+            >
+              <div>{{ item.name }}</div>
+              <div>{{ item.num }}</div>
+            </div>
+          </el-popover>
+        </template>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
+import comTable from "@/components/comTable/index.vue";
 export default {
   data() {
-    return {};
+    return {
+      showTable: false,
+      listData: [
+        {
+          name: "云岭肉牛/头",
+          num: "21",
+          active: true,
+        },
+        {
+          name: "西门塔尔/头",
+          num: "21",
+          active: false,
+        },
+        {
+          name: "安格斯/头",
+          num: "21",
+          active: false,
+        },
+        {
+          name: "鲁西黄牛/头",
+          num: "21",
+          active: false,
+        },
+      ],
+      tableData: [
+        {
+          a: 500,
+          b: 300,
+          c: 261,
+        },
+      ],
+    };
   },
   components: {
     comTitle,
+    comTable,
   },
-  methods: {},
+  methods: {
+    choiceTab(item) {
+      this.listData.map((ele) => {
+        ele.active = false;
+      });
+      item.active = true;
+    },
+  },
 };
 </script>
-
+<style>
+.el-popover {
+  background-color: rgba(0,0,0,0) !important;
+  color: #fff !important;
+  border: none;
+  padding: 0;
+}
+.el-popper[x-placement^=right] .popper__arrow{
+  border-right-color:#02376f59 !important;
+}
+.el-popper[x-placement^=right] .popper__arrow::after {
+  border-right-color:#02376f59!important;
+}
+</style>
 <style scoped lang="less">
 .container-box {
   width: 100%;
@@ -66,6 +145,7 @@ export default {
   padding-top: 43px;
   box-sizing: border-box;
   overflow: hidden;
+
   &-top {
     height: 55px;
     display: flex;
@@ -109,6 +189,38 @@ export default {
         margin-left: 24px;
       }
     }
+  }
+  .content-bottom {
+    width: 100%;
+    padding-top: 25px;
+    box-sizing: border-box;
+    overflow: hidden;
+    .active {
+      background: url("../../../assets/img/pzgl/rect-two.png") center no-repeat;
+    }
+    &-list {
+      width: 270px;
+      height: 77px;
+      padding: 0 20px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      background: url("../../../assets/img/pzgl/rect-one.png") center no-repeat;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      font-family: Source Han Sans CN;
+      font-weight: 500;
+      color: #aec9ff;
+      justify-content: space-between;
+    }
+  }
+  .table-box {
+    position: absolute;
+    left: 330px;
+    top: 180px;
+    width: 574px;
+    height: 97px;
   }
 }
 </style>
