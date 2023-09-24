@@ -39,30 +39,58 @@
         </div>
       </div>
       <div class="content-bottom">
-        <template v-for="(item, index) in listData">
-          <el-popover
-            placement="right"
-            width="574"
-            trigger="manual"
-            v-model="item.active"
-            :key="index"
-          >
-            <comTable :tableData="tableData" style="height:97px;">
-              <el-table-column prop="a" label="能繁母牛"> </el-table-column>
-              <el-table-column prop="b" label="已授精"> </el-table-column>
-              <el-table-column prop="c" label="已受孕"> </el-table-column>=
-            </comTable>
-            <div
-              slot="reference"
-              class="content-bottom-list"
-              :class="{ active: item.active }"
-              @click="choiceTab(item)"
+        <div class="content-bottom-l">
+          <template v-for="(item, index) in listData">
+            <el-popover
+              placement="right"
+              width="574"
+              trigger="manual"
+              v-model="item.active"
+              :key="index"
             >
-              <div>{{ item.name }}</div>
-              <div>{{ item.num }}</div>
-            </div>
-          </el-popover>
-        </template>
+              <comTable :tableData="tableData" style="height: 97px">
+                <el-table-column prop="a" label="能繁母牛"> </el-table-column>
+                <el-table-column prop="b" label="已授精"> </el-table-column>
+                <el-table-column prop="c" label="已受孕"> </el-table-column>=
+              </comTable>
+              <div
+                slot="reference"
+                class="content-bottom-list"
+                :class="{ active: item.active }"
+                @click="choiceTab(item)"
+              >
+                <div>{{ item.name }}</div>
+                <div>{{ item.num }}</div>
+              </div>
+            </el-popover>
+          </template>
+        </div>
+        <div class="content-bottom-r">
+          <template v-for="(item, index) in listDatar">
+            <el-popover
+              placement="left"
+              width="574"
+              trigger="manual"
+              v-model="item.active"
+              :key="index"
+            >
+              <comTable :tableData="tableData" style="height: 97px">
+                <el-table-column prop="a" label="能繁母牛"> </el-table-column>
+                <el-table-column prop="b" label="已授精"> </el-table-column>
+                <el-table-column prop="c" label="已受孕"> </el-table-column>=
+              </comTable>
+              <div
+                slot="reference"
+                class="content-bottom-list"
+                :class="{ active: item.active }"
+                @click="choiceTab(item)"
+              >
+                <div>{{ item.name }}</div>
+                <div>{{ item.num }}</div>
+              </div>
+            </el-popover>
+          </template>
+        </div>
       </div>
     </div>
   </div>
@@ -97,6 +125,28 @@ export default {
           active: false,
         },
       ],
+      listDatar: [
+        {
+          name: "r云岭肉牛/头",
+          num: "21",
+          active: false,
+        },
+        {
+          name: "r西门塔尔/头",
+          num: "21",
+          active: false,
+        },
+        {
+          name: "r安格斯/头",
+          num: "21",
+          active: false,
+        },
+        {
+          name: "r鲁西黄牛/头",
+          num: "21",
+          active: false,
+        },
+      ],
       tableData: [
         {
           a: 500,
@@ -110,14 +160,17 @@ export default {
     comTitle,
     comTable,
   },
-  mounted(){
-    setTimeout(()=>{
+  mounted() {
+    setTimeout(() => {
       this.listData[0].active = true;
-    },10)
+    }, 10);
   },
   methods: {
     choiceTab(item) {
       this.listData.map((ele) => {
+        ele.active = false;
+      });
+      this.listDatar.map((ele) => {
         ele.active = false;
       });
       item.active = true;
@@ -127,16 +180,16 @@ export default {
 </script>
 <style>
 .el-popover {
-  background-color: rgba(0,0,0,0) !important;
+  background-color: rgba(0, 0, 0, 0) !important;
   color: #fff !important;
   border: none;
   padding: 0;
 }
-.el-popper[x-placement^=right] .popper__arrow{
-  border-right-color:#02376f59 !important;
+.el-popper[x-placement^="right"] .popper__arrow {
+  border-right-color: #02376f59 !important;
 }
-.el-popper[x-placement^=right] .popper__arrow::after {
-  border-right-color:#02376f59!important;
+.el-popper[x-placement^="right"] .popper__arrow::after {
+  border-right-color: #02376f59 !important;
 }
 </style>
 <style scoped lang="less">
@@ -150,7 +203,7 @@ export default {
   padding-top: 43px;
   box-sizing: border-box;
   overflow: hidden;
-
+  height: 100%;
   &-top {
     height: 55px;
     display: flex;
@@ -200,6 +253,22 @@ export default {
     padding-top: 25px;
     box-sizing: border-box;
     overflow: hidden;
+    position: relative;
+    height: 100%;
+    &-l{
+      position: absolute;
+      top: 25px;
+      left: 0;
+      height: 100%;
+      width: 280px;
+    }
+    &-r{
+      position: absolute;
+      top: 25px;
+      left: 900px;
+      height: 100%;
+      width: 280px;
+    }
     .active {
       background: url("../../../assets/img/pzgl/rect-two.png") center no-repeat;
     }
