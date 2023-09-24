@@ -5,6 +5,10 @@
       :append-to-body="true"
       width="160"
       v-model="visible"
+      :popper-options="{
+        boundariesElement: 'body',
+        removeOnDestroy: true,
+      }"
     >
       <p>这是一段内容这是一段内容确定删除吗？</p>
       <div style="text-align: right; margin: 0">

@@ -79,7 +79,7 @@ export default {
         {
           name: "云岭肉牛/头",
           num: "21",
-          active: true,
+          active: false,
         },
         {
           name: "西门塔尔/头",
@@ -109,6 +109,11 @@ export default {
   components: {
     comTitle,
     comTable,
+  },
+  mounted(){
+    setTimeout(()=>{
+      this.listData[0].active = true;
+    },10)
   },
   methods: {
     choiceTab(item) {
