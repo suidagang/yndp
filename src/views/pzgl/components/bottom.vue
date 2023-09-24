@@ -191,6 +191,12 @@ export default {
 .el-popper[x-placement^="right"] .popper__arrow::after {
   border-right-color: #02376f59 !important;
 }
+.el-popper[x-placement^="left"] .popper__arrow {
+  border-left-color: #02376f59 !important;
+}
+.el-popper[x-placement^="left"] .popper__arrow::after {
+  border-left-color: #02376f59 !important;
+}
 </style>
 <style scoped lang="less">
 .container-box {
