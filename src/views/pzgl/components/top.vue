@@ -70,9 +70,24 @@ export default {
   data() {
     return {
       options: {
+        legend: {
+          data: ['党员数', '网格员数'],
+          right: 10,
+          top: 0,
+          itemWidth: 15,
+          itemHeight: 10,
+          itemGap: 15,
+          borderRadius: 4,
+          textStyle: {
+            fontFamily: "Source Han Sans SC",
+            fontSize: 14,
+            fontWeight: 400,
+            color: '#86B2D7'
+          },
+        },
         grid: {
           left: "5%",
-          top: "10%",
+          top: "20%",
           right: "0%",
           bottom: "10%",
         },
@@ -100,6 +115,14 @@ export default {
         },
         yAxis: [
           {
+            name:"头",
+            nameTextStyle: {
+              color: "#86B2D7",
+              fontFamily: "Source Han Sans SC",
+              fontSize: 12,
+              fontWeight: 400,
+              padding: [10, 0, 0, -30]
+            },
             type: "value",
             nameGap: 30, // 将标题和轴线之间的距离设置为 30 像素
             // nameLocation: 'middle', // 将标题位置设置为中间
@@ -185,9 +208,8 @@ export default {
             name: "党员数",
             type: "pictorialBar",
             data: data.map((item) => item + 10),
-            symbol: "diamond",
             symbolOffset: ["-70%", "50%"],
-            symbolSize: [barWidth, 10],
+            symbolSize: [barWidth-1, 10],
             itemStyle: {
               normal: {
                 color: colorArr[2],
@@ -203,7 +225,6 @@ export default {
             type: "pictorialBar",
             symbolPosition: "end",
             data: data,
-            symbol: "diamond",
             symbolOffset: ["-70%", "-60%"],
             symbolSize: [barWidth - 1, (10 * (barWidth - 1)) / barWidth],
             itemStyle: {
@@ -237,9 +258,8 @@ export default {
             name: "网格员数",
             type: "pictorialBar",
             data: data2.map((item) => item + 10),
-            symbol: "diamond",
             symbolOffset: ["70%", "50%"],
-            symbolSize: [barWidth, 10],
+            symbolSize: [barWidth-1, 9],
             itemStyle: {
               normal: {
                 color: colorArr2[2],
@@ -254,9 +274,7 @@ export default {
             name: "网格员数",
             type: "pictorialBar",
             symbolPosition: "end",
-            // barCategoryGap : "90%",
             data: data2,
-            symbol: "diamond",
             symbolOffset: ["70%", "-50%"],
             symbolSize: [barWidth - 1, (10 * (barWidth - 1)) / barWidth],
             itemStyle: {
