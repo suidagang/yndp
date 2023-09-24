@@ -1,6 +1,6 @@
 <template>
   <div class="comheader">
-    <div class="comheader-title">智慧养牛数字供应链平台</div>
+    <div class="comheader-title" @click="goHome">智慧养牛数字供应链平台</div>
     <div class="comheader-tab">
       <div
         class="comheader-tab-one"
@@ -59,6 +59,9 @@ export default {
     this.showTime();
   },
   methods: {
+    goHome() {
+      this.$router.push("/layout/yncjcxxjb");
+    },
     showTime() {
       const format = (num) => (num < 10 ? "0" + num : num);
       const getTime = () => {

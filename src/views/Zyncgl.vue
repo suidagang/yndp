@@ -23,6 +23,40 @@ export default {
   components: {},
   data() {
     return {
+      listOldData: [
+        {
+          name: "牛舍管理",
+          path: "/layout/zyncgl/nsgl",
+        },
+        {
+          name: "防疫管理",
+          path: "/layout/zyncgl/fygl",
+        },
+        {
+          name: "牛场监控",
+          path: "/layout/zyncgl/ncjk",
+        },
+        {
+          name: "饲养管理",
+          path: "/layout/zyncgl/sygl",
+        },
+        {
+          name: "配种管理",
+          path: "/layout/zyncgl/pzgl",
+        },
+        {
+          name: "牛场管理",
+          path: "/layout/zyncgl/ncgl",
+        },
+        {
+          name: "财务管理",
+          path: "/layout/zyncgl/cwgl",
+        },
+        {
+          name: "其他管理",
+          path: "/layout/zyncgl/qtgl",
+        },
+      ],
       listData: [
         {
           name: "牛舍管理",
@@ -59,12 +93,30 @@ export default {
       ],
     };
   },
-  mounted() {},
+  mounted() {
+    this.dealActive()
+  },
   methods: {
-    changeItem(item, index) {
-      this.listData.splice(index, 1);
-      this.listData.splice(3, 0, item);
-      this.$router.push(item.path);
+    dealActive(){
+      const urlPath = this.$route.path;
+      let currentIndex = 0;
+      let currentItem = null;
+      this.listData.forEach((item,index)=>{
+        if(item.path === urlPath){
+          currentIndex = index;
+          currentItem = item;
+        }
+      })
+      this.changeItem(currentItem,currentIndex,true)
+    },
+    changeItem(item, index,flag) {
+      const listData = JSON.parse(JSON.stringify(this.listOldData));
+      listData.splice(index, 1);
+      listData.splice(3, 0, item);
+      this.listData = listData;
+      if(!flag){
+        this.$router.push(item.path);
+      }
     },
   },
 };
