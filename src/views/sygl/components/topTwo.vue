@@ -46,7 +46,6 @@ export default {
               fontSize: 14,
             },
             formatter: function (params) {
-              console.log(params);
               for (var i = 0; i < data.length; i++) {
                 if (params === data[i].name) {
                   const value = data[i].value;

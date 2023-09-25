@@ -1,5 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+
+// 解决重复点击路由报警告问题
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+    return originalPush.call(this, location).catch(err => err)
+};
+
 import Login from "../views/Login.vue"; // 引入 Home页面组件
 import Layout from "../views/Layout.vue";
 

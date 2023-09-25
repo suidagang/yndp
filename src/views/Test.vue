@@ -20,7 +20,6 @@
 <script>
 import comTable from "@/components/comTable/index.vue";
 import comTableOne from "@/components/comTable/indexOne.vue";
-import testBtn from '../components/comTest.vue'
 export default {
   components:{
     comTableOne,
@@ -68,6 +67,13 @@ export default {
         },
       ],
     };
+  },
+  mounted(){
+     this.$message({
+        showClose: true,
+        message: "网络请求不存在",
+        type: "error",
+      });
   },
   methods: {
     tableRowClassName({ row, rowIndex }) {
