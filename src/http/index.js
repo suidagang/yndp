@@ -10,7 +10,7 @@ import { Message } from "element-ui";
 if (process.env.NODE_ENV == "development") {
   axios.defaults.baseURL = "/api";
 } else if (process.env.NODE_ENV == "production") {
-  axios.defaults.baseURL = "http://api.123dailu.com/";
+  axios.defaults.baseURL = "/";
 }
 
 // 请求超时时间
