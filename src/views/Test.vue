@@ -1,90 +1,89 @@
 <template>
   <div class="box">
-    <el-popover
-      placement="right"
-      :append-to-body="true"
-      width="160"
-      v-model="visible"
-      :popper-options="{
-        boundariesElement: 'body',
-        removeOnDestroy: true,
-      }"
-    >
-      <p>这是一段内容这是一段内容确定删除吗？</p>
-      <div style="text-align: right; margin: 0">
-        <el-button size="mini" type="text" @click="visible = false"
-          >取消</el-button
-        >
-        <el-button type="primary" size="mini" @click="visible = false"
-          >确定</el-button
-        >
-      </div>
-      <el-button slot="reference">删除</el-button>
-    </el-popover>
+    <div class="table-box">
+      <comTableOne :tableData="tableData">
+        <el-table-column prop="date" label="编号"> </el-table-column>
+        <el-table-column prop="name" label="访客类型"> </el-table-column>
+        <el-table-column prop="address" label="时间"> </el-table-column>
+        <el-table-column prop="d" label="是否授权"> </el-table-column>
+      </comTableOne>
+    </div>
+    <div class="text"></div>
   </div>
 </template>
+
 <script>
+import comTableOne from "@/components/comTable/indexOne.vue";
 export default {
+  components:{
+    comTableOne
+  },
   data() {
     return {
-      visible: true,
-      gridData: [
+      cellStyle: {
+        fontSize: "14px",
+        fontFamily: "Source Han Sans SC",
+        fontWeight: 400,
+        color: "#86B2D7",
+        textAlign: "left",
+        paddingLeft: "18px",
+      },
+      headerStyle: {
+        fontSize: "14px",
+        fontFamily: "Source Han Sans SC",
+        fontWeight: "bold",
+        color: "#B7C9E5",
+        height: "40px",
+        paddingLeft: "18px",
+        backgroundColor:"rgba(0,0,0,0)"
+      },
+      tableData: [
         {
           date: "2016-05-02",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
+          address: "上海市普陀",
         },
         {
           date: "2016-05-04",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
+          address: "沙江路 1517 弄",
         },
         {
           date: "2016-05-01",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
+          address: "市普陀区",
         },
         {
           date: "2016-05-03",
           name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
+          address: "上海市普陀区",
         },
       ],
     };
   },
+  methods: {
+    tableRowClassName({ row, rowIndex }) {
+      return "background: white;";
+    },
+  },
 };
 </script>
 
-<style scoped>
+<style lang='less' scoped>
 .box {
-  width: 400px;
-  margin: 120px auto;
+  width: 100%;
+  height: 100%;
+  background: url("../assets/img/com_bg.png") center no-repeat;
+  overflow: hidden;
 }
-.top {
-  text-align: center;
+.table-box {
+  margin: 50px auto;
+  width: 500px;
+  height: 500px;
 }
-
-.left {
-  float: left;
-  width: 60px;
-}
-
-.right {
-  float: right;
-  width: 60px;
-}
-
-.bottom {
-  clear: both;
-  text-align: center;
-}
-
-.item {
-  margin: 4px;
-}
-
-.left .el-tooltip__popper,
-.right .el-tooltip__popper {
-  padding: 8px 10px;
+.text {
+  width: 334px;
+  height: 30px;
+  background: linear-gradient(90deg, #0b3070 0%, rgba(18, 43, 87, 0) 100%);
 }
 </style>

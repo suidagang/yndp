@@ -31,7 +31,7 @@
       <div class="content-list">
         <div class="top-box">
           <div class="line"></div>
-          <div>免疫程序记录</div>
+          <div>消杀毒记录</div>
         </div>
         <div class="content-list-body">
           <comTable :tableData="tableData">
@@ -44,15 +44,15 @@
       <div class="content-list">
         <div class="top-box">
           <div class="line"></div>
-          <div>免疫程序记录</div>
+          <div>无害化处理记录</div>
         </div>
         <div class="content-list-body">
-          <comTable :tableData="tableData">
+          <comTableOne :tableData="tableData">
             <el-table-column prop="date" label="编号"> </el-table-column>
             <el-table-column prop="date" label="处理方式"> </el-table-column>
             <el-table-column prop="date" label="处理时间"> </el-table-column>
             <el-table-column prop="date" label="死亡原因"> </el-table-column>
-          </comTable>
+          </comTableOne>
         </div>
       </div>
     </div>
@@ -62,6 +62,7 @@
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
 import comTable from "@/components/comTable/index.vue";
+import comTableOne from "@/components/comTable/indexOne.vue";
 export default {
   data() {
     return {
@@ -122,6 +123,7 @@ export default {
   components: {
     comTitle,
     comTable,
+    comTableOne,
   },
   methods: {},
 };

@@ -48,71 +48,71 @@ export default {
   }
 };
 </script>
-<style>
-.el-table .cell, .el-table th div, .el-table--border td:first-child .cell, .el-table--border th:first-child .cell{
-  padding-left: 0;
+<style lang="less" scoped>
+/deep/ .el-table .cell, .el-table th div, .el-table--border td:first-child .cell, .el-table--border th:first-child .cell{
+  padding-left: 0!important;
 }
-.el-table .cell, .el-table th div{
-  padding-right: 0;
+/deep/ .el-table .cell, .el-table th div{
+  padding-right: 0!important;
 }
-.el-table {
+/deep/ .el-table {
   background: linear-gradient(
     90deg,
     rgba(2, 54, 111, 0.1) 1%,
     rgba(0, 114, 255, 0.2) 54%,
     rgba(2, 54, 111, 0.1) 99%
-  );
+  )!important;
 }
 /* body居表头距离 */
-.el-table .el-table__body-wrapper {
-  margin-top: 8px;
+/deep/ .el-table .el-table__body-wrapper {
+  margin-top: 8px!important;
 }
 /* 设置表头的高度 */
 
-.el-table__header td,
+/deep/ .el-table__header td,
 .el-table__header th {
-  padding: 6px 0px;
+  padding: 6px 0px!important;
 }
 /* 设置表主体的高度 */
 
-.el-table__body td,
+/deep/ .el-table__body td,
 .el-table__body th {
-  padding: 1px;
+  padding: 1px!important;
 }
 
-.el-table .el-table__header-wrapper {
+/deep/ .el-table .el-table__header-wrapper {
   background: linear-gradient(
     90deg,
     rgba(2, 54, 111, 0.1) 1%,
     rgba(0, 114, 255, 0.2) 54%,
     rgba(2, 54, 111, 0.1) 99%
-  );
+  )!important;
 }
 /*最外层透明*/
-.el-table,
+/deep/ .el-table,
 .el-table__expanded-cell {
   background-color: transparent !important;
 }
 /* 表格内背景颜色 */
-.el-table th,
+/deep/ .el-table th,
 .el-table tr,
 .el-table td {
   background-color: transparent;
 }
 /* 去除边框 */
-.el-table__row > td {
-  border: none;
+/deep/ .el-table__row > td {
+  border: none!important;
 }
-.el-table::before {
-  height: 0px;
+/deep/ .el-table::before {
+  height: 0px!important;
 }
-.el-table td,
+/deep/ .el-table td,
 .el-table th.is-leaf {
-  border-bottom: none;
+  border-bottom: none!important;
 }
 
 /* 修改hover样式 */
-.el-table__body tr:hover > td {
+/deep/ .el-table__body tr:hover > td {
   background-color: inherit !important;
 }
 </style>
