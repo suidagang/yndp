@@ -1,5 +1,5 @@
 <template>
-  <div class="com-table">
+  <div class="container">
     <el-table
       :data="tableData"
       :header-cell-style="headerStyle"
@@ -23,7 +23,7 @@ export default {
         fontWeight: 400,
         color: "#86B2D7",
         textAlign: "left",
-        // paddingLeft: "18px!important",
+        paddingLeft: "18px",
         backgroundColor: "rgba(0,0,0,0)",
       },
       headerStyle: {
@@ -32,7 +32,7 @@ export default {
         fontWeight: "bold",
         color: "#B7C9E5",
         height: "40px",
-        // paddingLeft: "18px!important",
+        paddingLeft: "18px",
       },
     };
   },
@@ -44,20 +44,11 @@ export default {
       },
     },
   },
-  methods:{
-    clickRow(row, column, event){
-      this.$emit("clickRow",row,column,event)
-    }
-  }
+  components: {},
 };
 </script>
 
 <style scoped lang="less">
-.com-table{
-  width: 100%;
-  height: 100%;
-  overflow:hidden;
-}
 /deep/ .el-button--primary {
   background-color: red !important;
   color: #000;
@@ -73,12 +64,7 @@ export default {
   padding-right: 0 !important;
 }
 /deep/ .el-table {
-  background: linear-gradient(
-    90deg,
-    rgba(2, 54, 111, 0.1) 1%,
-    rgba(0, 114, 255, 0.2) 54%,
-    rgba(2, 54, 111, 0.1) 99%
-  )!important;
+  background: rgba(0, 0, 0, 0) !important;
 }
 /* body居表头距离 */
 /deep/ .el-table .el-table__body-wrapper {
@@ -98,17 +84,19 @@ export default {
 }
 
 /deep/ .el-table .el-table__header-wrapper {
-  background: linear-gradient(
-    90deg,
-    rgba(2, 54, 111, 0.1) 1%,
-    rgba(0, 114, 255, 0.2) 54%,
-    rgba(2, 54, 111, 0.1) 99%
-  )!important;
+  background: rgba(0, 0, 0, 0);
 }
 /*最外层透明*/
 /deep/ .el-table,
 .el-table__expanded-cell {
   background-color: rgba(0, 0, 0, 0) !important;
+}
+/deep/ .el-table .el-table__body-wrapper tr {
+  background: linear-gradient(
+    90deg,
+    #0b3070 0%,
+    rgba(18, 43, 87, 0) 100%
+  ) !important;
 }
 /deep/ .el-table .el-table__header-wrapper tr,
 .el-table .el-table__header-wrapper tr th {
@@ -131,21 +119,11 @@ export default {
 }
 /deep/ .el-table td,
 .el-table th.is-leaf {
-  // border-bottom: 2px solid #161b33 !important;
-  border-bottom:none!important;
+  border-bottom: 2px solid #161b33 !important;
 }
 
 /* 修改hover样式 */
 /deep/ .el-table__body tr:hover > td {
   background-color: inherit !important;
-}
-/deep/ .el-table .el-table__row{
-  background: rgba(0,0,0,0);
-}
-.com-table /deep/ .el-table .el-table__body tr td:nth-of-type(1){
-  padding-left: 18px!important;
-}
-.com-table /deep/ .el-table .el-table__header tr th:nth-of-type(1){
-  padding-left: 18px!important;
 }
 </style>

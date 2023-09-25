@@ -8,15 +8,22 @@
         <el-table-column prop="d" label="是否授权"> </el-table-column>
       </comTableOne>
     </div>
-    <div class="text"></div>
+    <div class="text">111111111</div>
+    <testBtn :tableData="tableData">
+       <el-table-column prop="date" label="日期" width="180"> </el-table-column>
+      <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
+      <el-table-column prop="address" label="地址"> </el-table-column>
+    </testBtn>
   </div>
 </template>
 
 <script>
-import comTableOne from "@/components/comTable/indexOne.vue";
+import comTableOne from "@/components/comTable/index.vue";
+import testBtn from '../components/comTest.vue'
 export default {
   components:{
-    comTableOne
+    comTableOne,
+    testBtn
   },
   data() {
     return {
