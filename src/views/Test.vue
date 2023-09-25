@@ -69,6 +69,8 @@ export default {
     };
   },
   mounted(){
+    console.log(process.env.NODE_ENV,'--process.env.NODE_ENV')
+    console.log(this.$router.currentRoute.fullPath,'--currentRoute.fullPath')
      this.$message({
         showClose: true,
         message: "网络请求不存在",
