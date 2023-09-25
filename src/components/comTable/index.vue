@@ -23,7 +23,6 @@ export default {
         fontWeight: 400,
         color: "#86B2D7",
         textAlign: "left",
-        // paddingLeft: "18px!important",
         backgroundColor: "rgba(0,0,0,0)",
       },
       headerStyle: {
@@ -32,7 +31,6 @@ export default {
         fontWeight: "bold",
         color: "#B7C9E5",
         height: "40px",
-        // paddingLeft: "18px!important",
       },
     };
   },
@@ -44,19 +42,19 @@ export default {
       },
     },
   },
-  methods:{
-    clickRow(row, column, event){
-      this.$emit("clickRow",row,column,event)
-    }
-  }
+  methods: {
+    clickRow(row, column, event) {
+      this.$emit("clickRow", row, column, event);
+    },
+  },
 };
 </script>
 
 <style scoped lang="less">
-.com-table{
+.com-table {
   width: 100%;
   height: 100%;
-  overflow:hidden;
+  overflow: hidden;
 }
 /deep/ .el-button--primary {
   background-color: red !important;
@@ -78,7 +76,7 @@ export default {
     rgba(2, 54, 111, 0.1) 1%,
     rgba(0, 114, 255, 0.2) 54%,
     rgba(2, 54, 111, 0.1) 99%
-  )!important;
+  ) !important;
 }
 /* body居表头距离 */
 /deep/ .el-table .el-table__body-wrapper {
@@ -103,7 +101,7 @@ export default {
     rgba(2, 54, 111, 0.1) 1%,
     rgba(0, 114, 255, 0.2) 54%,
     rgba(2, 54, 111, 0.1) 99%
-  )!important;
+  ) !important;
 }
 /*最外层透明*/
 /deep/ .el-table,
@@ -132,20 +130,20 @@ export default {
 /deep/ .el-table td,
 .el-table th.is-leaf {
   // border-bottom: 2px solid #161b33 !important;
-  border-bottom:none!important;
+  border-bottom: none !important;
 }
 
 /* 修改hover样式 */
 /deep/ .el-table__body tr:hover > td {
   background-color: inherit !important;
 }
-/deep/ .el-table .el-table__row{
-  background: rgba(0,0,0,0);
+/deep/ .el-table .el-table__row {
+  background: rgba(0, 0, 0, 0);
 }
-.com-table /deep/ .el-table .el-table__body tr td:nth-of-type(1){
-  padding-left: 18px!important;
+.com-table /deep/ .el-table .el-table__body tr td:nth-of-type(1) {
+  padding-left: 18px !important;
 }
-.com-table /deep/ .el-table .el-table__header tr th:nth-of-type(1){
-  padding-left: 18px!important;
+.com-table /deep/ .el-table .el-table__header tr th:nth-of-type(1) {
+  padding-left: 18px !important;
 }
 </style>

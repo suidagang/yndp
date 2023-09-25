@@ -23,7 +23,6 @@ export default {
         fontWeight: 400,
         color: "#86B2D7",
         textAlign: "left",
-        paddingLeft: "18px",
         backgroundColor: "rgba(0,0,0,0)",
       },
       headerStyle: {
@@ -32,7 +31,6 @@ export default {
         fontWeight: "bold",
         color: "#B7C9E5",
         height: "40px",
-        paddingLeft: "18px",
       },
     };
   },
@@ -44,19 +42,19 @@ export default {
       },
     },
   },
-  methods:{
-    clickRow(row, column, event){
-      this.$emit("clickRow",row,column,event)
-    }
-  }
+  methods: {
+    clickRow(row, column, event) {
+      this.$emit("clickRow", row, column, event);
+    },
+  },
 };
 </script>
 
 <style scoped lang="less">
-.table-one{
+.table-one {
   width: 100%;
   height: 100%;
-  overflow:hidden;
+  overflow: hidden;
 }
 /deep/ .el-button--primary {
   background-color: red !important;
@@ -136,10 +134,10 @@ export default {
   background-color: inherit !important;
 }
 
-.table-one /deep/ .el-table .el-table__body tr td:nth-of-type(1){
-  padding-left: 18px!important;
+.table-one /deep/ .el-table .el-table__body tr td:nth-of-type(1) {
+  padding-left: 18px !important;
 }
-.table-one /deep/ .el-table .el-table__header tr th:nth-of-type(1){
-  padding-left: 18px!important;
+.table-one /deep/ .el-table .el-table__header tr th:nth-of-type(1) {
+  padding-left: 18px !important;
 }
 </style>

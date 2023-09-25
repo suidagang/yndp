@@ -9,21 +9,22 @@
       </comTableOne>
     </div>
     <div class="text">111111111</div>
-    <testBtn :tableData="tableData">
+    <comTable :tableData="tableData">
        <el-table-column prop="date" label="日期" width="180"> </el-table-column>
       <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
       <el-table-column prop="address" label="地址"> </el-table-column>
-    </testBtn>
+    </comTable>
   </div>
 </template>
 
 <script>
-import comTableOne from "@/components/comTable/index.vue";
+import comTable from "@/components/comTable/index.vue";
+import comTableOne from "@/components/comTable/indexOne.vue";
 import testBtn from '../components/comTest.vue'
 export default {
   components:{
     comTableOne,
-    testBtn
+    comTable
   },
   data() {
     return {
