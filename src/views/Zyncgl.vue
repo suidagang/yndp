@@ -6,7 +6,7 @@
         v-for="(item, index) in listData"
         :class="`num${index}`"
         :key="index"
-        @click="changeItem(item, index)"
+        @click="changeItem(item)"
       >
         {{ item.name }}
       </div>
@@ -99,19 +99,27 @@ export default {
   methods: {
     dealActive(){
       const urlPath = this.$route.path;
-      let currentIndex = 0;
       let currentItem = null;
       this.listData.forEach((item,index)=>{
         if(item.path === urlPath){
-          currentIndex = index;
           currentItem = item;
         }
-      })
-      this.changeItem(currentItem,currentIndex,true)
+      });
+      this.changeItem(currentItem,true)
     },
-    changeItem(item, index,flag) {
+    getIndex(path){
+      let resultIndex = 0;
+      this.listOldData.forEach((ele,index)=>{
+        if(ele.path === path){
+            resultIndex = index;
+        }
+      });
+      return resultIndex;
+    },
+    changeItem(item,flag) {
+      let currentIndex = this.getIndex(item.path);
       const listData = JSON.parse(JSON.stringify(this.listOldData));
-      listData.splice(index, 1);
+      listData.splice(currentIndex, 1);
       listData.splice(3, 0, item);
       this.listData = listData;
       if(!flag){
