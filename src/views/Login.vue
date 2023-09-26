@@ -39,10 +39,10 @@
 <script>
 import config from "@/http/config";
 import { userStore } from "@/store";
-import preventBack from 'vue-prevent-browser-back';//组件内单独引入
+import preventBack from "vue-prevent-browser-back"; //组件内单独引入
 export default {
   name: "view-login",
-  mixins: [preventBack],//注入
+  mixins: [preventBack], //注入
   data() {
     return {
       loginInfo: {
@@ -57,8 +57,8 @@ export default {
   },
   mounted() {
     //清空token
-    const user = userStore(); 
-    user.sysToken = '';
+    const user = userStore();
+    user.sysToken = "";
   },
   methods: {
     changeAgree() {
@@ -85,32 +85,31 @@ export default {
       }
     },
     goPage() {
-      if(!this.loginInfo.user){
-      	this.userError = true;
-      	return;
+      if (!this.loginInfo.user) {
+        this.userError = true;
+        return;
       }
-      if(!this.loginInfo.password){
-      	this.psdError = true;
-      	return
+      if (!this.loginInfo.password) {
+        this.psdError = true;
+        return;
       }
-      if(!this.loginInfo.agree){
-      	this.agreeError = true;
-      	return;
+      if (!this.loginInfo.agree) {
+        this.agreeError = true;
+        return;
       }
       const params = {
-        "code": 14,
-        "password": this.loginInfo.password,
-        "username": this.loginInfo.user,
-        "uuid": "f7834f5174eb474e9d7a34626fd2b6b4"
+        code: 14,
+        password: this.loginInfo.password,
+        username: this.loginInfo.user,
+        uuid: "f7834f5174eb474e9d7a34626fd2b6b4",
       };
-      const user = userStore(); 
+      const user = userStore();
       const { sysToken } = userStore();
-      this.$post(config.login,params).then(res=>{
+      this.$post(config.login, params).then((res) => {
         user.setToken(res.token);
         // this.$router.replace("/test");
         this.$router.push("/layout/yncjcxxjb");
-      })
-      
+      });
     },
   },
 };
