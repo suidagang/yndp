@@ -39,8 +39,10 @@
 <script>
 import config from "@/http/config";
 import { userStore } from "@/store";
+import preventBack from 'vue-prevent-browser-back';//组件内单独引入
 export default {
   name: "view-login",
+  mixins: [preventBack],//注入
   data() {
     return {
       loginInfo: {
@@ -105,7 +107,7 @@ export default {
       const { sysToken } = userStore();
       this.$post(config.login,params).then(res=>{
         user.setToken(res.token);
-        this.$router.push("/test");
+        this.$router.replace("/test");
         // this.$router.push("/layout/yncjcxxjb");
       })
       
