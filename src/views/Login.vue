@@ -107,8 +107,8 @@ export default {
       const { sysToken } = userStore();
       this.$post(config.login,params).then(res=>{
         user.setToken(res.token);
-        this.$router.replace("/test");
-        // this.$router.push("/layout/yncjcxxjb");
+        // this.$router.replace("/test");
+        this.$router.push("/layout/yncjcxxjb");
       })
       
     },
