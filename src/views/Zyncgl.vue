@@ -1,15 +1,17 @@
 <template>
   <div id="container">
     <div class="left-change-box" ref="leftBox">
-      <div
-        class="left-change-box-list"
-        v-for="(item, index) in listData"
-        :class="`num${index}`"
-        :key="index"
-        @click="changeItem(item)"
-      >
-        {{ item.name }}
-      </div>
+      <!-- <transition-group name="flip-list" tag="div"> -->
+        <div
+          class="left-change-box-list"
+          v-for="(item, index) in listData"
+          :class="`num${index}`"
+          :key="item"
+          @click="changeItem(item)"
+        >
+          {{ item.name }}
+        </div>
+      <!-- </transition-group> -->
     </div>
     <div class="zyncgl-content">
       <router-view />
@@ -94,36 +96,36 @@ export default {
     };
   },
   mounted() {
-    this.dealActive()
+    this.dealActive();
   },
   methods: {
-    dealActive(){
+    dealActive() {
       const urlPath = this.$route.path;
       let currentItem = null;
-      this.listData.forEach((item,index)=>{
-        if(item.path === urlPath){
+      this.listData.forEach((item, index) => {
+        if (item.path === urlPath) {
           currentItem = item;
         }
       });
-      this.changeItem(currentItem,true)
+      this.changeItem(currentItem, true);
     },
-    getIndex(path){
+    getIndex(path) {
       let resultIndex = 0;
-      this.listOldData.forEach((ele,index)=>{
-        if(ele.path === path){
-            resultIndex = index;
+      this.listOldData.forEach((ele, index) => {
+        if (ele.path === path) {
+          resultIndex = index;
         }
       });
       return resultIndex;
     },
-    changeItem(item,flag) {
+    changeItem(item, flag) {
       let currentIndex = this.getIndex(item.path);
       const listData = JSON.parse(JSON.stringify(this.listOldData));
       listData.splice(currentIndex, 1);
       listData.splice(3, 0, item);
       this.listData = listData;
       this.$refs.leftBox.scrollTop = 0;
-      if(!flag){
+      if (!flag) {
         this.$router.push(item.path);
       }
     },
@@ -148,18 +150,9 @@ export default {
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: auto;
+
   &::-webkit-scrollbar {
     width: 0;
-  }
-
-  > div {
-    background: url("../assets/img/zyncgl/com_left_list_bg.png") right no-repeat;
-    font-family: Source Han Sans CN;
-    text-align: right;
-    padding-right: 23px;
-    box-sizing: border-box;
-    margin-bottom: 40px;
-    cursor: pointer;
   }
   &-list {
     height: 64px;
@@ -167,6 +160,13 @@ export default {
     font-weight: 500;
     color: #aec9ff;
     line-height: 64px;
+    background: url("../assets/img/zyncgl/com_left_list_bg.png") right no-repeat;
+    font-family: Source Han Sans CN;
+    text-align: right;
+    padding-right: 23px;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+    cursor: pointer;
     &.num0 {
       width: 166px;
     }
@@ -216,5 +216,8 @@ export default {
   height: 100%;
   margin-left: 350px;
   overflow: hidden;
+}
+.flip-list-move {
+  transition: transform 1s;
 }
 </style>

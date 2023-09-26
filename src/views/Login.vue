@@ -27,7 +27,7 @@
           :class="loginInfo.agree ? 'checkbox-ok' : 'checkbox'"
           @click="changeAgree"
         ></div>
-        <span :class="{ error: agreeError }">记住密码</span>
+        <span @click="changeAgree" :class="{ error: agreeError }">记住密码</span>
       </div>
       <div class="form-submit">
         <div class="login-btn" @click="goPage">登录</div>

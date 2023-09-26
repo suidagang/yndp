@@ -5,4 +5,4 @@
 
 2、https://lanhuapp.com/link/#/invite?sid=lx0S5dov
 3、api文档地址：http://116.205.230.238:8086/swagger-ui/index.html#/
-4、管理后台地址：http://116.205.230.238:8086/swagger-ui/index.html#/
+4、管理后台地址：http://116.205.230.238:9188/login?redirect=%2Findex

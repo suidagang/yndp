@@ -1,28 +1,37 @@
 <template>
   <div class="box">
-    <div class="table-box">
+    <!-- <div class="table-box">
       <comTableOne :tableData="tableData">
         <el-table-column prop="date" label="编号"> </el-table-column>
         <el-table-column prop="name" label="访客类型"> </el-table-column>
         <el-table-column prop="address" label="时间"> </el-table-column>
         <el-table-column prop="d" label="是否授权"> </el-table-column>
       </comTableOne>
-    </div>
+    </div> -->
     <!-- <div class="text">111111111</div> -->
     <!-- <comTable :tableData="tableData">
        <el-table-column prop="date" label="日期" width="180"> </el-table-column>
       <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
       <el-table-column prop="address" label="地址"> </el-table-column>
     </comTable> -->
-    <video width="320" height="240" controls autoplay>
+    <!-- <video width="320" height="240" controls autoplay>
       <source src="/1.mp4" type="video/mp4" />
-    </video>
+    </video> -->
+    <div id="flip-list-demo" class="demo">
+      <button @click="shuffle">Shuffle</button>
+      <transition-group name="flip-list" tag="div">
+        <li v-for="item in items" style="color:#fff;fontSize:22px;background:pink;" v-bind:key="item">
+          {{ item }}
+        </li>
+      </transition-group>
+    </div>
   </div>
 </template>
 
 <script>
 import comTable from "@/components/comTable/index.vue";
 import comTableOne from "@/components/comTable/indexOne.vue";
+import _ from 'lodash';
 export default {
   components: {
     comTableOne,
@@ -30,6 +39,7 @@ export default {
   },
   data() {
     return {
+      items: [1,2,3,4,5,6,7,8,9],
       cellStyle: {
         fontSize: "14px",
         fontFamily: "Source Han Sans SC",
@@ -82,6 +92,10 @@ export default {
     //   });
   },
   methods: {
+     shuffle: function () {
+      this.items = _.shuffle(this.items)
+      // this.items=[3,1,2,8,7,6,5,4,9];
+    },
     tableRowClassName({ row, rowIndex }) {
       return "background: white;";
     },
@@ -89,9 +103,10 @@ export default {
       this.$get("/cattle/cattle/selfCattleSta")
         .then((res) => {
           console.log(res, "---res00---");
-        }).catch((e)=>{
-          console.log(e)
         })
+        .catch((e) => {
+          console.log(e);
+        });
     },
   },
 };
@@ -113,5 +128,8 @@ export default {
   width: 334px;
   height: 30px;
   background: linear-gradient(90deg, #0b3070 0%, rgba(18, 43, 87, 0) 100%);
+}
+.flip-list-move {
+  transition: transform 1s;
 }
 </style>
