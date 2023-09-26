@@ -1,6 +1,6 @@
 <template>
   <div id="container">
-    <div class="left-change-box">
+    <div class="left-change-box" ref="leftBox">
       <div
         class="left-change-box-list"
         v-for="(item, index) in listData"
@@ -122,6 +122,7 @@ export default {
       listData.splice(currentIndex, 1);
       listData.splice(3, 0, item);
       this.listData = listData;
+      this.$refs.leftBox.scrollTop = 0;
       if(!flag){
         this.$router.push(item.path);
       }
@@ -141,11 +142,16 @@ export default {
   left: 0;
   top: 122px;
   width: 349px;
-  height: 851px;
+  height: 800px;
   background: url("../assets/img/zyncgl/com_left_bg.png") center no-repeat;
   padding-top: 69px;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
   > div {
     background: url("../assets/img/zyncgl/com_left_list_bg.png") right no-repeat;
     font-family: Source Han Sans CN;
@@ -201,7 +207,7 @@ export default {
       width: 166px;
     }
     &.num7 {
-      width: 166px;
+      width: 139px;
     }
   }
 }
