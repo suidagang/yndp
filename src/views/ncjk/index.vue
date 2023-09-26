@@ -2,7 +2,11 @@
   <div class="container">
     <div class="video-list">
       <div class="video-box">
+        
         <div class="video-box-title">监控位置名称</div>
+        <video width="476" height="269" controls autoplay>
+          <source src="/1.mp4" type="video/mp4">
+        </video>
       </div>
       <div class="video-box">
         <div class="video-box-title">监控位置名称</div>

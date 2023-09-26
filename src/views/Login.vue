@@ -37,21 +37,27 @@
 </template>
 
 <script>
+import config from "@/http/config";
+import { userStore } from "@/store";
 export default {
   name: "view-login",
   data() {
     return {
       loginInfo: {
-        user: "",
-        password: "",
-        agree: false,
+        user: "admin",
+        password: "admin123",
+        agree: true,
       },
       userError: false,
       psdError: false,
       agreeError: false,
     };
   },
-  mounted() {},
+  mounted() {
+    //清空token
+    const user = userStore(); 
+    user.sysToken = '';
+  },
   methods: {
     changeAgree() {
       this.loginInfo.agree = !this.loginInfo.agree;
@@ -77,19 +83,32 @@ export default {
       }
     },
     goPage() {
-      // if(!this.loginInfo.user){
-      // 	this.userError = true;
-      // 	return;
-      // }
-      // if(!this.loginInfo.password){
-      // 	this.psdError = true;
-      // 	return
-      // }
-      // if(!this.loginInfo.agree){
-      // 	this.agreeError = true;
-      // 	return;
-      // }
-      this.$router.push("/layout/yncjcxxjb");
+      if(!this.loginInfo.user){
+      	this.userError = true;
+      	return;
+      }
+      if(!this.loginInfo.password){
+      	this.psdError = true;
+      	return
+      }
+      if(!this.loginInfo.agree){
+      	this.agreeError = true;
+      	return;
+      }
+      const params = {
+        "code": 14,
+        "password": this.loginInfo.password,
+        "username": this.loginInfo.user,
+        "uuid": "f7834f5174eb474e9d7a34626fd2b6b4"
+      };
+      const user = userStore(); 
+      const { sysToken } = userStore();
+      this.$post(config.login,params).then(res=>{
+        user.setToken(res.token);
+        this.$router.push("/test");
+        // this.$router.push("/layout/yncjcxxjb");
+      })
+      
     },
   },
 };

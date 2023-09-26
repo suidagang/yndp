@@ -8,12 +8,15 @@
         <el-table-column prop="d" label="是否授权"> </el-table-column>
       </comTableOne>
     </div>
-    <div class="text">111111111</div>
-    <comTable :tableData="tableData">
+    <!-- <div class="text">111111111</div> -->
+    <!-- <comTable :tableData="tableData">
        <el-table-column prop="date" label="日期" width="180"> </el-table-column>
       <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
       <el-table-column prop="address" label="地址"> </el-table-column>
-    </comTable>
+    </comTable> -->
+    <video width="320" height="240" controls autoplay>
+      <source src="/1.mp4" type="video/mp4" />
+    </video>
   </div>
 </template>
 
@@ -21,9 +24,9 @@
 import comTable from "@/components/comTable/index.vue";
 import comTableOne from "@/components/comTable/indexOne.vue";
 export default {
-  components:{
+  components: {
     comTableOne,
-    comTable
+    comTable,
   },
   data() {
     return {
@@ -42,7 +45,7 @@ export default {
         color: "#B7C9E5",
         height: "40px",
         paddingLeft: "18px",
-        backgroundColor:"rgba(0,0,0,0)"
+        backgroundColor: "rgba(0,0,0,0)",
       },
       tableData: [
         {
@@ -68,24 +71,33 @@ export default {
       ],
     };
   },
-  mounted(){
-    console.log(process.env.NODE_ENV,'--process.env.NODE_ENV')
-    console.log(this.$router.currentRoute.fullPath,'--currentRoute.fullPath')
-     this.$message({
-        showClose: true,
-        message: "网络请求不存在",
-        type: "error",
-      });
+  mounted() {
+    this.getAjax();
+    // console.log(process.env.NODE_ENV,'--process.env.NODE_ENV')
+    // console.log(this.$router.currentRoute.fullPath,'--currentRoute.fullPath')
+    //  this.$message({
+    //     showClose: true,
+    //     message: "网络请求不存在",
+    //     type: "error",
+    //   });
   },
   methods: {
     tableRowClassName({ row, rowIndex }) {
       return "background: white;";
     },
+    getAjax() {
+      this.$get("/cattle/cattle/selfCattleSta")
+        .then((res) => {
+          console.log(res, "---res00---");
+        }).catch((e)=>{
+          console.log(e)
+        })
+    },
   },
 };
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 .box {
   width: 100%;
   height: 100%;

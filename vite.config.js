@@ -23,7 +23,7 @@ export default {
 		// 设置代理，根据我们项目实际情况配置
 		proxy: {
 			"/api": {
-				target: "http://127.0.0.1:8000", // 后台服务地址
+				target: "http://116.205.230.238:8086", // 后台服务地址
 				changeOrigin: true, // 是否允许不同源
 				secure: false, // 支持https
 				rewrite: (path) => path.replace(/^\/api/, ""),

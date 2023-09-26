@@ -1,7 +1,5 @@
-let hostUrl = appConfig.requestUrl;
 const config = {
     /* 登录 */
-    loginSys:  "/uaa/oauth/token",//登录接口
-    getLoginUserInfo:'/goods/plaUser/getLoginUserInfo', // 获取用户信息
+    login:  "/appLogin",//登录接口
 };
 export default config;

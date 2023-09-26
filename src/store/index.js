@@ -2,10 +2,16 @@ import { defineStore } from "pinia";
 export const userStore = defineStore("user", {
 	state: () => {
 		return {
-			count: 1,
-			arr: ["a", "b", "c"],
+			sysToken: '1111'
 		};
 	},
+	persist: {
+    enabled: true // true 表示开启持久化保存
+  },
 	getters: {},
-	actions: {},
+	actions: {
+		setToken(token) {
+			this.sysToken = token;
+		}
+	},
 });
