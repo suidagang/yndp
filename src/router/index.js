@@ -17,7 +17,11 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "*",
-    redirect: "/login",
+    redirect: "/",
+  },
+  {
+    path: "/",
+    redirect: '/layout/yncjcxxjb',
   },
   {
     path: "/login",
@@ -27,6 +31,7 @@ const routes = [
   {
     path: "/layout",
     name: "Layout",
+    redirect: '/layout/yncjcxxjb',
     component: Layout,
     children: [
       {

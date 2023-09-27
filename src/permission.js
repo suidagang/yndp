@@ -18,7 +18,7 @@ router.beforeEach(async (to, from, next) => {
   } else {
     //如果登录了，浏览器回退到登录页，默认重定向到登录主页
     if (to.path === "/login") {
-      next({ path: "/layout/yncjcxxjb" });
+      next({ path: "/" });
     } else {
       next();
     }

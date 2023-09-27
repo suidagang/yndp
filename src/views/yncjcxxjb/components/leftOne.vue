@@ -63,7 +63,6 @@ export default {
   methods: {
     getAjax() {
       this.$get(config.yncjcxxjbCwhztj).then((res) => {
-        console.log(res, "--res");
         this.income = res.data.income;
         this.feed = res.data.feed;
         this.onHand = res.data.onHand;
