@@ -80,9 +80,9 @@ export default {
         clearTimeout(timer);
       });
     },
-    logout() {
+    async logout() {
       const user = userStore();
-      user.setToken('');
+      await user.setToken('');
       this.$router.push("/login");
     },
     changeTab(num) {

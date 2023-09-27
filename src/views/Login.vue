@@ -101,8 +101,8 @@ export default {
       };
       const user = userStore();
       const { sysToken } = userStore();
-      this.$post(config.login, params).then((res) => {
-        user.setToken(res.token);
+      this.$post(config.login, params).then(async (res) => {
+        await user.setToken(res.token);
         this.$router.push({ path: this.redirect || '/layout/yncjcxxjb' })
       });
     },

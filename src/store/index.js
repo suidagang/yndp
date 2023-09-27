@@ -10,7 +10,7 @@ export const userStore = defineStore("user", {
   },
 	getters: {},
 	actions: {
-		setToken(token) {
+		async setToken(token) {
 			this.sysToken = token;
 		}
 	},
