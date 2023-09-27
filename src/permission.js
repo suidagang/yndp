@@ -2,9 +2,9 @@ import router from "@/router";
 
 //只加载一次路由
 let registerRouteFresh = true;
-const whiteList = ['/login'] // no redirect whitelist
+const whiteList = ['/login','/test'] // no redirect whitelist
 //路由拦截
-router.beforeEach(async (to, from, next) => {
+router.beforeEach((to, from, next) => {
   const sysToken = localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user")).sysToken
     : "";
