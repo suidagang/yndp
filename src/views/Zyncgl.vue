@@ -6,7 +6,7 @@
           class="left-change-box-list"
           v-for="(item, index) in listData"
           :class="`num${index}`"
-          :key="item"
+          :key="index"
           @click="changeItem(item)"
         >
           {{ item.name }}

@@ -25,8 +25,7 @@ axios.defaults.headers.post["Content-Type"] = "application/json;charset=UTF-8";
 axios.interceptors.request.use(
   (config) => {
     const { sysToken } = userStore();
-    const token = sysToken;
-     token && (config.headers.Authorization = token);
+    sysToken && (config.headers.Authorization = sysToken);
     return config;
   },
   (error) => {

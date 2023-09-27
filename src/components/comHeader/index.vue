@@ -39,7 +39,7 @@
       <div class="icon"></div>
       <div class="text">系统设置</div>
     </div>
-    <div @click="goout" class="logout-box">
+    <div @click="logout" class="logout-box">
       <div class="icon"></div>
       <div class="text">退出登录</div>
     </div>
@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import { userStore } from "@/store";
 export default {
   data() {
     return {
@@ -79,8 +80,10 @@ export default {
         clearTimeout(timer);
       });
     },
-    goout() {
-      this.$router.push("/");
+    logout() {
+      const user = userStore();
+      user.setToken('');
+      this.$router.push("/login");
     },
     changeTab(num) {
       let url = "";

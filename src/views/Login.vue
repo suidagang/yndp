@@ -53,12 +53,8 @@ export default {
       userError: false,
       psdError: false,
       agreeError: false,
+      redirect:""
     };
-  },
-  mounted() {
-    //清空token
-    const user = userStore();
-    user.sysToken = "";
   },
   methods: {
     changeAgree() {
@@ -108,9 +104,18 @@ export default {
       this.$post(config.login, params).then((res) => {
         user.setToken(res.token);
         // this.$router.replace("/test");
-        this.$router.push("/layout/yncjcxxjb");
+        // this.$router.push("/layout/yncjcxxjb");
+        this.$router.push({ path: this.redirect || '/layout/yncjcxxjb' })
       });
     },
+  },
+   watch: {
+    $route: {
+      handler(route) {
+        this.redirect = route.query && route.query.redirect
+      },
+      immediate: true
+    }
   },
 };
 </script>

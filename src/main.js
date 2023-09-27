@@ -9,6 +9,7 @@ import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import * as echarts from "echarts"; //引入echarts
 import { get, post } from "./http/index";
+import './permission'
 
 
 //定义全局变量
