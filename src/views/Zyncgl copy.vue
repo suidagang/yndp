@@ -1,39 +1,28 @@
 <template>
   <div id="container">
     <div class="left-change-box" ref="leftBox">
-      <transition-group name="flip-list" tag="div">
+      <!-- <transition-group name="flip-list" tag="div"> -->
         <div
           class="left-change-box-list"
           v-for="(item, index) in listData"
           :class="`num${index}`"
-          :key="item.path"
-          @click="changeItem(index, item)"
+          :key="index"
+          @click="changeItem(item)"
         >
           {{ item.name }}
         </div>
-      </transition-group>
+      <!-- </transition-group> -->
     </div>
     <div class="zyncgl-content">
-      <transition
-        enter-active-class="animate__animated animate__fadeInLeft"
-        :duration="{ enter: 4000, leave: 0 }"
-        leave-active-class="animate__animated animate__fadeIn"
-      >
-        <router-view :key="key" />
-      </transition>
+      <router-view />
     </div>
   </div>
 </template>
 
 <script>
-import "animate.css";
 export default {
   name: "zyncgl",
-  computed: {
-    key() {
-      return this.$route.path;
-    },
-  },
+  components: {},
   data() {
     return {
       listOldData: [
@@ -113,39 +102,31 @@ export default {
     dealActive() {
       const urlPath = this.$route.path;
       let currentItem = null;
-      this.listOldData.forEach((item) => {
+      this.listData.forEach((item, index) => {
         if (item.path === urlPath) {
           currentItem = item;
         }
       });
-      this.changeItem("", currentItem, true);
+      this.changeItem(currentItem, true);
     },
-    changePos(arr, a, b) {
-      let arr_temp = JSON.parse(JSON.stringify(arr));
-      arr_temp.splice(b, 0, arr_temp.splice(a, 1)[0]);
-      return arr_temp;
-    },
-    getOldIndex(item) {
+    getIndex(path) {
       let resultIndex = 0;
       this.listOldData.forEach((ele, index) => {
-        if (item.path === ele.path) {
+        if (ele.path === path) {
           resultIndex = index;
         }
       });
       return resultIndex;
     },
-    changeItem(index, item, flag) {
-      const oldIndex = this.getOldIndex(item);
-      if (index === 3) {
-        return;
-      }
-      let listData = JSON.parse(JSON.stringify(this.listOldData));
-      this.listData = this.changePos(listData, oldIndex, 3);
+    changeItem(item, flag) {
+      let currentIndex = this.getIndex(item.path);
+      const listData = JSON.parse(JSON.stringify(this.listOldData));
+      listData.splice(currentIndex, 1);
+      listData.splice(3, 0, item);
+      this.listData = listData;
       this.$refs.leftBox.scrollTop = 0;
       if (!flag) {
-        setTimeout(() => {
-          this.$router.push(item.path);
-        }, 500);
+        this.$router.push(item.path);
       }
     },
   },
@@ -237,6 +218,6 @@ export default {
   overflow: hidden;
 }
 .flip-list-move {
-  transition: transform 0.5s;
+  transition: transform 1s;
 }
 </style>
