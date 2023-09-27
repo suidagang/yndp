@@ -16,7 +16,7 @@
     <div class="zyncgl-content">
       <transition
         enter-active-class="animate__animated animate__fadeInLeft"
-        :duration="{ enter: 4000, leave: 0 }"
+        :duration="{ enter: 3000, leave: 0 }"
         leave-active-class="animate__animated animate__fadeIn"
       >
         <router-view :key="key" />
@@ -145,7 +145,7 @@ export default {
       if (!flag) {
         setTimeout(() => {
           this.$router.push(item.path);
-        }, 500);
+        }, 350);
       }
     },
   },
@@ -237,6 +237,6 @@ export default {
   overflow: hidden;
 }
 .flip-list-move {
-  transition: transform 0.5s;
+  transition: transform 0.35s;
 }
 </style>
