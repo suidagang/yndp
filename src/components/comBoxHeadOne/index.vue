@@ -2,15 +2,16 @@
   <div class="com-box-head">
     <div class="title-text">
       <slot name="titleIcon"></slot>
+
       <span>{{ tabTitle }}</span>
     </div>
     <div class="tab">
-      <el-tabs v-model="activeName" @tab-click="tabClick">
+      <el-tabs v-model="editableTabsValue" @tab-click="tabClick">
         <el-tab-pane
-          v-for="(item, index) in tabList"
-          :key="index"
+          :key="item.name"
+          v-for="item in tabList"
           :label="item.name"
-          :name="item.id"
+          :name="item.name"
         >
           {{ item.content }}
         </el-tab-pane>
@@ -23,7 +24,7 @@
 export default {
   data() {
     return {
-      activeName: "",
+      editableTabsValue: "测试一",
     };
   },
   props: {
@@ -41,24 +42,14 @@ export default {
       type: String,
       require: true,
     },
-    tabsvalue: {
-      type: [Number, String],
-      default: 0
-    },
   },
+  mounted() {},
   methods: {
     tabClick(tab) {
-      const result = this.tabList.filter((item) => {
-        return item.id === tab.name;
+      const result = this.tabList.filter((item)=>{
+        return item.name === tab.name;
       });
       this.$emit("changeTab", result[0]);
-    },
-  },
-  watch: {
-    tabsvalue: {
-      handler(val) {
-        this.activeName = val;
-      },
     },
   },
 };
@@ -90,8 +81,8 @@ export default {
   font-size: 20px;
   line-height: 34px;
 }
-/deep/ .el-tabs__header {
-  margin: 0;
+/deep/ .el-tabs__header{
+  margin:0;
 }
 .com-box-head {
   width: 100%;

@@ -17,7 +17,7 @@
     <!-- <video width="320" height="240" controls autoplay>
       <source src="/1.mp4" type="video/mp4" />
     </video> -->
-    <div id="flip-list-demo" class="demo">
+    <!-- <div id="flip-list-demo" class="demo">
       <button @click="shuffle">Shuffle</button>
       <transition-group name="flip-list" tag="div">
         <li
@@ -29,6 +29,30 @@
           {{ item.name }}
         </li>
       </transition-group>
+    </div> -->
+
+    <!-- <div class="test">
+      <comTitle
+        :tabList="tabList"
+        tabTitle="自营牛场简报"
+        :tabspacing="20"
+        @changeTab="changeTab"
+      />
+    </div> -->
+    <div class="tab">
+      <el-tabs
+      v-model="editableTabsValue"
+      type="card"
+    >
+      <el-tab-pane
+        
+        v-for="(item,index) in editableTabs"
+        :key="index"
+        :label="item.title"
+        :name="item.name+index"
+      >
+      </el-tab-pane>
+    </el-tabs>
     </div>
   </div>
 </template>
@@ -36,14 +60,76 @@
 <script>
 import comTable from "@/components/comTable/index.vue";
 import comTableOne from "@/components/comTable/indexOne.vue";
+import comTitle from "@/components/comBoxHeadOne/index.vue";
 import _ from "lodash";
 export default {
   components: {
     comTableOne,
     comTable,
+    comTitle,
   },
   data() {
     return {
+      tabList: [
+        {
+          name: "测试一",
+          active: true,
+        },
+        {
+          name: "测试一",
+          active: false,
+        },
+        {
+          name: "测试三",
+          active: true,
+        },
+        {
+          name: "测试四",
+          active: false,
+        },
+        {
+          name: "测试五",
+          active: true,
+        },
+        {
+          name: "测试六",
+          active: false,
+        },
+      ],
+      editableTabsValue: "2",
+      editableTabs: [
+        {
+          title: "Tab 1",
+          name: "1",
+          content: "Tab 1 content",
+        },
+        {
+          title: "Tab 2",
+          name: "2",
+          content: "Tab 2 content",
+        },
+        {
+          title: "Tab 1",
+          name: "1",
+          content: "Tab 1 content",
+        },
+        {
+          title: "Tab 3",
+          name: "3",
+          content: "Tab 3 content",
+        },
+        {
+          title: "Tab 4",
+          name: "4",
+          content: "Tab 4 content",
+        },
+        {
+          title: "Tab 5",
+          name: "5",
+          content: "Tab 5 content",
+        },
+      ],
+      tabIndex: 2,
       itemsOld: [
         {
           name: 1,
@@ -156,30 +242,60 @@ export default {
     //   });
   },
   methods: {
-    changePos(arr, a, b) {
-      console.log('a=',a,";b=",b)
-      // console.log(arr,'-----');
-       let arr_temp = [].concat(arr);
-       arr_temp.splice(b, 0, arr_temp.splice(a, 1)[0]);
-       return arr_temp;
+    changeTab(item) {
+      console.log(item, "回来的item");
     },
-    getOldIndex(item){
+    handleTabsEdit(targetName, action) {
+      if (action === "add") {
+        let newTabName = ++this.tabIndex + "";
+        this.editableTabs.push({
+          title: "New Tab",
+          name: newTabName,
+          content: "New Tab content",
+        });
+        this.editableTabsValue = newTabName;
+      }
+      if (action === "remove") {
+        let tabs = this.editableTabs;
+        let activeName = this.editableTabsValue;
+        if (activeName === targetName) {
+          tabs.forEach((tab, index) => {
+            if (tab.name === targetName) {
+              let nextTab = tabs[index + 1] || tabs[index - 1];
+              if (nextTab) {
+                activeName = nextTab.name;
+              }
+            }
+          });
+        }
+
+        this.editableTabsValue = activeName;
+        this.editableTabs = tabs.filter((tab) => tab.name !== targetName);
+      }
+    },
+    changePos(arr, a, b) {
+      console.log("a=", a, ";b=", b);
+      // console.log(arr,'-----');
+      let arr_temp = [].concat(arr);
+      arr_temp.splice(b, 0, arr_temp.splice(a, 1)[0]);
+      return arr_temp;
+    },
+    getOldIndex(item) {
       let resultIndex = 0;
-      this.itemsOld.forEach((ele,index)=>{
-        if(item.path === ele.path){
+      this.itemsOld.forEach((ele, index) => {
+        if (item.path === ele.path) {
           resultIndex = index;
         }
-      })
+      });
       return resultIndex;
     },
-    changeItem(index,item) {
+    changeItem(index, item) {
       const oldIndex = this.getOldIndex(item);
       if (index === 3) {
         return;
       }
       let listData = JSON.parse(JSON.stringify(this.itemsOld));
       this.items = this.changePos(listData, oldIndex, 3);
-     
     },
     shuffle: function () {
       this.items = _.shuffle(this.items);
@@ -198,6 +314,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.test {
+  width: 800px;
+  margin: 50px 50px 120px;
+  // background: pink;
+}
 .box {
   width: 100%;
   height: 100%;
@@ -246,5 +367,8 @@ export default {
 }
 .flip-list-move {
   transition: transform 1s;
+}
+.tab {
+  width: 300px;
 }
 </style>

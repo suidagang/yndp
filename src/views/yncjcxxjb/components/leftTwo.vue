@@ -3,6 +3,7 @@
     <comTitle
       :tabList="tabList"
       tabTitle="自营牛场简报"
+      :tabsvalue = "tabsvalue"
       :tabspacing="20"
       @changeTab="changeTab"
     />
@@ -46,6 +47,7 @@ export default {
       qnnum: 0, //青年数
       cnnum: 0, //成牛数
       nfmnnum: 0, //能繁母牛数
+      tabsvalue:'',//tab默认选中状态
     };
   },
   components: {
@@ -65,9 +67,11 @@ export default {
             item.active = false;
           }
           item.name = item.farmName;
+          item.id = item.id+"";
         });
         this.getFarmSelfBriefing(dataList[0].id);
         this.tabList = dataList;
+        this.tabsvalue = dataList[0].id;
       });
     },
     getFarmSelfBriefing(id) {
@@ -81,7 +85,7 @@ export default {
         this.nfmnnum = res.data.nfmnnum || 0;
       });
     },
-    changeTab(num,item) {
+    changeTab(item) {
       this.getFarmSelfBriefing(item.id);
     },
   },

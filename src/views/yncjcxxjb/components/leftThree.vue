@@ -2,8 +2,8 @@
   <div class="container">
     <comTitle
       :tabList="tabList"
+      :tabsvalue="tabsvalue"
       tabTitle="合作养殖汇总简报"
-      :tabspacing="26"
       @changeTab="changeTab"
     />
     <div class="content">
@@ -66,6 +66,7 @@ export default {
       nfmnnum: 0, //能繁母牛
       qnnum: 0, //青牛数
       slsyzl: 0, // 饲料剩余重量
+      tabsvalue: "", //tab默认选中状态
     };
   },
   components: {
@@ -85,10 +86,11 @@ export default {
             item.active = false;
           }
           item.name = item.millName;
+          item.id = item.id+"";
         });
         this.getCooperateBriefing(dataList[0].id);
         this.tabList = dataList;
-        this.tabList.length = 2;
+        this.tabsvalue = dataList[0].id;
       });
     },
     getCooperateBriefing(id) {
@@ -104,7 +106,7 @@ export default {
         this.slsyzl = res.data.slsyzl || 0;
       });
     },
-    changeTab(num, item) {
+    changeTab(item) {
       this.getCooperateBriefing(item.id);
     },
   },
