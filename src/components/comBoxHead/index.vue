@@ -47,7 +47,7 @@ export default {
         ele.active = false;
       });
       item.active = true;
-      this.$emit("changeTab", index);
+      this.$emit("changeTab", index,item);
     },
   },
 };
