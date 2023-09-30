@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <comTitle  tabTitle="环境检查" @changeTab = "changeTab" />
+    <comTitle  tabTitle="环境检查" />
     <div class="content">
       <div class="content-list" :class="{warn:eyhtWarn}">
         <div class="top-text">二氧化碳/ppm</div>
@@ -27,7 +27,8 @@
 </template>
 
 <script>
-import comTitle from '@/components/comBoxHead/index.vue'
+import comTitle from '@/components/comBoxHead/index.vue';
+import config from "@/http/config";
 export default {
   data() {
     return {
@@ -37,10 +38,15 @@ export default {
   components: {
     comTitle
   },
+  created() {
+    // this.getAjax();
+  },
   methods:{
-    changeTab(num){
-      console.log(num,'---num')
-    }
+    getAjax() {
+      this.$get(config.environmenMonitoring).then((res) => {
+        console.log(res,'===---dd');
+      });
+    },
   }
 }
 </script>

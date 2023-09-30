@@ -15,6 +15,7 @@
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
 import comTable from "@/components/comTable/index.vue";
+import config from "@/http/config";
 export default {
   data() {
     return {
@@ -46,11 +47,20 @@ export default {
       ]
     };
   },
+  created(){
+    this.getAjax();
+  },
   components: {
     comTitle,
     comTable
   },
-  methods: {},
+  methods: {
+    getAjax() {
+      this.$get(config.todayPrice).then((res) => {
+        console.log(res,'===--todayPrice-dd');
+      });
+    },
+  },
 };
 </script>
 
