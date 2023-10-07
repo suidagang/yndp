@@ -8,3 +8,5 @@
 4、管理后台地址：http://116.205.230.238:9188/login?redirect=%2Findex
 
 5、视频下载处理文档：https://blog.csdn.net/yun_master/article/details/114551493
+
+6、接口文档整理地址：https://www.kdocs.cn/l/cni5wNQInWJ5
