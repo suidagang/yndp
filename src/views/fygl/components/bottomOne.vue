@@ -54,17 +54,17 @@ export default {
     comTitle,
     comTable,
   },
-   created() {
+  created() {
     this.getAjax();
   },
   methods: {
     getAjax() {
       const params = {
-        pageNum:1,
-        pageSize:99999
+        pageNum: 1,
+        pageSize: 99999,
       };
-      this.$get(config.treatmentlist,params).then((res) => {
-        console.log(res,'普通诊疗记录')
+      this.$get(config.treatmentlist, params).then((res) => {
+        console.log(res, "普通诊疗记录");
         this.tableData = res.rows;
       });
     },
@@ -82,7 +82,7 @@ export default {
   padding-top: 43px;
   box-sizing: border-box;
   overflow: hidden;
-  &-body{
+  &-body {
     width: 464px;
     height: 319px;
     margin-left: 5px;

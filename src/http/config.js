@@ -15,5 +15,8 @@ const config = {
   feedAvgUseCount: "/cattle/feed/feedAvgUseCount", //【自营牛场管理-饲养管理】每天消耗记录
   vetslist: "/cattle/vets/list", //【自营牛场管理-防疫管理】兽医管理
   treatmentlist: "owncattle/treatment/list", //【自营牛场管理-防疫管理】普通诊疗记录
+  immunelist: "owncattle/immune/list", //【自营牛场管理-防疫管理】防疫记录和检疫记录
+  selfSta: "/cattle/cattle/selfSta", //【自营牛场管理-牛舍管理】（自营牛场牛种类统计）
+  selfCattleSta: "/cattle/cattle/selfCattleSta", //【自营牛场管理-牛舍管理】（自营牛场牛状态统计）
 };
 export default config;

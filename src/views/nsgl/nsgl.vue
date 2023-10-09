@@ -8,7 +8,8 @@
 </template>
 
 <script>
-import comList from './components/comList.vue'
+import comList from './components/comList.vue';
+import config from "@/http/config";
 export default {
   data() {
     return {
@@ -17,7 +18,29 @@ export default {
   },
   components: {
     comList
-  }
+  },
+  created() {
+    this.getAjax();
+    this.getAjax1();
+  },
+  methods: {
+    getAjax() {
+      const params = {
+        cattleType:3
+      };
+      this.$get(config.selfSta,params).then((res) => {
+        console.log(res, "自营牛场牛种类统计");
+        // this.tableData = res.rows;
+      });
+      
+    },
+    getAjax1(){
+      this.$get(config.selfCattleSta).then((res) => {
+        console.log(res, "自营牛场牛状态统计");
+        // this.tableData = res.rows;
+      });
+    }
+  },
 }
 </script>
 
