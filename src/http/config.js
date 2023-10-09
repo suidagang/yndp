@@ -7,7 +7,8 @@ const config = {
   cattleMillList:"/cattle/farm/cattleMillList",//【养牛场基础信息简报】查询合作农户列表
   cooperateBriefing: "/cattle/farm/cooperateBriefing",//【养牛场基础信息简报】合作农户简报 请求传cattleMillList接口的id参数名： cooperateId
   environmenMonitoring:"​/cattle​/farm​/environmenMonitoring",//【养牛场基础信息简报】环境监测
-  todayPrice:"/cattle/farm/todayPrice",//【养牛场基础信息简报】今日行情
+  todayPrice: "/cattle/farm/todayPrice",//【养牛场基础信息简报】今日行情
+  tipsTotal:"/cattle/farm/tipsTotal",//【养牛场基础信息简报】提示信息汇总
   hznhcattleMillList:"/cattle/cattleMill/list",//【合作农户管理】农户列表
 };
 export default config;

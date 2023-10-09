@@ -39,12 +39,12 @@ export default {
     comTitle
   },
   created() {
-    // this.getAjax();
+    this.getAjax();
   },
   methods:{
     getAjax() {
       this.$get(config.environmenMonitoring).then((res) => {
-        console.log(res,'===---dd');
+        console.log(res,'环境检查接口404');
       });
     },
   }

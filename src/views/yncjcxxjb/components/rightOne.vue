@@ -37,7 +37,7 @@ export default {
   methods: {
     getAjax() {
       this.$get(config.todayPrice).then((res) => {
-        console.log(res, "===--todayPrice-dd");
+        console.log(res,'今日行情没数据，请求成功');
       });
     },
   },
