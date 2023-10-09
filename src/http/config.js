@@ -13,5 +13,7 @@ const config = {
   feedTypeCount: "/cattle/feed/feedTypeCount", //【自营牛场管理-饲养管理】预计使用周期和饲料管理同一个接口
   shedCount: "/cattle/shed/shedCount", //【自营牛场管理-饲养管理】牛舍存栏量
   feedAvgUseCount: "/cattle/feed/feedAvgUseCount", //【自营牛场管理-饲养管理】每天消耗记录
+  vetslist: "/cattle/vets/list", //【自营牛场管理-防疫管理】兽医管理
+  treatmentlist: "owncattle/treatment/list", //【自营牛场管理-防疫管理】普通诊疗记录
 };
 export default config;

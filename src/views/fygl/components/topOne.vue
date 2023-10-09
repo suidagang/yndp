@@ -11,10 +11,10 @@
       </div>
       <div class="content-body">
         <comTable :tableData="tableData">
-          <el-table-column prop="date" label="姓名"> </el-table-column>
-          <el-table-column prop="name" label="编号"> </el-table-column>
-          <el-table-column prop="address" label="联系方式"> </el-table-column>
-          <el-table-column prop="b" label="详细地址"> </el-table-column>
+          <el-table-column prop="vetName" width="80" label="姓名"> </el-table-column>
+          <el-table-column prop="vetCode" width="60" label="编号"> </el-table-column>
+          <el-table-column prop="contactsPhone" width="120" label="联系方式"> </el-table-column>
+          <el-table-column prop="addr" label="详细地址"> </el-table-column>
         </comTable>
       </div>
     </div>
@@ -24,42 +24,31 @@
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
 import comTable from "@/components/comTable/index.vue";
+import config from "@/http/config";
 export default {
   data() {
     return {
-      tableData: [
-        {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀",
-          b: "xxxx",
-        },
-        {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "沙江路",
-          b: "xxxx",
-        },
-        {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "市普陀区",
-          b: "xxxx",
-        },
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "市普陀区金",
-          b: "xxxx",
-        },
-      ],
+      tableData: [],
     };
   },
   components: {
     comTitle,
     comTable,
   },
-  methods: {},
+  created() {
+    this.getAjax();
+  },
+  methods: {
+    getAjax() {
+      const params = {
+        pageNum:1,
+        pageSize:99999
+      };
+      this.$get(config.vetslist,params).then((res) => {
+        this.tableData = res.rows;
+      });
+    },
+  },
 };
 </script>
 
@@ -105,7 +94,7 @@ export default {
       }
     }
   }
-  &-body{
+  &-body {
     width: 464px;
     height: 299px;
     margin-left: 5px;

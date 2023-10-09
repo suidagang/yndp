@@ -18,6 +18,7 @@
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
 import comTable from "@/components/comTable/index.vue";
+import config from "@/http/config";
 export default {
   data() {
     return {
@@ -53,7 +54,21 @@ export default {
     comTitle,
     comTable,
   },
-  methods: {},
+   created() {
+    this.getAjax();
+  },
+  methods: {
+    getAjax() {
+      const params = {
+        pageNum:1,
+        pageSize:99999
+      };
+      this.$get(config.treatmentlist,params).then((res) => {
+        console.log(res,'普通诊疗记录')
+        this.tableData = res.rows;
+      });
+    },
+  },
 };
 </script>
 
