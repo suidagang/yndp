@@ -10,6 +10,7 @@
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
 import comEcharts from "@/components/ComEcharts/index.vue";
+import config from "@/http/config";
 export default {
   data() {
     return {
@@ -21,7 +22,7 @@ export default {
           bottom: "10%",
         },
         xAxis: {
-          data: ["祝贺", "中国航天", "中国", "太空", "祝福"],
+          data: [],
           axisLine: {
             show: true, //隐藏X轴轴线
             lineStyle: {
@@ -39,7 +40,7 @@ export default {
               color: "#86B2D7", //X轴文字颜色
               fontSize: 14,
             },
-            interval: 0
+            interval: 0,
           },
         },
         yAxis: [
@@ -131,12 +132,7 @@ export default {
                 ],
               },
             },
-            data: [
-              0.0143230513342864, 0.00712355721281654, 0.00640036249364493,
-              0.00630499703049568, 0.00609293037165079, 0.00526289934453259,
-              0.00511598466738863, 0.00495456943702402, 0.00474703072844757,
-              0.00459026733191873, 0.0043661709889541,
-            ],
+            data: [],
           },
         ],
       },
@@ -146,7 +142,25 @@ export default {
     comTitle,
     comEcharts,
   },
-  methods: {},
+  created() {
+    this.getAjax();
+  },
+  methods: {
+    getAjax() {
+      this.$get(config.feedTypeCount).then((res) => {
+        let resList = res.data;
+        let xAxisData = [];
+        let seriesData = [];
+        resList.forEach((item)=>{
+          xAxisData.push(item.label);
+          seriesData.push(item.dueUse)
+        })
+        this.options.xAxis.data = xAxisData;
+        this.options.series[0].data = seriesData;
+
+      });
+    },
+  },
 };
 </script>
 

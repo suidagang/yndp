@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    <comTitle tabTitle="预计使用周期" />
+    <comTitle tabTitle="饲料管理" />
     <div class="content">
-      <div class="content-list" v-for="(item,index) in listData" :key="index">
+      <div class="content-list" v-for="(item, index) in listData" :key="index">
         <div class="img">
-          <div>457.36</div>
-          <div>吨</div>
+          <div>{{ item.total }}</div>
+          <div>{{ item.specs }}</div>
         </div>
-        <div class="text">XXXX饲料</div>
+        <div class="text">{{ item.label }}</div>
       </div>
     </div>
   </div>
@@ -15,16 +15,26 @@
 
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
+import config from "@/http/config";
 export default {
   data() {
     return {
-      listData:[1,2,3,4,5,6,7,8]
+      listData: [],
     };
   },
   components: {
     comTitle,
   },
-  methods: {},
+  created() {
+    this.getAjax();
+  },
+  methods: {
+    getAjax() {
+      this.$get(config.feedTypeCount).then((res) => {
+        this.listData = res.data;
+      });
+    },
+  },
 };
 </script>
 
@@ -38,12 +48,12 @@ export default {
   display: flex;
   flex-wrap: wrap;
   padding-top: 20px;
-  &-list{
+  &-list {
     margin-right: 29px;
     // &:nth-of-type(4n){
     //   margin-right: 0;
     // }
-    >.img{
+    > .img {
       width: 110px;
       height: 110px;
       overflow: hidden;
@@ -51,26 +61,26 @@ export default {
       margin-bottom: 13px;
       padding-top: 38px;
       box-sizing: border-box;
-      >div:nth-of-type(1){
+      > div:nth-of-type(1) {
         margin-bottom: 5px;
       }
-      >div{
+      > div {
         font-size: 16px;
         font-family: PangMenZhengDao;
         font-weight: 400;
-        color: #00FFE4;
+        color: #00ffe4;
         text-align: center;
-        background: linear-gradient(0deg, #45CDFF 0%, #E5F9FF 100%);
+        background: linear-gradient(0deg, #45cdff 0%, #e5f9ff 100%);
         background-clip: text;
         -webkit-text-fill-color: transparent;
         overflow: hidden;
       }
     }
-    >.text{
+    > .text {
       font-size: 14px;
       font-family: Source Han Sans SC;
       font-weight: 400;
-      color: #86B2D7;
+      color: #86b2d7;
       text-align: center;
     }
   }

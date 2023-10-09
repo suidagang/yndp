@@ -27,7 +27,9 @@
           :class="loginInfo.agree ? 'checkbox-ok' : 'checkbox'"
           @click="changeAgree"
         ></div>
-        <span @click="changeAgree" :class="{ error: agreeError }">记住密码</span>
+        <span @click="changeAgree" :class="{ error: agreeError }"
+          >记住密码</span
+        >
       </div>
       <div class="form-submit">
         <div class="login-btn" @click="goPage">登录</div>
@@ -53,7 +55,7 @@ export default {
       userError: false,
       psdError: false,
       agreeError: false,
-      redirect:""
+      redirect: "",
     };
   },
   methods: {
@@ -103,17 +105,18 @@ export default {
       const { sysToken } = userStore();
       this.$post(config.login, params).then(async (res) => {
         await user.setToken(res.token);
-        this.$router.push({ path: this.redirect || '/layout/yncjcxxjb' })
+        // this.$router.push({ path: this.redirect || '/layout/yncjcxxjb' })
+        this.$router.push("/layout/yncjcxxjb");
       });
     },
   },
-   watch: {
+  watch: {
     $route: {
       handler(route) {
-        this.redirect = route.query && route.query.redirect
+        this.redirect = route.query && route.query.redirect;
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
 };
 </script>

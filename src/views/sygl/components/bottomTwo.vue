@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <comTitle tabTitle="预计使用周期" />
+    <comTitle tabTitle="每天消耗记录" />
     <div class="content">
       <comEcharts class="echarts" ref="chart" :options="options" />
     </div>
@@ -10,6 +10,7 @@
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
 import comEcharts from "@/components/ComEcharts/index.vue";
+import config from "@/http/config";
 export default {
   data() {
     return {
@@ -107,6 +108,16 @@ export default {
             },
           },
         ],
+        legend: {
+          data: ["XX饲料1", "XX饲料2", "XX饲料3"],
+          top: "15%",
+          icon: "stack",
+          itemWidth: 20,
+          itemHeight: 10,
+          textStyle: {
+            color: "#ffffff",
+          },
+        },
         series: [
           {
             name: "XX饲料1",
@@ -125,7 +136,7 @@ export default {
               shadowColor: "#1890FF",
               shadowBlur: 20,
             },
-            data: [10,50,90,40,30],
+            data: [10, 50, 90, 40, 30],
           },
           {
             name: "XX饲料2",
@@ -144,7 +155,7 @@ export default {
               shadowColor: "#19E079",
               shadowBlur: 20,
             },
-            data: [30,70,20,10,60],
+            data: [30, 70, 20, 10, 60],
           },
           {
             name: "XX饲料3",
@@ -163,7 +174,7 @@ export default {
               shadowColor: "#FFC748",
               shadowBlur: 20,
             },
-            data: [90,20,80,40,30],
+            data: [90, 20, 80, 40, 30],
           },
         ],
       },
@@ -173,7 +184,64 @@ export default {
     comTitle,
     comEcharts,
   },
-  methods: {},
+  created() {
+    this.getAjax();
+  },
+  methods: {
+    getAjax() {
+      this.$get(config.feedAvgUseCount).then((res) => {
+        const resList = res.data;
+        const colors = [
+          "#1890FF",
+          "#19E079",
+          "#FFC748",
+          "#ee6666",
+          "#73c0de",
+          "#3ba272",
+          "#fc8452",
+          "#9a60b4",
+          "#ea7ccc",
+        ];
+        let legendData = [];
+        let xAxisData = [];
+        let series = [];
+        resList.forEach((item,index) => {
+          legendData.push(item.label);
+          let data = [];
+          item.dataList.forEach((ele) => {
+            data.push(ele.useCount);
+          });
+          let obj = {
+            name: item.label,
+            type: "line",
+            smooth: true,
+            symbol: "none", // 不显示连接点
+            tooltip: {
+              trigger: "axis",
+              axisPointer: {
+                // 坐标轴指示器，坐标轴触发有效
+                type: "line", // 默认为直线，可选为：'line' | 'shadow'
+              },
+            },
+            lineStyle: {
+              width: 3,
+              shadowColor: colors[index],
+              shadowBlur: 20,
+            },
+            data: data,
+          };
+          series.push(obj);
+        });
+        resList[0].dataList.forEach((item) => {
+          xAxisData.push(item.date);
+        });
+        //赋值到options
+        this.options.xAxis.data = xAxisData;
+        this.options.legend.data = legendData;
+        this.options.series = series;
+      });
+    },
+  },
 };
 </script>
 

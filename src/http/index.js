@@ -45,7 +45,7 @@ axios.interceptors.response.use(
           // 未登录则跳转登录页面，并携带当前页面的路径
           // 在登录成功后返回当前页面，这一步需要在登录页操作。
           case 401:
-            router.replace({
+            router.push({
               path: "/login",
               query: { redirect: router.currentRoute.fullPath },
             });
@@ -82,7 +82,7 @@ axios.interceptors.response.use(
     if (error.response.status) {
       Message({
         showClose: true,
-        message: error.response.data.msg,
+        message: "网络请求失败，"+error.response.status,
         type: "error",
       });
       return Promise.reject(error.response);
