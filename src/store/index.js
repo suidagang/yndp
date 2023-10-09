@@ -6,7 +6,8 @@ export const userStore = defineStore("user", {
 		};
 	},
 	persist: {
-    enabled: true // true 表示开启持久化保存
+		enabled: true, // true 表示开启持久化保存
+		storage: sessionStorage,
   },
 	getters: {},
 	actions: {

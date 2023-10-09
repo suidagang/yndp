@@ -5,8 +5,8 @@ let registerRouteFresh = true;
 const whiteList = ["/login", "/test"]; // no redirect whitelist
 //路由拦截
 router.beforeEach((to, from, next) => {
-  const sysToken = localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user")).sysToken
+  const sysToken = sessionStorage.getItem("user")
+    ? JSON.parse(sessionStorage.getItem("user")).sysToken
     : "";
   if (!sysToken) {
     if (whiteList.indexOf(to.path) !== -1) {
