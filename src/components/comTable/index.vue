@@ -1,6 +1,7 @@
 <template>
   <div class="com-table">
     <el-table
+      :height="height"
       :data="tableData"
       :header-cell-style="headerStyle"
       :cell-style="cellStyle"
@@ -41,6 +42,12 @@ export default {
         return [];
       },
     },
+    height: {
+      type: [Number, String],
+      default() {
+        return 1000;
+      },
+    },
   },
   methods: {
     clickRow(row, column, event) {
@@ -56,6 +63,17 @@ export default {
   height: 100%;
   overflow: hidden;
 }
+// 滚动条的宽度
+/deep/ .el-table__body-wrapper::-webkit-scrollbar {
+  width: 8px; // 横向滚动条
+  height: 8px; // 纵向滚动条 必写
+}
+// 滚动条的滑块
+/deep/ .el-table__body-wrapper::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 3px;
+}
+
 /deep/ .el-button--primary {
   background-color: red !important;
   color: #000;

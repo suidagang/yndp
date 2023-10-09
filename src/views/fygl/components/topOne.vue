@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="content-body">
-        <comTable :tableData="tableData">
+        <comTable :tableData="tableData" :height="299">
           <el-table-column prop="vetName" width="80" label="姓名"> </el-table-column>
           <el-table-column prop="vetCode" width="60" label="编号"> </el-table-column>
           <el-table-column prop="contactsPhone" width="120" label="联系方式"> </el-table-column>
@@ -45,6 +45,12 @@ export default {
         pageSize:99999
       };
       this.$get(config.vetslist,params).then((res) => {
+        // let ss = [];
+        // for(var i = 0; i<20;i++){
+        //   ss.push(res.rows[0])
+        // }
+        // this.tableData = ss;
+        console.log(res,'兽医管理');
         this.tableData = res.rows;
       });
     },
