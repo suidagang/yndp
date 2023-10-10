@@ -99,6 +99,7 @@
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
 import comTable from "@/components/comTable/index.vue";
+import config from "@/http/config";
 export default {
   data() {
     return {
@@ -160,12 +161,20 @@ export default {
     comTitle,
     comTable,
   },
+  created() {
+    // this.getAjax();
+  },
   mounted() {
     setTimeout(() => {
       this.listData[0].active = true;
     }, 10);
   },
   methods: {
+    getAjax() {
+      this.$get(config.breedManagelist).then((res) => {
+        console.log(res, "繁育管理");
+      });
+    },
     choiceTab(item) {
       this.listData.map((ele) => {
         ele.active = false;
