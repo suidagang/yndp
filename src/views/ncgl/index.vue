@@ -1,7 +1,7 @@
 <template>
   <div class="ncgl-box">
     <ncgl v-show="!showDetailPage" @goncglDeatil = "goncglDeatil" />
-    <ncglDetail v-show="showDetailPage" />
+    <ncglDetail ref="ncglDetail" v-show="showDetailPage" />
   </div>
 </template>
 

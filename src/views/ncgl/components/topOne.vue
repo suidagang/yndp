@@ -2,7 +2,7 @@
   <div class="container-box">
     <comTitle tabTitle="牛场基础信息" />
     <div class="content">
-      <comTable :tableData="tableData">
+      <comTable :tableData="tableData" height="514">
         <el-table-column prop="date" label="编号"> </el-table-column>
         <el-table-column prop="name" label="名称"> </el-table-column>
         <el-table-column prop="address" label="负责人"> </el-table-column>
@@ -17,6 +17,7 @@
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
 import comTable from "@/components/comTable/index.vue";
+import config from "@/http/config";
 export default {
   data() {
     return {
@@ -60,7 +61,21 @@ export default {
     comTitle,
     comTable
   },
-  methods: {},
+  created() {
+    this.getAjax();
+  },
+  methods: {
+    getAjax() {
+      const params = {
+        pageNum: 1,
+        pageSize: 99999,
+      };
+      this.$get(config.cattlefarmlist,params).then((res) => {
+        console.log(res, "牛场基础信息");
+        this.tableData = res.rows;
+      });
+    },
+  },
 };
 </script>
 
