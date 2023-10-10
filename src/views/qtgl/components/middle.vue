@@ -40,6 +40,7 @@
 
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
+import config from "@/http/config";
 export default {
   data() {
     return {};
@@ -47,7 +48,17 @@ export default {
   components: {
     comTitle,
   },
-  methods: {},
+  created() {
+    this.getAjax();
+  },
+  methods: {
+    getAjax() {
+      this.$get(config.personalTotal).then((res) => {
+        console.log(res, "人员管理");
+        // this.tableData = res.rows;
+      });
+    },
+  },
 };
 </script>
 

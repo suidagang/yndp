@@ -2,13 +2,13 @@
   <div class="container-box1">
     <comTitle tabTitle="粪污管理" />
     <div class="content">
-      <comTable :tableData="tableData">
-        <el-table-column prop="date" label="编号"> </el-table-column>
-        <el-table-column prop="name" label="名称"> </el-table-column>
-        <el-table-column prop="address" label="负责人"> </el-table-column>
+      <comTable :tableData="tableData" height="307">
+        <el-table-column prop="id" label="编号"> </el-table-column>
+        <el-table-column prop="remark" label="名称"> </el-table-column>
+        <el-table-column prop="dealType" label="负责人"> </el-table-column>
         <el-table-column prop="d" label="联系电话"> </el-table-column>
-        <el-table-column prop="b" label="地址"> </el-table-column>
-        <el-table-column prop="c" label="是否启用"> </el-table-column>
+        <el-table-column prop="site" label="地址"> </el-table-column>
+        <el-table-column prop="delFlag" label="是否启用"> </el-table-column>
       </comTable>
     </div>
   </div>
@@ -17,50 +17,32 @@
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
 import comTable from "@/components/comTable/index.vue";
+import config from "@/http/config";
 export default {
   data() {
     return {
-      tableData: [
-        {
-          date: "1",
-          name: "王小虎",
-          address: "上海市普陀",
-          b:"xxxx",
-          c:"是",
-          d:'18754254789'
-        },
-        {
-          date: "2",
-          name: "王小虎",
-          address: "沙江路 1517 弄",
-          b:"xxxx",
-          c:"是",
-          d:'18754254789'
-        },
-        {
-          date: "3",
-          name: "王小虎",
-          address: "市普陀区",
-          b:"xxxx",
-          c:"是",
-          d:'18754254789'
-        },
-        {
-          date: "4",
-          name: "王小虎",
-          address: "上海市普陀区",
-          b:"xxxx",
-          c:"是",
-          d:'18754254789'
-        },
-      ],
+      tableData: [],
     };
   },
   components: {
     comTitle,
-    comTable
+    comTable,
   },
-  methods: {},
+  created() {
+    this.getAjax();
+  },
+  methods: {
+    getAjax() {
+      const params = {
+        pageNum: 1,
+        pageSize: 99999,
+      };
+      this.$get(config.dunglist,params).then((res) => {
+        console.log(res, "粪污管理");
+        this.tableData = res.rows;
+      });
+    },
+  },
 };
 </script>
 

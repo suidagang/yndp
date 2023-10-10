@@ -14,13 +14,17 @@ const config = {
   shedCount: "/cattle/shed/shedCount", //【自营牛场管理-饲养管理】牛舍存栏量
   feedAvgUseCount: "/cattle/feed/feedAvgUseCount", //【自营牛场管理-饲养管理】每天消耗记录
   vetslist: "/cattle/vets/list", //【自营牛场管理-防疫管理】兽医管理
-  treatmentlist: "owncattle/treatment/list", //【自营牛场管理-防疫管理】普通诊疗记录
-  immunelist: "owncattle/immune/list", //【自营牛场管理-防疫管理】防疫记录和检疫记录
+  treatmentlist: "/owncattle/treatment/list", //【自营牛场管理-防疫管理】普通诊疗记录
+  immunelist: "/owncattle/immune/list", //【自营牛场管理-防疫管理】防疫记录和检疫记录
   selfSta: "/cattle/cattle/selfSta", //【自营牛场管理-牛舍管理】（自营牛场牛种类统计）
   selfCattleSta: "/cattle/cattle/selfCattleSta", //【自营牛场管理-牛舍管理】（自营牛场牛状态统计）
   costCount: "/cattle/farm/costCount", //【自营牛场管理-财务管理】（成本统计）
   incomeCount: "/cattle/farm/incomeCount", //【自营牛场管理-财务管理】（收入统计）
   breedManagecount: "/owncattle/breedManage/count", //【自营牛场管理-配种管理】（牛种信息）
   breedManagelist: "/owncattle/breedManage/list", //【自营牛场管理-配种管理】（繁育管理）
+  dunglist: "/owncattle/dung/list", //【自营牛场管理-其他管理】（粪污管理）
+  visitorlist: "/owncattle/visitor/list", //【自营牛场管理-其他管理】（牛场访客管理）
+  personalTotal: "/cattle/farm/personalTotal", //【自营牛场管理-其他管理】（人员管理）
+  deviceSta: "/cattle/device/deviceSta", //【自营牛场管理-其他管理】（设备管理）
 };
 export default config;

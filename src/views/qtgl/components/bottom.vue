@@ -1,6 +1,6 @@
 <template>
   <div class="container-box">
-    <comTitle tabTitle="牛场基础信息" />
+    <comTitle tabTitle="设备管理" />
     <div class="content">
       <div class="content-list">
         <div class="img"></div>
@@ -29,6 +29,7 @@
 
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
+import config from "@/http/config";
 export default {
   data() {
     return {
@@ -37,7 +38,17 @@ export default {
   components: {
     comTitle,
   },
-  methods: {},
+  created() {
+    this.getAjax();
+  },
+  methods: {
+    getAjax() {
+      this.$get(config.deviceSta).then((res) => {
+        console.log(res, "设备管理");
+        // this.tableData = res.rows;
+      });
+    },
+  },
 };
 </script>
 
