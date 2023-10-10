@@ -113,6 +113,11 @@ export default {
   components: {
     comTitle,
   },
+  methods:{
+    open(data){
+      console.log(data,'------data')
+    }
+  }
 };
 </script>
 

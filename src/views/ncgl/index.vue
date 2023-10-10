@@ -7,7 +7,8 @@
 
 <script>
 import ncgl from './ncgl.vue';
-import ncglDetail from './ncglDetail.vue'
+import ncglDetail from './ncglDetail.vue';
+import config from "@/http/config";
 export default {
   data() {
     return {
@@ -19,8 +20,16 @@ export default {
     ncglDetail
   },
   methods:{
+    getAjax(id) {
+      this.$get(config.cattleid+id).then((res) => {
+        console.log(res, "牛只详细信息");
+        this.showDetailPage = true;
+        this.$refs.ncglDetail.open(res.data);
+        // this.tableData = res.rows;
+      });
+    },
     goncglDeatil(row){
-      this.showDetailPage = true;
+      this.getAjax(row.id);
     }
   }
   
