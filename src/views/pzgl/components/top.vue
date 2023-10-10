@@ -10,6 +10,7 @@
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
 import comEcharts from "@/components/ComEcharts/index.vue";
+import config from "@/http/config";
 let xData = [
   "xx街道党支部",
   "xx街道党支部",
@@ -295,7 +296,16 @@ export default {
     comTitle,
     comEcharts,
   },
-  methods: {},
+  created() {
+    this.getAjax();
+  },
+  methods: {
+    getAjax() {
+      this.$get(config.breedManagecount).then((res) => {
+        console.log(res, "牛种信息");
+      });
+    },
+  },
 };
 </script>
 

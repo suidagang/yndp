@@ -20,5 +20,7 @@ const config = {
   selfCattleSta: "/cattle/cattle/selfCattleSta", //【自营牛场管理-牛舍管理】（自营牛场牛状态统计）
   costCount: "/cattle/farm/costCount", //【自营牛场管理-财务管理】（成本统计）
   incomeCount: "/cattle/farm/incomeCount", //【自营牛场管理-财务管理】（收入统计）
+  breedManagecount: "/owncattle/breedManage/count", //【自营牛场管理-配种管理】（牛种信息）
+  breedManagelist: "/owncattle/breedManage/list", //【自营牛场管理-配种管理】（繁育管理）
 };
 export default config;
