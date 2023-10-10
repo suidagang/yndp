@@ -1,65 +1,31 @@
 <template>
   <div class="com-list">
-    <comTitle  tabTitle="能繁牛舍">
+    <comTitle  :tabTitle="propData.title">
       <template slot="titleIcon">
         <div class="title-icon" ></div>
       </template>
     </comTitle>
     <div class="com-list-content">
       <div class="com-list-content-top">
-        <div class="com-list-content-top-list">
+        <div class="com-list-content-top-list" v-for="(item,index) in propData.ztList" :key="index">
           <div class="icon"></div>
           <div class="right-text">
-            <div  class="right-text-title">云岭肉牛/西门塔尔</div>
-            <div>433/90</div>
-          </div>
-        </div>
-        <div class="com-list-content-top-list">
-          <div class="icon"></div>
-          <div class="right-text">
-            <div  class="right-text-title">销售数/头</div>
-            <div>433</div>
-          </div>
-        </div>
-        <div class="com-list-content-top-list">
-          <div class="icon"></div>
-          <div class="right-text">
-            <div  class="right-text-title">死亡数/头</div>
-            <div>433</div>
-          </div>
-        </div>
-        <div class="com-list-content-top-list">
-          <div class="icon"></div>
-          <div class="right-text">
-            <div  class="right-text-title">淘汰数/头</div>
-            <div>433</div>
-          </div>
-        </div>
-        <div class="com-list-content-top-list">
-          <div class="icon"></div>
-          <div class="right-text">
-            <div  class="right-text-title">采购数/头</div>
-            <div>433</div>
+            <div  class="right-text-title">{{item.typeName}}</div>
+            <div>{{item.num}}</div>
           </div>
         </div>
       </div>
       <div class="com-list-content-bottom">
         <div class="com-list-content-bottom-title">
           <div class="left">牛舍管理人</div>
-          <div>张三</div>
+          <div></div>
         </div>
         <div class="com-list-content-bottom-content">
           <div  class="left">
-            <div>现有牛数量</div>
-            <div>总容量</div>
-            <div>总面积</div>
-            <div>位置</div>
+            <div v-for="(item,index) in propData.zlList" :key="index">{{item.typeName}}</div>
           </div>
           <div>
-            <div>500头</div>
-            <div>500头</div>
-            <div>500平方米</div>
-            <div>四川省成都市金牛区</div>
+            <div v-for="(item,index) in propData.zlList" :key="index">{{item.num}}</div>
           </div>
         </div>
       </div>
@@ -68,11 +34,17 @@
 </template>
 
 <script>
-import comTitle from '@/components/comBoxHead/index.vue'
+import comTitle from '@/components/comBoxHead/index.vue';
 export default {
   data() {
     return {
 
+    }
+  },
+  props:{
+    propData:{
+      type:Object,
+      require:true
     }
   },
   components: {
