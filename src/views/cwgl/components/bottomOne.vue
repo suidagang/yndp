@@ -10,6 +10,8 @@
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
 import comEcharts from "@/components/ComEcharts/index.vue";
+import config from "@/http/config";
+import { getCurrentMonth } from "@/utils/utils";
 export default {
   data() {
     return {
@@ -94,7 +96,19 @@ export default {
     comTitle,
     comEcharts,
   },
-  methods: {},
+   created() {
+    this.getAjax();
+  },
+  methods: {
+    getAjax() {
+      const params = {
+         month: getCurrentMonth(),
+      };
+      this.$get(config.incomeCount, params).then((res) => {
+        console.log(res, "收入统计");
+      });
+    },
+  },
 };
 </script>
 

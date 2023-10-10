@@ -18,5 +18,7 @@ const config = {
   immunelist: "owncattle/immune/list", //【自营牛场管理-防疫管理】防疫记录和检疫记录
   selfSta: "/cattle/cattle/selfSta", //【自营牛场管理-牛舍管理】（自营牛场牛种类统计）
   selfCattleSta: "/cattle/cattle/selfCattleSta", //【自营牛场管理-牛舍管理】（自营牛场牛状态统计）
+  costCount: "/cattle/farm/costCount", //【自营牛场管理-财务管理】（成本统计）
+  incomeCount: "/cattle/farm/incomeCount", //【自营牛场管理-财务管理】（收入统计）
 };
 export default config;

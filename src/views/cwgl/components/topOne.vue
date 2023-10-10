@@ -156,6 +156,8 @@
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
 import comTable from "@/components/comTable/index.vue";
+import config from "@/http/config";
+import { getCurrentMonth } from "@/utils/utils";
 export default {
   data() {
     return {
@@ -173,15 +175,27 @@ export default {
           j: "xxxx",
           k: "xxxx",
           l: "xxxx",
-        }
+        },
       ],
     };
   },
   components: {
     comTitle,
-    comTable
+    comTable,
   },
-  methods: {},
+  created() {
+    this.getAjax();
+  },
+  methods: {
+    getAjax() {
+      const params = {
+         month: getCurrentMonth(),
+      };
+      this.$get(config.costCount, params).then((res) => {
+        console.log(res, "成本统计");
+      });
+    },
+  },
 };
 </script>
 
@@ -220,13 +234,13 @@ export default {
       > .gdzc-img {
         background: url("../../../assets/img/cwgl/cl.png") center no-repeat;
       }
-      >.bxcb-img {
+      > .bxcb-img {
         background: url("../../../assets/img/cwgl/bxpt.png") center no-repeat;
       }
-      >.yxcb-img {
+      > .yxcb-img {
         background: url("../../../assets/img/cwgl/yx.png") center no-repeat;
       }
-      >.qtfy-img {
+      > .qtfy-img {
         background: url("../../../assets/img/cwgl/qtfyzf.png") center no-repeat;
       }
       > .right-text {
@@ -236,7 +250,7 @@ export default {
         color: #86b2d7;
       }
     }
-    &-table{
+    &-table {
       width: 1184px;
       height: 80px;
     }
