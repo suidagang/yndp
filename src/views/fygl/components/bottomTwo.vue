@@ -4,13 +4,16 @@
     <div class="content">
       <div class="table-one">
         <comTable :tableData="tableData">
-          <el-table-column prop="date" label="事件"> </el-table-column>
-          <el-table-column prop="name" label="健康状态"> </el-table-column>
-          <el-table-column prop="address" label="已打疫苗"> </el-table-column>
-          <el-table-column prop="b" label="报告"> </el-table-column>
+          <el-table-column prop="dates" label="免疫日期"> </el-table-column>
+          <el-table-column prop="drugId" label="药品id"> </el-table-column>
+          <el-table-column prop="dose" label="剂量"> </el-table-column>
+          <el-table-column prop="immuneMode" label="免疫方式"> </el-table-column>
+          <el-table-column prop="heads" label="免疫头数"> </el-table-column>
+          <el-table-column prop="opUser" label="操作人"> </el-table-column>
+          <el-table-column prop="drugName" label="检疫药品名称"> </el-table-column>
         </comTable>
       </div>
-      <div class="table-two">
+      <!-- <div class="table-two">
         <comTable :tableData="tableData">
           <el-table-column prop="date" label="受检对象"> </el-table-column>
           <el-table-column prop="name" label="检疫部门"> </el-table-column>
@@ -18,7 +21,7 @@
           <el-table-column prop="b" label="检疫人员"> </el-table-column>
           <el-table-column prop="b" label="病毒类型"> </el-table-column>
         </comTable>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -30,32 +33,7 @@ import config from "@/http/config";
 export default {
   data() {
     return {
-      tableData: [
-        {
-          date: "2016",
-          name: "王小虎",
-          address: "普陀",
-          b: "xxxx",
-        },
-        {
-          date: "205",
-          name: "王小虎",
-          address: "沙江路",
-          b: "xxxx",
-        },
-        {
-          date: "01",
-          name: "王小虎",
-          address: "市普陀区",
-          b: "xxxx",
-        },
-        {
-          date: "201",
-          name: "王小虎",
-          address: "市区金",
-          b: "xxxx",
-        },
-      ],
+      tableData: [],
     };
   },
   components: {
@@ -73,7 +51,7 @@ export default {
       };
       this.$get(config.immunelist, params).then((res) => {
         console.log(res, "检疫记录");
-        // this.tableData = res.rows;
+        this.tableData = res.rows;
       });
     },
   },
@@ -92,13 +70,13 @@ export default {
   overflow: hidden;
   display: flex;
   > .table-one {
-    width: 413px;
+    width: 930px;
     height: 319px;
-    margin-right: 20px;
+    // margin-right: 20px;
   }
-  > .table-two {
-    width: 500px;
-    height: 319px;
-  }
+  // > .table-two {
+  //   width: 500px;
+  //   height: 319px;
+  // }
 }
 </style>
