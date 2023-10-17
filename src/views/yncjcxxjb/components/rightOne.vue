@@ -5,17 +5,17 @@
       <div class="content-list">
         <div class="content-list-img"></div>
         <div class="content-list-name">成牛</div>
-        <div class="content-list-text">100/kg</div>
+        <div class="content-list-text">{{bovine}}/kg</div>
       </div>
       <div class="content-list">
         <div class="content-list-img"></div>
         <div class="content-list-name">牛犊</div>
-        <div class="content-list-text">100/kg</div>
+        <div class="content-list-text">{{calf}}/kg</div>
       </div>
       <div class="content-list">
         <div class="content-list-img"></div>
-        <div class="content-list-name">成牛</div>
-        <div class="content-list-text">100/kg</div>
+        <div class="content-list-name">种牛</div>
+        <div class="content-list-text">{{cattle}}/kg</div>
       </div>
     </div>
   </div>
@@ -26,7 +26,11 @@ import comTitle from "@/components/comBoxHead/index.vue";
 import config from "@/http/config";
 export default {
   data() {
-    return {};
+    return {
+      calf:"",
+      bovine:"",
+      cattle:"",
+    };
   },
   components: {
     comTitle,
@@ -37,7 +41,9 @@ export default {
   methods: {
     getAjax() {
       this.$get(config.todayPrice).then((res) => {
-        console.log(res,'今日行情没数据，请求成功');
+        this.calf = res.data.calf;
+        this.bovine = res.data.bovine;
+        this.cattle = res.data.cattle;
       });
     },
   },
