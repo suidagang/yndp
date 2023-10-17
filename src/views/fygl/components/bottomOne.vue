@@ -7,8 +7,8 @@
           <el-table-column prop="date" label="药类型"> </el-table-column>
           <el-table-column prop="name" label="药品名称"> </el-table-column>
           <el-table-column prop="address" label="厂家名称"> </el-table-column>
-          <el-table-column prop="b" label="采购日期"> </el-table-column>
-          <el-table-column prop="b" label="病例对象"> </el-table-column>
+          <el-table-column prop="onsetDate" label="采购日期"> </el-table-column>
+          <el-table-column prop="cattleId" label="病例对象"> </el-table-column>
         </comTable>
       </div>
     </div>

@@ -162,7 +162,7 @@ export default {
     comTable,
   },
   created() {
-    // this.getAjax();
+    this.getAjax();
   },
   mounted() {
     setTimeout(() => {
@@ -171,6 +171,9 @@ export default {
   },
   methods: {
     getAjax() {
+      const params = {
+        type:1
+      }
       this.$get(config.breedManagelist).then((res) => {
         console.log(res, "繁育管理");
       });
