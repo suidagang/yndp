@@ -30,6 +30,7 @@ const config = {
   vetslist: "/cattle/vets/list", //【自营牛场管理-防疫管理】兽医管理
   treatmentlist: "/owncattle/treatment/list", //【自营牛场管理-防疫管理】普通诊疗记录
   immunelist: "/owncattle/immune/list", //【自营牛场管理-防疫管理】防疫记录和检疫记录--(免疫记录)
+  disinfectlist: "/owncattle/disinfect/list", //【自营牛场管理-防疫管理】消杀记录，消毒记录
   /* 自营牛场管理-防疫管理==end */
 
   /* 自营牛场管理-牛舍管理==start */

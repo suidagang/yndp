@@ -32,9 +32,9 @@
           <div>消杀毒记录</div>
         </div>
         <div class="content-list-body">
-          <comTable :tableData="tableData">
-            <el-table-column prop="date" label="时间"> </el-table-column>
-            <el-table-column prop="date" label="事件描述"> </el-table-column>
+          <comTable :tableData="disinfectList">
+            <el-table-column prop="createTime" label="时间"> </el-table-column>
+            <el-table-column prop="drugName" label="事件描述"> </el-table-column>
           </comTable>
         </div>
       </div>
@@ -66,6 +66,7 @@ export default {
   data() {
     return {
       activities: [],
+      disinfectList:[],
       tableData: [
         {
           date: "2016",
@@ -109,12 +110,12 @@ export default {
         pageSize: 99999,
       };
       this.$get(config.immunelist, params).then((res) => {
-        // console.log("免疫记录",res);
-        // res.rows = [...res.rows,...res.rows]
+        // res.rows = [...res.rows,...res.rows]//多条样式测试
         this.activities = res.rows;
-        // this.tableData = res.rows;
-        // this.total = res.total;
       });
+      this.$get(config.disinfectlist,params).then((res)=>{
+         this.disinfectList = res.rows;
+      })
     },
   },
 };
