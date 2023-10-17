@@ -16,13 +16,11 @@
             <el-timeline-item
               v-for="(activity, index) in activities"
               :key="index"
-              :icon="activity.icon"
-              :type="activity.type"
-              :color="activity.color"
-              :size="activity.size"
-              :timestamp="activity.timestamp"
+              color="#009CFF"
+              size="large"
+              :timestamp="activity.drugName"
             >
-              {{ activity.content }}
+              {{ activity.createTime }}
             </el-timeline-item>
           </el-timeline>
         </div>
@@ -63,35 +61,11 @@
 import comTitle from "@/components/comBoxHead/index.vue";
 import comTable from "@/components/comTable/index.vue";
 import comTableOne from "@/components/comTable/indexOne.vue";
+import config from "@/http/config";
 export default {
   data() {
     return {
-      activities: [
-        {
-          timestamp: "支持使用图标",
-          content: "2018-04-12 20:46",
-          size: "large",
-          color: "#009CFF",
-        },
-        {
-          timestamp: "支持使用图标",
-          content: "2018-04-12 20:46",
-          size: "large",
-          color: "#009CFF",
-        },
-        {
-          timestamp: "支持使用图标",
-          content: "2018-04-12 20:46",
-          size: "large",
-          color: "#009CFF",
-        },
-        {
-          timestamp: "支持使用图标",
-          content: "2018-04-12 20:46",
-          size: "large",
-          color: "#009CFF",
-        },
-      ],
+      activities: [],
       tableData: [
         {
           date: "2016",
@@ -125,7 +99,24 @@ export default {
     comTable,
     comTableOne,
   },
-  methods: {},
+  created() {
+    this.getAjax();
+  },
+  methods: {
+    getAjax() {
+      const params = {
+        pageNum: 1,
+        pageSize: 99999,
+      };
+      this.$get(config.immunelist, params).then((res) => {
+        // console.log("免疫记录",res);
+        // res.rows = [...res.rows,...res.rows]
+        this.activities = res.rows;
+        // this.tableData = res.rows;
+        // this.total = res.total;
+      });
+    },
+  },
 };
 </script>
 
@@ -150,17 +141,17 @@ export default {
     &.content-list-first {
       width: 200px;
       padding-left: 5px;
-      /deep/ .el-timeline-item__content{
+      /deep/ .el-timeline-item__content {
         font-size: 16px;
         font-family: Source Han Sans SC;
         font-weight: 400;
-        color: #FFFFFF;
+        color: #ffffff;
       }
-      /deep/ .el-timeline-item__timestamp{
+      /deep/ .el-timeline-item__timestamp {
         font-size: 14px;
         font-family: Source Han Sans SC;
         font-weight: 400;
-        color: #86B2D7;
+        color: #86b2d7;
       }
       // 竖线
       /deep/ .el-timeline-item__tail {

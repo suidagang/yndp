@@ -6,14 +6,17 @@
         <div class="content-top-img"></div>
         <div class="content-top-right">
           <div class="text">当前兽医总数</div>
-          <div class="num">10<span>人</span></div>
+          <div class="num">{{ total }}<span>人</span></div>
         </div>
       </div>
       <div class="content-body">
         <comTable :tableData="tableData" :height="299">
-          <el-table-column prop="vetName" width="80" label="姓名"> </el-table-column>
-          <el-table-column prop="vetCode" width="60" label="编号"> </el-table-column>
-          <el-table-column prop="contactsPhone" width="120" label="联系方式"> </el-table-column>
+          <el-table-column prop="vetName" width="80" label="姓名">
+          </el-table-column>
+          <el-table-column prop="vetCode" width="60" label="编号">
+          </el-table-column>
+          <el-table-column prop="contactsPhone" width="120" label="联系方式">
+          </el-table-column>
           <el-table-column prop="addr" label="详细地址"> </el-table-column>
         </comTable>
       </div>
@@ -29,6 +32,7 @@ export default {
   data() {
     return {
       tableData: [],
+      total: "",
     };
   },
   components: {
@@ -41,17 +45,12 @@ export default {
   methods: {
     getAjax() {
       const params = {
-        pageNum:1,
-        pageSize:99999
+        pageNum: 1,
+        pageSize: 99999,
       };
-      this.$get(config.vetslist,params).then((res) => {
-        // let ss = [];
-        // for(var i = 0; i<20;i++){
-        //   ss.push(res.rows[0])
-        // }
-        // this.tableData = ss;
-        console.log(res,'兽医管理');
+      this.$get(config.vetslist, params).then((res) => {
         this.tableData = res.rows;
+        this.total = res.total;
       });
     },
   },

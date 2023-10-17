@@ -29,7 +29,7 @@ const config = {
   /* 自营牛场管理-防疫管理==start */
   vetslist: "/cattle/vets/list", //【自营牛场管理-防疫管理】兽医管理
   treatmentlist: "/owncattle/treatment/list", //【自营牛场管理-防疫管理】普通诊疗记录
-  immunelist: "/owncattle/immune/list", //【自营牛场管理-防疫管理】防疫记录和检疫记录
+  immunelist: "/owncattle/immune/list", //【自营牛场管理-防疫管理】防疫记录和检疫记录--(免疫记录)
   /* 自营牛场管理-防疫管理==end */
 
   /* 自营牛场管理-牛舍管理==start */
