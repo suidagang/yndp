@@ -4,11 +4,11 @@
     <div class="content">
       <div class="content-body">
         <comTable :tableData="tableData">
-          <el-table-column prop="date" label="药类型"> </el-table-column>
-          <el-table-column prop="name" label="药品名称"> </el-table-column>
-          <el-table-column prop="address" label="厂家名称"> </el-table-column>
-          <el-table-column prop="onsetDate" label="采购日期"> </el-table-column>
-          <el-table-column prop="cattleId" label="病例对象"> </el-table-column>
+          <el-table-column prop="cattleId" label="牛编号"> </el-table-column>
+          <el-table-column prop="firstVisit" label="初诊"> </el-table-column>
+          <el-table-column prop="age" label="年龄"> </el-table-column>
+          <el-table-column prop="onsetDate" label="发病日期"> </el-table-column>
+          <el-table-column prop="outcomes" label="治疗结果"> </el-table-column>
         </comTable>
       </div>
     </div>

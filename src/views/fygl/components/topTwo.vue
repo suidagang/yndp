@@ -42,14 +42,14 @@
       <div class="content-list">
         <div class="top-box">
           <div class="line"></div>
-          <div>无害化处理记录</div>
+          <div>死亡记录</div>
         </div>
         <div class="content-list-body">
-          <comTableOne :tableData="tableData">
-            <el-table-column prop="date" label="编号"> </el-table-column>
-            <el-table-column prop="date" label="处理方式"> </el-table-column>
-            <el-table-column prop="date" label="处理时间"> </el-table-column>
-            <el-table-column prop="date" label="死亡原因"> </el-table-column>
+          <comTableOne :tableData="deadlist">
+            <el-table-column prop="cattleCode" label="编号"> </el-table-column>
+            <el-table-column prop="dealType" label="处理方式"> </el-table-column>
+            <el-table-column prop="deadDate" label="死亡时间"> </el-table-column>
+            <el-table-column prop="deadReason" label="死亡原因"> </el-table-column>
           </comTableOne>
         </div>
       </div>
@@ -67,6 +67,7 @@ export default {
     return {
       activities: [],
       disinfectList:[],
+      deadlist:[],
       tableData: [
         {
           date: "2016",
@@ -115,6 +116,10 @@ export default {
       });
       this.$get(config.disinfectlist,params).then((res)=>{
          this.disinfectList = res.rows;
+      });
+      this.$get(config.deadlist,params).then((res)=>{
+         console.log("死亡记录",res);
+         this.deadlist = res.rows;
       })
     },
   },
