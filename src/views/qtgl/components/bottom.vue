@@ -2,14 +2,14 @@
   <div class="container-box">
     <comTitle tabTitle="设备管理" />
     <div class="content">
-      <div class="content-list">
+      <div class="content-list" v-for="(item,index) in dataList" :key="index">
         <div class="img"></div>
         <div class="right-text">
-          <div>存栏数量</div>
-          <div class="number-text">60<span class="unit-text">个</span></div>
+          <div>{{item.typeName}}</div>
+          <div class="number-text">{{item.num}}<span class="unit-text">个</span></div>
         </div>
       </div>
-      <div class="content-list">
+      <!-- <div class="content-list">
         <div class="img img-sl"></div>
         <div class="right-text">
           <div>饲料拌料机</div>
@@ -22,7 +22,7 @@
           <div>消毒设施</div>
           <div class="number-text">60<span class="unit-text">个</span></div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -33,10 +33,12 @@ import config from "@/http/config";
 export default {
   data() {
     return {
+      dataList:[]
     };
   },
   components: {
     comTitle,
+
   },
   created() {
     this.getAjax();
@@ -46,6 +48,17 @@ export default {
       this.$get(config.deviceSta).then((res) => {
         console.log(res, "设备管理");
         // this.tableData = res.rows;
+        // const listData = [{
+        //   name:res.data[0].typeName,
+        //   value:res.data[0].num,
+        // },{
+        //   name:res.data[1].typeName,
+        //   value:res.data[1].num,
+        // },{
+        //   name:res.data[2].typeName,
+        //   value:res.data[2].num,
+        // }];
+        this.dataList = res.data;
       });
     },
   },
