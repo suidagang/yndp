@@ -121,7 +121,6 @@ export default {
 .content {
   width: 100%;
   overflow: hidden;
-  overflow: hidden;
   padding-top: 25px;
   padding-left: 8px;
   &-list {
