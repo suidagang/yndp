@@ -5,17 +5,17 @@
       <div class="content-list">
         <div class="content-list-img"></div>
         <div class="content-list-name">成牛</div>
-        <div class="content-list-text">{{bovine}}/kg</div>
+        <div class="content-list-text">{{ bovine }}/kg</div>
       </div>
       <div class="content-list">
         <div class="content-list-img"></div>
         <div class="content-list-name">牛犊</div>
-        <div class="content-list-text">{{calf}}/kg</div>
+        <div class="content-list-text">{{ calf }}/kg</div>
       </div>
       <div class="content-list">
         <div class="content-list-img"></div>
         <div class="content-list-name">种牛</div>
-        <div class="content-list-text">{{cattle}}/kg</div>
+        <div class="content-list-text">{{ cattle }}/kg</div>
       </div>
     </div>
   </div>
@@ -27,9 +27,9 @@ import config from "@/http/config";
 export default {
   data() {
     return {
-      calf:"",
-      bovine:"",
-      cattle:"",
+      calf: "",
+      bovine: "",
+      cattle: "",
     };
   },
   components: {
@@ -41,9 +41,11 @@ export default {
   methods: {
     getAjax() {
       this.$get(config.todayPrice).then((res) => {
-        this.calf = res.data.calf;
-        this.bovine = res.data.bovine;
-        this.cattle = res.data.cattle;
+        if (res.data) {
+          this.calf = res.data.calf;
+          this.bovine = res.data.bovine;
+          this.cattle = res.data.cattle;
+        }
       });
     },
   },

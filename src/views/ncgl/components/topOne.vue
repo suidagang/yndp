@@ -3,12 +3,12 @@
     <comTitle tabTitle="牛场基础信息" />
     <div class="content">
       <comTable :tableData="tableData" height="514">
-        <el-table-column prop="date" label="编号"> </el-table-column>
-        <el-table-column prop="name" label="名称"> </el-table-column>
-        <el-table-column prop="address" label="负责人"> </el-table-column>
-        <el-table-column prop="d" label="联系电话"> </el-table-column>
-        <el-table-column prop="b" label="地址"> </el-table-column>
-        <el-table-column prop="c" label="是否启用"> </el-table-column>
+        <el-table-column prop="farmCode" label="编号"> </el-table-column>
+        <el-table-column prop="farmName" label="名称"> </el-table-column>
+        <el-table-column prop="headName" label="负责人"> </el-table-column>
+        <el-table-column prop="phone" label="联系电话"> </el-table-column>
+        <el-table-column prop="addr" label="地址"> </el-table-column>
+        <el-table-column prop="delFlag" label="是否启用"> </el-table-column>
       </comTable>
     </div>
   </div>

@@ -6,23 +6,23 @@
         <div class="circle-box-niu"></div>
         <div class="list-title">
           <div class="list-title-circle"></div>
-          <div>云岭肉牛</div>
+          <div>{{ cattleName }}</div>
         </div>
         <div class="rect-list">
           <div class="left-text">月龄</div>
-          <div class="right-text">8月</div>
+          <div class="right-text">{{ month }}月</div>
         </div>
         <div class="rect-list csrq-list">
           <div class="left-text">出生日期</div>
-          <div class="right-text">2022.06.25</div>
+          <div class="right-text">{{ bornDate }}</div>
         </div>
         <div class="rect-list ly-list">
           <div class="left-text">来源</div>
-          <div class="right-text">采购</div>
+          <div class="right-text">{{ baseType | baseTypeFilter }}</div>
         </div>
         <div class="rect-list zk-list">
           <div class="left-text">状况</div>
-          <div class="right-text">健康</div>
+          <div class="right-text">{{ status | statusFilter }}</div>
         </div>
         <div class="rect-list ebh-list">
           <div class="left-text">耳标号</div>
@@ -30,11 +30,11 @@
         </div>
         <div class="rect-list bh-list">
           <div class="left-text">编号</div>
-          <div class="right-text">a526776898000</div>
+          <div class="right-text">{{ cattleCode }}</div>
         </div>
         <div class="rect-list xszt-list">
           <div class="left-text">销售状态</div>
-          <div class="right-text">待售</div>
+          <div class="right-text">{{ salesStatus | salesStatusFilter }}</div>
           <div class="circle"></div>
         </div>
         <div class="rect-list tbzt-list">
@@ -51,11 +51,11 @@
       <div class="rect-detail-box">
         <div class="rect-detail-box-list">
           <span>年龄：</span>
-          <span class="right">8月龄</span>
+          <span class="right">{{ month }}月龄</span>
         </div>
         <div class="rect-detail-box-list">
           <span>体重：</span>
-          <span class="right">40kg</span>
+          <span class="right">{{ weight }}kg</span>
         </div>
         <div class="rect-detail-box-list">
           <span>疾病情况：</span>
@@ -106,18 +106,77 @@
 
 <script>
 import comTitle from "@/components/comBoxHead/index.vue";
+import { distanceCurrentMonth } from "@/utils/utils";
 export default {
   data() {
-    return {};
+    return {
+      cattleName: "",
+      month: "",
+      bornDate: "",
+      baseType: "",
+      status: "",
+      cattleCode: "",
+      salesStatus: "",
+      weight: "",
+    };
   },
   components: {
     comTitle,
   },
-  methods:{
-    open(data){
-      console.log(data,'------data')
-    }
-  }
+  filters: {
+    baseTypeFilter(str) {
+      // 1出生2购入3转入0其它
+      const emnu = {
+        1: "出生",
+        2: "购入",
+        3: "转入",
+        0: "其他",
+      };
+      if (!str) {
+        return "其他";
+      }
+      return emnu[str];
+    },
+    statusFilter(str) {
+      // 1淘汰2出售3转出4调出4死亡0其它
+      const emnu = {
+        1: "淘汰",
+        2: "出售",
+        3: "转出",
+        4: "调出",
+        0: "其他",
+      };
+      if (!str) {
+        return "其他";
+      }
+      return emnu[str];
+    },
+    salesStatusFilter(str) {
+      // 1饲养2待售3已售0淘汰
+      const emnu = {
+        1: "饲养",
+        2: "待售",
+        0: "淘汰",
+      };
+      if (!str) {
+        return "其他";
+      }
+      return emnu[str];
+    },
+  },
+  methods: {
+    open(data) {
+      console.log(data, "------data");
+      this.cattleName = data.cattleName;
+      this.bornDate = data.bornDate;
+      this.month = distanceCurrentMonth(data.bornDate);
+      this.baseType = data.baseType;
+      this.status = data.status;
+      this.cattleCode = data.cattleCode;
+      this.salesStatus = data.salesStatus;
+      this.weight = data.weight;
+    },
+  },
 };
 </script>
 
@@ -281,18 +340,18 @@ export default {
         height: 143px;
         background: pink;
       }
-      .bottom-text{
+      .bottom-text {
         margin-top: 8px;
         overflow: hidden;
         font-size: 14px;
         width: 100%;
         font-family: Source Han Sans SC;
         font-weight: 400;
-        color: #98BDFD;
+        color: #98bdfd;
         display: flex;
         align-items: center;
         justify-content: space-around;
-        >.r{
+        > .r {
           text-align: right;
         }
       }

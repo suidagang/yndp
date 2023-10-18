@@ -172,9 +172,11 @@ export default {
   methods: {
     getAjax() {
       const params = {
-        type:1
+        type:1,
+        pageNum:1,
+        pageSize:99999
       }
-      this.$get(config.breedManagelist).then((res) => {
+      this.$get(config.breedManagelist,params).then((res) => {
         console.log(res, "繁育管理");
       });
     },

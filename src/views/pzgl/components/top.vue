@@ -8,16 +8,10 @@
 </template>
 
 <script>
+
 import comTitle from "@/components/comBoxHead/index.vue";
 import comEcharts from "@/components/ComEcharts/index.vue";
 import config from "@/http/config";
-let xData = [
-  "xx街道党支部",
-  "xx街道党支部",
-  "xx街道党支部",
-  "xx街道党支部",
-  "xx街道党支部",
-];
 let data = [146, 274, 308, 418, 319];
 let data2 = [234, 135, 237, 135, 237];
 const colorArr = [
@@ -71,21 +65,21 @@ export default {
   data() {
     return {
       options: {
-        legend: {
-          data: ['党员数', '网格员数'],
-          right: 10,
-          top: 0,
-          itemWidth: 15,
-          itemHeight: 10,
-          itemGap: 15,
-          borderRadius: 4,
-          textStyle: {
-            fontFamily: "Source Han Sans SC",
-            fontSize: 14,
-            fontWeight: 400,
-            color: '#86B2D7'
-          },
-        },
+        // legend: {
+        //   data: ['党员数', '网格员数'],
+        //   right: 10,
+        //   top: 0,
+        //   itemWidth: 15,
+        //   itemHeight: 10,
+        //   itemGap: 15,
+        //   borderRadius: 4,
+        //   textStyle: {
+        //     fontFamily: "Source Han Sans SC",
+        //     fontSize: 14,
+        //     fontWeight: 400,
+        //     color: '#86B2D7'
+        //   },
+        // },
         grid: {
           left: "5%",
           top: "20%",
@@ -93,7 +87,7 @@ export default {
           bottom: "10%",
         },
         xAxis: {
-          data: ["祝贺", "中国航天", "中国", "太空", "祝福"],
+          data: ["母牛数", "冻精数", "公牛数"],
           axisLine: {
             show: true, //隐藏X轴轴线
             lineStyle: {
@@ -303,6 +297,9 @@ export default {
     getAjax() {
       this.$get(config.breedManagecount).then((res) => {
         console.log(res, "牛种信息");
+        // semen 冻精数
+        // bull 公牛数
+        // cow 母牛数
       });
     },
   },

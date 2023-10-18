@@ -4,11 +4,11 @@
     <div class="content">
       <comTable :tableData="tableData" @clickRow = "clickRow" height="512">
         <el-table-column prop="id" label="编号"> </el-table-column>
-        <el-table-column prop="name" label="编码"> </el-table-column>
+        <el-table-column prop="cattleCode" label="编码"> </el-table-column>
         <el-table-column prop="cattleStage" label="种类"> </el-table-column>
         <el-table-column prop="d" label="父亲编号"> </el-table-column>
-        <el-table-column prop="b" label="母亲编号"> </el-table-column>
-        <el-table-column prop="c" label="登记日期"> </el-table-column>
+        <el-table-column prop="motherId" label="母亲编号"> </el-table-column>
+        <el-table-column prop="bornDate" label="登记日期"> </el-table-column>
       </comTable>
     </div>
   </div>
