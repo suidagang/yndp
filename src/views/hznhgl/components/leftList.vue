@@ -9,7 +9,13 @@
       <input type="text" placeholder="输入农户信息" />
       <div class="search-btn">搜索</div>
     </div>
-    <div class="left-list-box" v-for="(item, index) in nhList" :key="index">
+    <div
+      class="left-list-box"
+      v-for="(item, index) in nhList"
+      :key="index"
+      @click="choiceItem(item)"
+      :class="{ active: item.active }"
+    >
       {{ item.millName }}
     </div>
   </div>
@@ -17,20 +23,41 @@
 
 <script>
 import config from "@/http/config";
+import { hznhglStore } from "@/store/hznhgl";
 export default {
   data() {
     return {
       nhList: [],
     };
   },
-  created() {
-    this.getAjax();
+  created() {},
+  mounted() {
+    const { id ,nhList} = hznhglStore();
+    if (id) {
+      this.nhList = nhList;
+    } else {
+      this.getAjax();
+    }
   },
   methods: {
     getAjax() {
       this.$get(config.hznhcattleMillList).then((res) => {
+        res.rows.map((item) => {
+          item.active = false;
+        });
         this.nhList = res.rows;
+        const hznhgl = hznhglStore();
+        hznhgl.setNhList(this.nhList);
       });
+    },
+    async choiceItem(item) {
+      const hznhgl = hznhglStore();
+
+      this.nhList.map((ele) => {
+        ele.active = false;
+      });
+      item.active = true;
+      await hznhgl.setId(item.id);
     },
   },
 };
@@ -131,5 +158,13 @@ export default {
     font-weight: 400;
     color: #ffffff;
   }
+}
+.active {
+  border: 1px solid #d07933;
+  background: linear-gradient(
+    -90deg,
+    rgba(255, 114, 0, 0.2) 0%,
+    rgba(255, 114, 0, 0.2) 100%
+  );
 }
 </style>

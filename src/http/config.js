@@ -18,6 +18,7 @@ const config = {
 
   /* 合作农户管理==start */
   hznhcattleMillList: "/cattle/cattleMill/list", //【合作农户管理】农户列表
+  // hznhcattleMillList: "/cattle/farm/cooperateBriefing", //【合作农户管理】牛肉统计
   /* 合作农户管理==end */
 
   /* 自营牛场管理-饲养管理==start */

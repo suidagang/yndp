@@ -1,6 +1,6 @@
 <template>
   <div class="container-box">
-    <comTitle  tabTitle="肉牛统计" />
+    <comTitle tabTitle="肉牛统计" />
     <div class="container-box-content">
       <div class="hint-box">
         <div class="img"></div>
@@ -32,93 +32,103 @@
 </template>
 
 <script>
-import comTitle from '@/components/comBoxHead/index.vue'
+import comTitle from "@/components/comBoxHead/index.vue";
+import config from "@/http/config";
+import { hznhglStore } from "@/store/hznhgl";
 export default {
   data() {
-    return {
-    
-    }
+    return {};
   },
   components: {
-    comTitle
+    comTitle,
   },
-  methods:{
-
-  }
-}
+  created() {
+    this.getAjax();
+  },
+  methods: {
+    getAjax() {
+      const { id } = hznhglStore();
+      const params = {
+        cooperateId: id,
+      };
+      this.$get(config.cooperateBriefing, params).then((res) => {
+        console.log("牛肉统计",res);
+      });
+    },
+  },
+};
 </script>
 
 <style scoped lang="less">
-  .container-box{
-    width: 500px;
+.container-box {
+  width: 500px;
+  overflow: hidden;
+  &-content {
+    width: 100%;
+    box-sizing: border-box;
     overflow: hidden;
-    &-content{
+    padding-left: 30px;
+    padding-top: 8px;
+    .hint-box {
       width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
-      padding-left: 30px;
-      padding-top: 8px;
-      .hint-box{
-        width: 100%;
-        font-size: 14px;
-        font-family: Source Han Sans SC;
-        font-weight: 400;
-        color: #FF7200;
-        display: flex;
-        align-items: center;
-        >.img{
-          height: 31px;
-          width: 31px;
-          margin-right: 7px;
-          background: url("../../../assets/img/hznhgl/tx.png") center no-repeat;
-        }
+      font-size: 14px;
+      font-family: Source Han Sans SC;
+      font-weight: 400;
+      color: #ff7200;
+      display: flex;
+      align-items: center;
+      > .img {
+        height: 31px;
+        width: 31px;
+        margin-right: 7px;
+        background: url("../../../assets/img/hznhgl/tx.png") center no-repeat;
       }
-      .rect-box{
-        width: 464px;
-        height: 200px;
-        border: 2px solid;
-        border-image: linear-gradient(0deg, #134397, #000000) 10 10;
-        background: linear-gradient(0deg, #0B3070 0%, rgba(18,43,87,0) 100%);
-        display: flex;
-        align-items: center;
-        .rect-img{
-          width: 160px;
-          height: 137px;
-          background: url("../../../assets/img/hznhgl/niu.png") center no-repeat;
-          margin-left: 23px;
+    }
+    .rect-box {
+      width: 464px;
+      height: 200px;
+      border: 2px solid;
+      border-image: linear-gradient(0deg, #134397, #000000) 10 10;
+      background: linear-gradient(0deg, #0b3070 0%, rgba(18, 43, 87, 0) 100%);
+      display: flex;
+      align-items: center;
+      .rect-img {
+        width: 160px;
+        height: 137px;
+        background: url("../../../assets/img/hznhgl/niu.png") center no-repeat;
+        margin-left: 23px;
+      }
+      .rect-right {
+        width: 226px;
+        margin-left: 29px;
+        &-list:last-of-type {
+          border: 0;
         }
-        .rect-right{
-          width: 226px;
-          margin-left: 29px;
-          &-list:last-of-type{
-            border: 0;
+        &-list {
+          border-bottom: 1px dashed #a2d1ff;
+          font-size: 16px;
+          font-family: Source Han Sans SC;
+          font-weight: 400;
+          color: #a2d1ff;
+          display: flex;
+          align-items: center;
+          height: 45px;
+          line-height: 45px;
+          .name {
+            width: 162px;
           }
-          &-list{
-            border-bottom: 1px dashed #A2D1FF;
-            font-size: 16px;
-            font-family: Source Han Sans SC;
+          .num {
+            font-size: 24px;
+            font-family: PangMenZhengDao;
             font-weight: 400;
-            color: #A2D1FF;
-            display: flex;
-            align-items: center;
-            height: 45px;
-            line-height: 45px;
-            .name{
-              width: 162px;
-            }
-            .num{
-              font-size: 24px;
-              font-family: PangMenZhengDao;
-              font-weight: 400;
-              color: #00FFE4;
-              background: linear-gradient(0deg, #45CDFF 0%, #E5F9FF 100%);
-              background-clip: text;
-              -webkit-text-fill-color: transparent;
-            }
+            color: #00ffe4;
+            background: linear-gradient(0deg, #45cdff 0%, #e5f9ff 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
           }
         }
       }
     }
   }
-  
+}
 </style>
