@@ -30,7 +30,7 @@
     "vue": "2.7.14",
     "vue-prevent-browser-back": "^1.0.5",
     "vue-router": "3.6.5",
-    "vue-template-compiler": "^2.7.14"
+    "vue-template-compiler": "2.7.14"
   },
   "browserslist": [
     "> 1%",
